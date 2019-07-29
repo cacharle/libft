@@ -1,12 +1,12 @@
 int ft_tolower(int c)
 {
-    unsigned char uc;
-
-    uc = c;
-    /* if (c < -1) */
-    /*     return (c + 256); */
-
-    if (uc >= 'A' && uc <= 'Z')
-        return (uc - 'A' + 'a');
+    if (c < -1)
+         return (c + 256);
+    if (c == -1)
+        return (-1);
+    if (c == 0)
+        return (0);
+    if (c >= 'A' && c <= 'Z')
+        return ('a' + c - 'A');
     return (c);
 }
