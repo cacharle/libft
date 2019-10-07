@@ -6,13 +6,13 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 10:40:15 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/07 10:40:22 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/10/07 13:26:14 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putstr_fd(char const *s, int fd)
+void	ft_putstr_fd(char *s, int fd)
 {
 	while (*s)
 		write(fd, s++, 1);

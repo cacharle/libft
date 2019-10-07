@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 10:16:26 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/07 10:17:24 by cacharle         ###   ########.fr       */
+/*   Created: 2019/10/07 12:28:47 by cacharle          #+#    #+#             */
+/*   Updated: 2019/10/07 12:33:40 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <string.h>
+#include "libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	unsigned int	i;
-	char			*sub;
 
-	if ((sub = (char*)malloc(sizeof(char) * (len + 1))) == NULL)
-		return (NULL);
+	if (size == 0)
+		return (ft_strlen(src));
 	i = 0;
-	while (i < len)
+	while (i < size - 1 && src[i] != '\0')
 	{
-		sub[i] = s[start + i];
+		dst[i] = src[i];
 		i++;
 	}
-	sub[i] = '\0';
-	return (sub);
+	dst[i] = '\0';
+	return (ft_strlen(src));
 }

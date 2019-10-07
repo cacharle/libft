@@ -6,34 +6,30 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 10:24:16 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/07 10:25:02 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/10/07 14:04:31 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-static int	is_space(char c)
-{
-	return (c == ' ' || c == '\n' || c == '\t');
-}
-
-char		*ft_strtrim(char const *s)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	start;
 	size_t	len;
 	char	*trimed;
 
 	start = 0;
-	while (s[start] && is_space(s[start]))
+	while (s1[start] && ft_strchr(set, s1[start]) != NULL)
 		start++;
-	len = ft_strlen(&s[start]);
+	len = ft_strlen(&s1[start]);
 	if (len != 0)
-		while (s[start + len - 1] && is_space(s[start + len - 1]))
+		while (s1[start + len - 1]
+				&& ft_strchr(set, s1[start + len - 1]) != NULL)
 			len--;
 	if ((trimed = (char*)malloc(sizeof(char) * (len + 1))) == NULL)
 		return (NULL);
-	trimed = ft_strncpy(trimed, &s[start], len);
+	trimed = ft_strncpy(trimed, &s1[start], len);
 	trimed[len] = '\0';
 	return (trimed);
 }

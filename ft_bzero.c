@@ -6,17 +6,14 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 09:50:10 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/07 09:50:22 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/10/07 12:08:09 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {
-	char	*s_char_ptr;
-
-	s_char_ptr = (char*)s;
-	while (n-- > 0)
-		s_char_ptr[n] = 0;
+	ft_memset(s, 0, n);
 }
