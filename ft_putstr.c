@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/07 09:52:12 by cacharle          #+#    #+#             */
+/*   Updated: 2019/10/07 09:52:15 by cacharle         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-void ft_putstr(char const *s)
+void	ft_putstr(char const *s)
 {
-    while (*s)
-        write(STDOUT_FILENO, s++, 1);
+	while (*s)
+		write(STDOUT_FILENO, s++, 1);
 }

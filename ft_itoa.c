@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/07 10:19:56 by cacharle          #+#    #+#             */
+/*   Updated: 2019/10/07 10:21:23 by cacharle         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 
-
-static int  count_len(int nbr)
+static int	count_len(int nbr)
 {
 	int				counter;
 	unsigned int	u_nbr;
@@ -23,7 +34,7 @@ static int  count_len(int nbr)
 	return (counter);
 }
 
-char    *ft_itoa(int n)
+char		*ft_itoa(int n)
 {
 	char			*str;
 	int				len;
