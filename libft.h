@@ -18,6 +18,8 @@
 # define TRUE 1
 # define FALSE 0
 
+typedef unsigned char t_byte;
+
 typedef struct  s_list
 {
     void            *content;

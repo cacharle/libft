@@ -12,32 +12,24 @@
 
 #include <stdlib.h>
 #include <string.h>
-
-#define BUF_SIZE (2 << 12)
+#include "libft.h"
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t			i;
-	size_t			j;
-	size_t			k;
-	unsigned char	tmp[BUF_SIZE];
+    size_t i;
+    t_byte *dst_cast;
+    t_byte *src_cast;
 
 	if (dst == NULL && src == NULL)
 		return (NULL);
-	i = 0;
-	while (i < len)
-	{
-		j = 0;
-		while (j < BUF_SIZE && i < len)
-		{
-			tmp[j] = ((unsigned char*)src)[i];
-			j++;
-			i++;
-		}
-		k = -1;
-		while (++k < j)
-			((unsigned char*)dst)[k] = tmp[k];
-		i++;
-	}
-	return (dst);
+    dst_cast = (t_byte*)dst;
+    src_cast = (t_byte*)src;
+    i = -1;
+    if (dst_cast < src_cast)
+        while (++i < len)
+            dst_cast[i] = src_cast[i];
+    else
+        while (len-- > 0)
+            dst_cast[len] =  src_cast[len];
+    return (dst);
 }
