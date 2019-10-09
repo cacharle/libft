@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 09:53:31 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/09 08:45:20 by cacharle         ###   ########.fr       */
+/*   Created: 2019/10/09 09:03:40 by cacharle          #+#    #+#             */
+/*   Updated: 2019/10/09 09:08:12 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
+#include "libft_bonus.h"
 
-void	ft_putchar(char c)
+t_list	*ft_lstlast(t_list *lst)
 {
-	write(STDOUT_FILENO, &c, 1);
+	if (lst == NULL)
+		return (NULL);
+	while (lst->next != NULL)
+		lst = lst->next;
+	return (lst);
 }

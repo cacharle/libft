@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 09:53:31 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/09 08:45:20 by cacharle         ###   ########.fr       */
+/*   Created: 2019/10/09 09:04:28 by cacharle          #+#    #+#             */
+/*   Updated: 2019/10/09 09:08:06 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
+#include "libft_bonus.h"
 
-void	ft_putchar(char c)
+int	ft_lstsize(t_list *lst)
 {
-	write(STDOUT_FILENO, &c, 1);
+	int	counter;
+
+	counter = 0;
+	while (lst != NULL)
+	{
+		counter++;
+		lst = lst->next;
+	}
+	return (counter);
 }

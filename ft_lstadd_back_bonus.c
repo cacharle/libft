@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 09:53:31 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/09 08:45:20 by cacharle         ###   ########.fr       */
+/*   Created: 2019/10/09 09:02:03 by cacharle          #+#    #+#             */
+/*   Updated: 2019/10/09 09:07:46 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
+#include "libft_bonus.h"
 
-void	ft_putchar(char c)
+void	ft_lstadd_back(t_list **alst, t_list *new)
 {
-	write(STDOUT_FILENO, &c, 1);
+	t_list	*cursor;
+
+	if (*alst == NULL)
+	{
+		*alst = new;
+		return ;
+	}
+	cursor = *alst;
+	while (cursor->next != NULL)
+		cursor = cursor->next;
+	cursor->next = new;
 }

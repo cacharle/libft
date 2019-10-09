@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 09:53:31 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/09 08:45:20 by cacharle         ###   ########.fr       */
+/*   Created: 2019/10/09 09:03:57 by cacharle          #+#    #+#             */
+/*   Updated: 2019/10/09 09:09:13 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
+#include "libft_bonus.h"
 
-void	ft_putchar(char c)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *))
 {
-	write(STDOUT_FILENO, &c, 1);
+	t_list	*mapped;
+	t_list	*tmp;
+
+	while (lst != NULL)
+	{
+		tmp = ft_lstnew(lst->content);
+		tmp->next = lst->next;
+		tmp = (*f)(tmp);
+		ft_lstadd_back(&mapped, tmp);
+	}
+	return (mapped);
 }

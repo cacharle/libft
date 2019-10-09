@@ -1,5 +1,20 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: cacharle <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/10/08 15:45:53 by cacharle          #+#    #+#              #
+#    Updated: 2019/10/09 08:56:04 by cacharle         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+LIB = ar rc
+RM = rm -f
+
 CC = gcc
-CCFLAGS = -Wall -Wextra -Werror -fPIC
+CCFLAGS = -Wall -Wextra -Werror
 
 NAME = libft.a
 SRC = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
@@ -12,17 +27,27 @@ SRC = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c f
 		ft_strrchr.c ft_split.c ft_strstr.c ft_substr.c ft_strtrim.c ft_tolower.c \
 		ft_toupper.c ft_strlcpy.c ft_calloc.c
 OBJ = $(SRC:.c=.o)
+INCLUDE = libft.h
+
+BONUSSRC = ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstclear_bonus.c \
+			ft_lstdelone_bonus.c ft_lstiter_bonus.c ft_lstlast_bonus.c \
+			ft_lstmap_bonus.c ft_lstnew_bonus.c ft_lstsize_bonus.c
+BONUSOBJ = $(BONUSSRC:.c=.o)
+BONUSINCLUDE = libft_bonus.h
 
 all: $(NAME)
 
-$(NAME): $(OBJ) libft.h
-	ar rc $(NAME) $(OBJ)
+$(NAME): $(OBJ) $(INCLUDE)
+	$(LIB) $(NAME) $(OBJ)
+
+bonus: $(OBJ) $(BONUSOBJ) $(INCLUDE) $(BONUSINCLUDE)
+	$(LIB) $(NAME) $(OBJ) $(BONUSOBJ)
 
 %.o: %.c
 	$(CC) $(CCFLAGS) -c -o $@ $<
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(BONUSOBJ)
 
 fclean: clean
 	rm -f $(NAME)

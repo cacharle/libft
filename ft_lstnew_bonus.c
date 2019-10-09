@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 09:53:31 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/09 08:45:20 by cacharle         ###   ########.fr       */
+/*   Created: 2019/10/09 09:01:16 by cacharle          #+#    #+#             */
+/*   Updated: 2019/10/09 09:07:37 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
+#include "libft_bonus.h"
 
-void	ft_putchar(char c)
+t_list	*ft_lstnew(void const *content)
 {
-	write(STDOUT_FILENO, &c, 1);
+	t_list	*elem;
+
+	if ((elem = (t_list*)malloc(sizeof(t_list))) == NULL)
+		return (NULL);
+	elem->content = (void*)content;
+	elem->next = NULL;
+	return (elem);
 }
