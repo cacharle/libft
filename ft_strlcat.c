@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 10:31:37 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/07 10:32:03 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/10/09 12:43:28 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,5 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	}
 	if (dst[size - 1] != '\0')
 		return (src_len + size);
-	dst[size - 1] = '\0';
 	return (dst_len + src_len);
 }

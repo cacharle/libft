@@ -6,11 +6,11 @@
 #    By: cacharle <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/08 15:45:53 by cacharle          #+#    #+#              #
-#    Updated: 2019/10/09 08:56:04 by cacharle         ###   ########.fr        #
+#    Updated: 2019/10/09 15:48:10 by cacharle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-LIB = ar rc
+LIB = ar rcs
 RM = rm -f
 
 CC = gcc
@@ -47,12 +47,14 @@ bonus: $(OBJ) $(BONUSOBJ) $(INCLUDE) $(BONUSINCLUDE)
 	$(CC) $(CCFLAGS) -c -o $@ $<
 
 clean:
-	rm -f $(OBJ) $(BONUSOBJ)
+	$(RM) $(OBJ) $(BONUSOBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
 
-so: $(OBJ) libft.h
-	$(CC) -shared -fPIC -Wl,-soname,libft.so -o libft.so $(OBJ)
+rebonus: fclean bonus
+
+so: $(OBJ) $(BONUSOBJ) $(INCLUDE)
+	$(CC) -shared -fPIC -Wl,-soname,libft.so -o libft.so $(OBJ) $(BONUSOBJ)
