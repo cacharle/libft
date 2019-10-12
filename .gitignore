@@ -2,3 +2,4 @@ a.out
 *.o
 *.so
 *.a
+main.c
