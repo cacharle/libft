@@ -6,18 +6,14 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 08:58:54 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/09 09:11:45 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/10/15 07:58:09 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_BONUS_H
 # define LIBFT_BONUS_H
 
-typedef struct		s_list
-{
-	void			*content;
-	struct s_list	*next;
-}					t_list;
+# include "libft.h"
 
 t_list				*ft_lstnew(void const *content);
 void				ft_lstadd_front(t_list **alst, t_list *new);

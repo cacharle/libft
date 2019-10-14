@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 10:22:09 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/07 14:30:10 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/10/14 12:51:34 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,17 @@ static char		*ft_strndup(const char *s1, size_t n)
 	return (clone);
 }
 
+static void		*destroy_strs(char **strs)
+{
+	int i;
+
+	i = 0;
+	while (strs[i] != NULL)
+		free(strs[i++]);
+	free(strs);
+	return (NULL);
+}
+
 char			**ft_split(char const *s, char c)
 {
 	char	**strs;
@@ -69,9 +80,10 @@ char			**ft_split(char const *s, char c)
 		i = 0;
 		while (s[i] && s[i] != c)
 			i++;
-		strs[j++] = ft_strndup(s, i);
+		if ((strs[j++] = ft_strndup(s, i)) == NULL)
+			return (destroy_strs(strs));
 		s += i;
 	}
-	strs[j] = 0;
+	strs[j] = NULL;
 	return (strs);
 }
