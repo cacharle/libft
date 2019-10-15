@@ -6,7 +6,7 @@
 #    By: cacharle <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/08 15:45:53 by cacharle          #+#    #+#              #
-#    Updated: 2019/10/09 15:48:10 by cacharle         ###   ########.fr        #
+#    Updated: 2019/10/15 14:02:08 by cacharle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,14 +33,14 @@ BONUSSRC = ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstclear_bonus.c \
 			ft_lstdelone_bonus.c ft_lstiter_bonus.c ft_lstlast_bonus.c \
 			ft_lstmap_bonus.c ft_lstnew_bonus.c ft_lstsize_bonus.c
 BONUSOBJ = $(BONUSSRC:.c=.o)
-BONUSINCLUDE = libft_bonus.h
 
 all: $(NAME)
 
 $(NAME): $(OBJ) $(INCLUDE)
 	$(LIB) $(NAME) $(OBJ)
 
-bonus: $(OBJ) $(BONUSOBJ) $(INCLUDE) $(BONUSINCLUDE)
+bonus: CCFLAGS += -D LIBFT_BONUS
+bonus: $(OBJ) $(BONUSOBJ) $(INCLUDE)
 	$(LIB) $(NAME) $(OBJ) $(BONUSOBJ)
 
 %.o: %.c
