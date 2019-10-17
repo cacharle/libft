@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 09:52:12 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/07 09:52:15 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/10/17 09:06:58 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 
 void	ft_putstr(char const *s)
 {
-	while (*s)
-		write(STDOUT_FILENO, s++, 1);
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		write(STDOUT_FILENO, &s[i], 1);
+		i++;
+	}
 }

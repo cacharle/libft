@@ -6,7 +6,7 @@
 #    By: cacharle <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/08 15:45:53 by cacharle          #+#    #+#              #
-#    Updated: 2019/10/15 14:02:08 by cacharle         ###   ########.fr        #
+#    Updated: 2019/10/16 14:41:13 by cacharle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,6 @@ all: $(NAME)
 $(NAME): $(OBJ) $(INCLUDE)
 	$(LIB) $(NAME) $(OBJ)
 
-bonus: CCFLAGS += -D LIBFT_BONUS
 bonus: $(OBJ) $(BONUSOBJ) $(INCLUDE)
 	$(LIB) $(NAME) $(OBJ) $(BONUSOBJ)
 

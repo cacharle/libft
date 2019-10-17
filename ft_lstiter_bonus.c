@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 09:03:22 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/15 15:29:45 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/10/17 09:02:38 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
+	if (f == NULL)
+		return ;
 	while (lst != NULL)
 	{
 		(*f)(lst->content);

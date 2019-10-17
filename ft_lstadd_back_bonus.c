@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 09:02:03 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/09 09:07:46 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/10/17 09:07:15 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_lstadd_back(t_list **alst, t_list *new)
 {
 	t_list	*cursor;
 
+	if (alst == NULL)
+		return ;
 	if (*alst == NULL)
 	{
 		*alst = new;
