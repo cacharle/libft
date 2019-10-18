@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 09:03:02 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/17 09:05:40 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/10/18 12:20:38 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	if (lst != NULL && del != NULL)
-		(*del)(lst->content);
+	if (lst == NULL || del == NULL)
+		return ;
+	(*del)(lst->content);
 	free(lst);
 }

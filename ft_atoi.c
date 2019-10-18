@@ -6,12 +6,12 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 09:46:16 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/17 08:04:04 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/10/17 15:25:44 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#define MIN_INT (1 << 31)
-#define MAX_INT (~(1 << 31))
+#define MIN_INT -2147483648
+#define MAX_INT 2147483647
 
 static int	precheck(const char **str)
 {

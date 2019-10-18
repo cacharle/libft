@@ -6,7 +6,7 @@
 #    By: cacharle <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/08 15:45:53 by cacharle          #+#    #+#              #
-#    Updated: 2019/10/16 14:41:13 by cacharle         ###   ########.fr        #
+#    Updated: 2019/10/17 13:39:09 by cacharle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,8 +39,8 @@ all: $(NAME)
 $(NAME): $(OBJ) $(INCLUDE)
 	$(LIB) $(NAME) $(OBJ)
 
-bonus: $(OBJ) $(BONUSOBJ) $(INCLUDE)
-	$(LIB) $(NAME) $(OBJ) $(BONUSOBJ)
+bonus: $(BONUSOBJ) $(INCLUDE)
+	$(LIB) $(NAME) $(BONUSOBJ)
 
 %.o: %.c
 	$(CC) $(CCFLAGS) -c -o $@ $<
