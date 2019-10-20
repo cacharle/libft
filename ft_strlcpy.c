@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 12:28:47 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/18 13:07:51 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/10/20 13:17:52 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,9 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 
 	if (size == 0)
 		return (ft_strlen(src));
-	i = 0;
-	while (i < size - 1 && src[i] != '\0')
-	{
+	i = -1;
+	while (++i < size - 1 && src[i] != '\0')
 		dst[i] = src[i];
-		i++;
-	}
 	dst[i] = '\0';
 	return (ft_strlen(src));
 }

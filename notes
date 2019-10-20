@@ -1,0 +1,40 @@
+- memset
+  ^> bzero
+  si s == NULL:
+  si n > sizeof(s):
+
+- memcpy
+  si dest == NULL:
+  si src == NULL:
+  si dest && src == NULL:
+  si n > sizeof(dest):
+  si n > sizeof(src):
+
+- memccpy
+  si dest == NULL:
+  si src == NULL:
+  si dest && src == NULL:
+  si n > sizeof(dest):
+  si n > sizeof(src):
+  !! si c est dernier dans dest essaye i + 1: ??
+
+- memmove
+  si dst == NULL:
+  si src == NULL:
+  si dst && src == NULL:
+  si dst == src
+  si n > sizeof(dest):
+  si n > sizeof(src):
+
+- memchr
+- memcmp
+- strchr
+- strrchr
+- strncmp
+- strlcpy
+- strlcat
+- strnstr
+- atoi
+
+- calloc
+- strdup

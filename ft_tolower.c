@@ -6,13 +6,13 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 10:14:26 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/07 10:14:33 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/10/20 13:04:16 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
-		return ('a' + c - 'A');
+		return (c + 'a' - 'A');
 	return (c);
 }
