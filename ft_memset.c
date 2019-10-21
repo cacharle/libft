@@ -6,18 +6,23 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 10:01:23 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/18 13:08:10 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/10/21 11:35:07 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
+#include "libft.h"
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	unsigned char	uchar_c;
+	t_byte	cast_c;
+	t_byte	*cast_s;
 
-	uchar_c = (unsigned char)c;
+	if (s == NULL)
+		return (NULL);
+	cast_c = (t_byte)c;
+	cast_s = (t_byte*)s;
 	while (n-- > 0)
-		((unsigned char*)s)[n] = uchar_c;
+		*cast_s++ = cast_c;
 	return (s);
 }
