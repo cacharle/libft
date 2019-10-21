@@ -68,6 +68,8 @@ char			**ft_split(char const *s, char c)
 	size_t	i;
 	size_t	j;
 
+	if (s == NULL)
+		return (NULL);
 	tab_counter = count_segment(s, c);
 	if ((strs = (char**)malloc(sizeof(char*) * (tab_counter + 1))) == NULL)
 		return (NULL);

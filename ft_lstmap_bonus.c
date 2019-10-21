@@ -13,15 +13,34 @@
 #include <stdlib.h>
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *))
+t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*mapped;
+	t_list	*tmp;
 
-	if (lst == NULL || f == NULL)
+	if (lst == NULL || f == NULL || del == NULL)
 		return (NULL);
-	if ((mapped = ft_lstnew(lst->content)) == NULL)
-		return (NULL);
-	mapped->content = (*f)(mapped->content);
-	mapped->next = ft_lstmap(lst->next, f);
+	mapped = NULL;
+	while (lst)
+	{
+		if ((tmp = ft_lstnew((*f)(lst->content))) == NULL)
+		{
+			ft_lstclear(&tmp, del);
+			return (NULL);
+		}
+		tmp->next = lst->next;
+		ft_lstadd_back(&mapped, tmp);
+		lst = lst->next;
+	}
 	return (mapped);
 }
+
+/*
+** Rest in peace, my beautiful recursion.
+**
+** if ((tmp = ft_lstnew(lst->content)) == NULL)
+** 	return (NULL);
+** tmp->content = (*f)(tmp->content);
+** tmp->next = ft_lstmap(lst->next, f);
+** return (tmp);
+*/

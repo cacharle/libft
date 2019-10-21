@@ -11,12 +11,15 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <limits.h>
 #include "libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {
 	unsigned int	p_n;
 
+	if (fd < 0 || fd > OPEN_MAX)
+		return ;
 	p_n = n;
 	if (n < 0)
 	{
