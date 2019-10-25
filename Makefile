@@ -6,7 +6,7 @@
 #    By: cacharle <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/08 15:45:53 by cacharle          #+#    #+#              #
-#    Updated: 2019/10/17 13:39:09 by cacharle         ###   ########.fr        #
+#    Updated: 2019/10/25 03:31:58 by cacharle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,13 +25,13 @@ SRC = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c f
 		ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlen.c ft_strmap.c ft_strmapi.c \
 		ft_strncat.c ft_strncmp.c ft_strncpy.c ft_strnequ.c ft_strnew.c ft_strnstr.c \
 		ft_strrchr.c ft_split.c ft_strstr.c ft_substr.c ft_strtrim.c ft_tolower.c \
-		ft_toupper.c ft_strlcpy.c ft_calloc.c
+		ft_toupper.c ft_strlcpy.c ft_calloc.c ft_strndup.c
 OBJ = $(SRC:.c=.o)
 INCLUDE = libft.h
 
 BONUSSRC = ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstclear_bonus.c \
 			ft_lstdelone_bonus.c ft_lstiter_bonus.c ft_lstlast_bonus.c \
-			ft_lstmap_bonus.c ft_lstnew_bonus.c ft_lstsize_bonus.c
+			ft_lstmap_bonus.c ft_lstnew_bonus.c ft_lstsize_bonus.c ft_lstpop_front_bonus.c
 BONUSOBJ = $(BONUSSRC:.c=.o)
 
 all: $(NAME)
