@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 09:45:02 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/25 04:03:57 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/11/05 22:19:15 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 char				*ft_strndup(const char *s1, size_t n);
-char				*ft_itoa_base(long int n, char *base);
 
 /*
 ** bonus
@@ -99,5 +98,13 @@ void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 								void (*del)(void *));
 void				ft_lstpop_front(t_list **lst, void (*del)(void *));
+
+/*
+** added
+*/
+
+char				*ft_strjoin_free(char const *s1, char const *s2,
+										int free_nb);
+char				*ft_strjoin_free_snd(char const *s1, char const *s2);
 
 #endif
