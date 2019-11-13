@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <string.h>
+# include "get_next_line.h"
 
 # define TRUE 1
 # define FALSE 0
