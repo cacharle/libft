@@ -16,6 +16,10 @@ RM = rm -f
 CC = gcc
 CCFLAGS = -Wall -Wextra -Werror
 
+ifeq ($(shell uname),Linux)
+	CCFLAGS += -D LINUX
+endif
+
 NAME = libft.a
 SRC = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
 		ft_isprint.c ft_itoa.c ft_memalloc.c ft_memccpy.c ft_memchr.c \
@@ -29,7 +33,6 @@ SRC = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
 		ft_strrchr.c ft_split.c ft_strstr.c ft_substr.c ft_strtrim.c \
 		ft_tolower.c ft_toupper.c ft_strlcpy.c ft_calloc.c ft_strndup.c \
 		ft_strjoin_free.c ft_strjoin_free_snd.c get_next_line.c ft_strcount.c
-
 OBJ = $(SRC:.c=.o)
 INCLUDE = libft.h
 
