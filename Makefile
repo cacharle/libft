@@ -6,7 +6,7 @@
 #    By: cacharle <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/08 15:45:53 by cacharle          #+#    #+#              #
-#    Updated: 2019/11/05 22:16:32 by cacharle         ###   ########.fr        #
+#    Updated: 2019/11/15 09:19:31 by cacharle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ SRC = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
 		ft_strncmp.c ft_strncpy.c ft_strnequ.c ft_strnew.c ft_strnstr.c \
 		ft_strrchr.c ft_split.c ft_strstr.c ft_substr.c ft_strtrim.c \
 		ft_tolower.c ft_toupper.c ft_strlcpy.c ft_calloc.c ft_strndup.c \
-		ft_strjoin_free.c ft_strjoin_free_snd.c get_next_line.c
+		ft_strjoin_free.c ft_strjoin_free_snd.c get_next_line.c ft_strcount.c
 
 OBJ = $(SRC:.c=.o)
 INCLUDE = libft.h
