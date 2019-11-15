@@ -6,15 +6,22 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 09:45:02 by cacharle          #+#    #+#             */
-/*   Updated: 2019/11/05 22:19:15 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/11/16 08:12:45 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <unistd.h>
 # include <string.h>
+# include <limits.h>
 # include "get_next_line.h"
+
+# ifdef LINUX
+#  include <stdio.h>
+#  define OPEN_MAX FOPEN_MAX
+# endif
 
 # define TRUE 1
 # define FALSE 0
@@ -107,5 +114,6 @@ void				ft_lstpop_front(t_list **lst, void (*del)(void *));
 char				*ft_strjoin_free(char const *s1, char const *s2,
 										int free_nb);
 char				*ft_strjoin_free_snd(char const *s1, char const *s2);
+int					ft_strcount(char *str, char c);
 
 #endif
