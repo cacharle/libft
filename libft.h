@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 09:45:02 by cacharle          #+#    #+#             */
-/*   Updated: 2019/11/20 04:07:41 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/11/20 04:13:10 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <stddef.h>
 # include <limits.h>
+# include "get_next_line.h"
 
 # define TRUE 1
 # define FALSE 0
@@ -76,6 +77,7 @@ char				**ft_split(char const *s, char c);
 char				*ft_strjoin_free(char const *s1, char const *s2,
 										int free_nb);
 char				*ft_strjoin_free_snd(char const *s1, char const *s2);
+int					ft_strcount(char *str, char c);
 
 /*
 ** character
