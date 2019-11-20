@@ -6,11 +6,10 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 10:26:24 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/20 13:11:13 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/11/20 03:36:47 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)

@@ -6,17 +6,15 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 10:40:15 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/07 13:26:14 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/11/20 03:47:59 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <limits.h>
+#include "libft.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {
 	if (s == NULL || fd < 0 || fd > OPEN_MAX)
 		return ;
-	while (*s)
-		write(fd, s++, 1);
+	write(fd, s, ft_strlen(s));
 }

@@ -6,11 +6,10 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 09:50:10 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/18 12:26:42 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/11/20 03:29:26 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
 void	ft_bzero(void *s, size_t n)

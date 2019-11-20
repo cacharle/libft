@@ -6,27 +6,26 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 10:01:53 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/20 12:41:51 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/11/20 03:30:45 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
-	size_t			i;
-	unsigned char	*uc_dest;
-	unsigned char	*uc_src;
+	size_t	i;
+	t_byte	*cast_dest;
+	t_byte	*cast_src;
 
-	uc_dest = (unsigned char*)dest;
-	uc_src = (unsigned char*)src;
-	i = 0;
-	while (i < n)
+	cast_dest = (t_byte*)dest;
+	cast_src = (t_byte*)src;
+	i = -1;
+	while (++i < n)
 	{
-		uc_dest[i] = uc_src[i];
-		if (uc_dest[i] == (unsigned char)c)
-			return (uc_dest + i + 1);
-		i++;
+		cast_dest[i] = cast_src[i];
+		if (cast_dest[i] == (unsigned char)c)
+			return (cast_dest + i + 1);
 	}
 	return (NULL);
 }

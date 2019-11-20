@@ -6,12 +6,10 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 10:03:21 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/21 11:07:04 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/11/20 03:31:00 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <string.h>
 #include "libft.h"
 
 void	*ft_memmove(void *dst, const void *src, size_t len)

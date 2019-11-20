@@ -6,12 +6,10 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 10:40:35 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/07 10:40:52 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/11/20 03:46:11 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <limits.h>
 #include "libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
@@ -28,5 +26,5 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	if (p_n > 9)
 		ft_putnbr_fd(p_n / 10, fd);
-	ft_putchar_fd(p_n % 10 + '0', fd);
+	ft_putchar_fd(p_n % 10 | 0x30, fd);
 }

@@ -6,11 +6,10 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 09:03:40 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/09 09:08:12 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/11/20 04:02:26 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 t_list	*ft_lstlast(t_list *lst)

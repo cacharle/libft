@@ -6,15 +6,13 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 10:42:54 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/18 12:08:37 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/11/20 04:00:32 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 
 void	ft_putendl(char *s)
 {
-	ft_putstr(s);
-	ft_putchar('\n');
+	ft_putendl_fd(s, STDOUT_FILENO);
 }

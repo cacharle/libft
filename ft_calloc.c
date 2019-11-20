@@ -6,11 +6,10 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 12:45:37 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/20 10:55:01 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/11/20 04:00:52 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 void	*ft_calloc(size_t count, size_t size)

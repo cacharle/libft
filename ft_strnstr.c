@@ -6,12 +6,10 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 10:25:13 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/21 11:04:56 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/11/20 03:58:42 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <string.h>
 #include "libft.h"
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
@@ -23,7 +21,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		return ((char*)haystack);
 	while (*haystack && len-- >= needle_len)
 	{
-		if (ft_strncmp(haystack, needle, needle_len) == 0)
+		if (ft_strnequ(haystack, needle, needle_len))
 			return ((char*)haystack);
 		haystack++;
 	}

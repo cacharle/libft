@@ -6,11 +6,11 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 08:29:02 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/17 08:39:40 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/11/20 03:54:26 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 static size_t	count_segment(char const *s, char c)
 {
@@ -52,11 +52,10 @@ static char		*ft_strndup(const char *s1, size_t n)
 
 static void		*destroy_strs(char **strs)
 {
-	int i;
-
-	i = 0;
-	while (strs[i] != NULL)
-		free(strs[i++]);
+	if (strs == NULL)
+		return (NULL);
+	while (*strs != NULL)
+		free(*strs++);
 	free(strs);
 	return (NULL);
 }

@@ -6,11 +6,10 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 12:28:47 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/21 11:05:52 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/11/20 03:31:16 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)

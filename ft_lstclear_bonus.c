@@ -6,11 +6,10 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 09:02:39 by cacharle          #+#    #+#             */
-/*   Updated: 2019/11/20 01:57:09 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/11/20 04:02:37 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
