@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 09:45:02 by cacharle          #+#    #+#             */
-/*   Updated: 2019/11/20 03:46:20 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/11/20 04:07:41 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,10 @@ char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s1, char const *set);
 char				**ft_split(char const *s, char c);
 
+char				*ft_strjoin_free(char const *s1, char const *s2,
+										int free_nb);
+char				*ft_strjoin_free_snd(char const *s1, char const *s2);
+
 /*
 ** character
 */
@@ -104,6 +108,7 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
+char				*ft_strndup(const char *s1, size_t n);
 
 /*
 ** list
@@ -125,5 +130,6 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 								void (*del)(void *));
+void				ft_lstpop_front(t_list **lst, void (*del)(void *));
 
 #endif

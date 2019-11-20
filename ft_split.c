@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 08:29:02 by cacharle          #+#    #+#             */
-/*   Updated: 2019/11/20 03:54:26 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/11/20 04:08:27 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,23 +31,6 @@ static size_t	count_segment(char const *s, char c)
 			i++;
 	}
 	return (counter);
-}
-
-static char		*ft_strndup(const char *s1, size_t n)
-{
-	char	*clone;
-	size_t	i;
-
-	if ((clone = (char*)malloc(sizeof(char) * (n + 1))) == NULL)
-		return (NULL);
-	i = 0;
-	while (i < n)
-	{
-		clone[i] = s1[i];
-		i++;
-	}
-	clone[i] = '\0';
-	return (clone);
 }
 
 static void		*destroy_strs(char **strs)
