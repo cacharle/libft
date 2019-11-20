@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 10:00:56 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/07 10:01:06 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/11/20 01:57:44 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_memdel(void **ap)
 {
+	if (ap == NULL)
+		return ;
 	free(*ap);
 	*ap = NULL;
 }
