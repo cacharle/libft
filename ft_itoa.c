@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 10:19:56 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/07 10:21:23 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/11/20 01:15:40 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char		*ft_itoa(int n)
 	len--;
 	while (len >= (is_negative ? 1 : 0))
 	{
-		str[len] = u_nbr % 10 + '0';
+		str[len] = (u_nbr % 10) | 0x30;
 		u_nbr /= 10;
 		len--;
 	}
