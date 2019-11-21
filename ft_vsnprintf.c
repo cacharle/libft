@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_vsnprintf.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 13:52:59 by cacharle          #+#    #+#             */
-/*   Updated: 2019/11/21 02:47:49 by cacharle         ###   ########.fr       */
+/*   Created: 2019/11/21 02:36:32 by cacharle          #+#    #+#             */
+/*   Updated: 2019/11/21 03:45:14 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <limits.h>
-# include "libft.h"
+int	ft_vsnprintf(char *str, size_t size, const char *format, va_list ap)
+{
+	int		ret;
+	int		full_out_len;
+	char	*full_out;
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 32
-# endif
-
-# define STATUS_LINE 1
-# define STATUS_EOF 0
-# define STATUS_ERROR -1
-
-/*
-** get_next_line.c
-*/
-
-int		get_next_line(int fd, char **line);
-
-#endif
+	full_out_len = ft_vasprintf(&full_out, format, ap);
+	ft_strncpy(str, full_out, size);
+	ret = MIN((size_t)full_out_len, size);
+	free(full_out);
+	return (ret);
+}

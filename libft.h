@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 09:45:02 by cacharle          #+#    #+#             */
-/*   Updated: 2019/11/21 02:01:31 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/11/21 03:39:19 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <unistd.h>
+# include <stdarg.h>
 # include <stdlib.h>
 # include <stddef.h>
 # include <limits.h>
@@ -22,8 +23,8 @@
 # define TRUE 1
 # define FALSE 0
 
-#define MIN(x, y) ((x) < (y) ? (x) : (y))
-#define MAX(x, y) ((x) > (y) ? (x) : (y))
+# define MIN(x, y) ((x) < (y) ? (x) : (y))
+# define MAX(x, y) ((x) > (y) ? (x) : (y))
 
 typedef unsigned char	t_byte;
 
@@ -136,5 +137,23 @@ void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 								void (*del)(void *));
 void				ft_lstpop_front(t_list **lst, void (*del)(void *));
+
+/*
+** ft_*printf
+*/
+
+int					ft_printf(const char *format, ...);
+int					ft_sprintf(char *str, const char *format, ...);
+int					ft_snprintf(char *str, size_t size,
+								const char *format, ...);
+int					ft_asprintf(char **ret, const char *format, ...);
+int					ft_dprintf(int fd, const char *format, ...);
+
+int					ft_vprintf(const char *format, va_list ap);
+int					ft_vsprintf(char *str, const char *format, va_list ap);
+int					ft_vsnprintf(char *str, size_t size, const char *format,
+								va_list ap);
+int					ft_vasprintf(char **ret, const char *format, va_list ap);
+int					ft_vdprintf(int fd, const char *format, va_list ap);
 
 #endif

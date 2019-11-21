@@ -6,62 +6,41 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/19 09:08:36 by cacharle          #+#    #+#             */
-/*   Updated: 2019/11/04 00:00:16 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/11/21 03:39:51 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-/*
-** if has rest:
-**     if rest has newline:
-**         push rest until newline in line, shift rest
-**         return LINE_READ
-**     else:
-**         push rest in line
-**
-** while can read fd in buf
-**     if buf has newline:
-**         push buf until newline in line
-**         push buf after newline in rest
-**         return LINE_READ
-**     push buf in line
-**
-** return GNL_EOF
-*/
+#define HAS_NEWLINE(str, split_at) ((split_at = find_newline(str)) != -1)
 
-#define HAS_NEWLINE(str, split_at)    ((split_at = find_newline(str)) != -1)
-
-int		get_next_line(int fd, char **line)
+static int		find_newline(char *str)
 {
-	int			split_at;
-	static char	rest[OPEN_MAX][BUFFER_SIZE + 1] = {{0}};
+	int i;
 
-	if (fd < 0 || fd > OPEN_MAX || line == NULL || BUFFER_SIZE <= 0)
-		return (STATUS_ERROR);
-	if ((*line = ft_strdup("")) == NULL)
-		return (STATUS_ERROR);
-	if (rest[fd][0] == '\0')
-		return (read_line(fd, line, rest[fd]));
-	if (HAS_NEWLINE(rest[fd], split_at))
-	{
-		free(*line);
-		if ((*line = (char*)malloc(sizeof(char) * (split_at + 1))) == NULL)
-			return (STATUS_ERROR);
-		ft_strncpy(*line, rest[fd], split_at);
-		(*line)[split_at] = '\0';
-		ft_strcpy(rest[fd], rest[fd] + split_at + 1);
-		return (STATUS_LINE);
-	}
-	free(*line);
-	if (!(*line = (char*)malloc(sizeof(char) * (ft_strlen(rest[fd]) + 1))))
-		return (STATUS_ERROR);
-	ft_strcpy(*line, rest[fd]);
-	rest[fd][0] = '\0';
-	return (read_line(fd, line, rest[fd]));
+	i = -1;
+	while (str[++i])
+		if (str[i] == '\n')
+			return (i);
+	return (-1);
 }
 
-int		read_line(int fd, char **line, char *rest)
+static int		free_return(char **ptr, char **ptr2, int ret)
+{
+	if (ptr != NULL)
+	{
+		free(*ptr);
+		*ptr = NULL;
+	}
+	if (ptr2 != NULL)
+	{
+		free(*ptr2);
+		*ptr2 = NULL;
+	}
+	return (ret);
+}
+
+static int		read_line(int fd, char **line, char *rest)
 {
 	int		ret;
 	int		split_at;
@@ -88,28 +67,49 @@ int		read_line(int fd, char **line, char *rest)
 	return (free_return(&buf, NULL, ret));
 }
 
-int		find_newline(char *str)
-{
-	int i;
+/*
+** if has rest:
+**     if rest has newline:
+**         push rest until newline in line, shift rest
+**         return LINE_READ
+**     else:
+**         push rest in line
+**
+** while can read fd in buf
+**     if buf has newline:
+**         push buf until newline in line
+**         push buf after newline in rest
+**         return LINE_READ
+**     push buf in line
+**
+** return GNL_EOF
+*/
 
-	i = -1;
-	while (str[++i])
-		if (str[i] == '\n')
-			return (i);
-	return (-1);
-}
-
-int		free_return(char **ptr, char **ptr2, int ret)
+int				get_next_line(int fd, char **line)
 {
-	if (ptr != NULL)
+	int			split_at;
+	static char	rest[OPEN_MAX][BUFFER_SIZE + 1] = {{0}};
+
+	if (fd < 0 || fd > OPEN_MAX || line == NULL || BUFFER_SIZE <= 0)
+		return (STATUS_ERROR);
+	if ((*line = ft_strdup("")) == NULL)
+		return (STATUS_ERROR);
+	if (rest[fd][0] == '\0')
+		return (read_line(fd, line, rest[fd]));
+	if (HAS_NEWLINE(rest[fd], split_at))
 	{
-		free(*ptr);
-		*ptr = NULL;
+		free(*line);
+		if ((*line = (char*)malloc(sizeof(char) * (split_at + 1))) == NULL)
+			return (STATUS_ERROR);
+		ft_strncpy(*line, rest[fd], split_at);
+		(*line)[split_at] = '\0';
+		ft_strcpy(rest[fd], rest[fd] + split_at + 1);
+		return (STATUS_LINE);
 	}
-	if (ptr2 != NULL)
-	{
-		free(*ptr2);
-		*ptr2 = NULL;
-	}
-	return (ret);
+	free(*line);
+	if (!(*line = (char*)malloc(sizeof(char) * (ft_strlen(rest[fd]) + 1))))
+		return (STATUS_ERROR);
+	ft_strcpy(*line, rest[fd]);
+	rest[fd][0] = '\0';
+	return (read_line(fd, line, rest[fd]));
 }

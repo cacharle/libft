@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_vdprintf.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 13:52:59 by cacharle          #+#    #+#             */
-/*   Updated: 2019/11/21 02:47:49 by cacharle         ###   ########.fr       */
+/*   Created: 2019/11/21 02:40:03 by cacharle          #+#    #+#             */
+/*   Updated: 2019/11/21 03:46:00 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <limits.h>
-# include "libft.h"
+int	ft_vdprintf(int fd, const char *format, va_list ap)
+{
+	int		out_len;
+	char	*out;
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 32
-# endif
-
-# define STATUS_LINE 1
-# define STATUS_EOF 0
-# define STATUS_ERROR -1
-
-/*
-** get_next_line.c
-*/
-
-int		get_next_line(int fd, char **line);
-
-#endif
+	if ((out_len = ft_vasprintf(&out, format, ap)) == -1)
+		return (-1);
+	write(fd, out, out_len);
+	return (out_len);
+}
