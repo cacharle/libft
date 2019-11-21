@@ -6,22 +6,20 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 10:26:59 by cacharle          #+#    #+#             */
-/*   Updated: 2019/11/20 03:36:05 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/11/21 02:01:34 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+
 char	*ft_strncpy(char *dest, const char *src, size_t n)
 {
-	size_t	i;
+	size_t	len;
 
-	i = 0;
-	while (src[i] && i < n)
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	ft_bzero(dest + i, n - i);
+	len = ft_strlen(src);
+	ft_memcpy(dest, src, MIN(n, len));
+	if (len < n)
+		ft_bzero(dest + len , n - len);
 	return (dest);
 }

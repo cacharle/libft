@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 10:15:18 by cacharle          #+#    #+#             */
-/*   Updated: 2019/11/20 02:02:02 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/11/21 01:11:51 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,5 @@ void	ft_strclr(char *s)
 {
 	if (s == NULL)
 		return ;
-	while (*s)
-		*s++ = '\0';
+	ft_bzero(s, ft_strlen(s));
 }

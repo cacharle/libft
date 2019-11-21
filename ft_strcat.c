@@ -6,24 +6,14 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 10:09:41 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/07 10:39:51 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/11/21 01:03:38 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 char	*ft_strcat(char *dest, const char *src)
 {
-	int i;
-	int j;
-
-	i = 0;
-	while (dest[i])
-		i++;
-	j = 0;
-	while (src[j])
-	{
-		dest[i + j] = src[j];
-		j++;
-	}
-	dest[i + j] = '\0';
+	ft_memcpy(dest + ft_strlen(dest), src, ft_strlen(src) + 1);
 	return (dest);
 }
