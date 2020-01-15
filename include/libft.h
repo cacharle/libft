@@ -18,11 +18,16 @@
 # include <stdlib.h>
 # include <stddef.h>
 # include <limits.h>
+
 # include <errno.h>
+
+
 # include "get_next_line.h"
 
-# define TRUE 1
-# define FALSE 0
+# ifdef __linux__
+#  include <stdio.h>
+#  define OPEN_MAX FOPEN_MAX
+# endif
 
 # define MIN(x, y) ((x) < (y) ? (x) : (y))
 # define MAX(x, y) ((x) > (y) ? (x) : (y))
@@ -156,6 +161,5 @@ int					ft_strcount(char *str, char c);
 char				*ft_itoa(int n);
 int					ft_strict_atoi(const char *s);
 long				ft_strtol(const char *s, char **endptr, int base);
-
 
 #endif
