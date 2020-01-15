@@ -4,3 +4,4 @@
 *.ghc
 a.out
 main.c
+build/*
