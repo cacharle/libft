@@ -6,15 +6,15 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/19 09:08:36 by cacharle          #+#    #+#             */
-/*   Updated: 2019/11/21 03:39:51 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/01/15 07:26:50 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-#define HAS_NEWLINE(str, split_at) ((split_at = find_newline(str)) != -1)
+#define HAS_NEWLINE(str, split_at) ((split_at = gnl_find_newline(str)) != -1)
 
-static int		find_newline(char *str)
+static int		gnl_find_newline(char *str)
 {
 	int i;
 
@@ -25,7 +25,7 @@ static int		find_newline(char *str)
 	return (-1);
 }
 
-static int		free_return(char **ptr, char **ptr2, int ret)
+static int		gnl_free_return(char **ptr, char **ptr2, int ret)
 {
 	if (ptr != NULL)
 	{
@@ -40,14 +40,14 @@ static int		free_return(char **ptr, char **ptr2, int ret)
 	return (ret);
 }
 
-static int		read_line(int fd, char **line, char *rest)
+static int		gnl_read_line(int fd, char **line, char *rest)
 {
 	int		ret;
 	int		split_at;
 	char	*buf;
 
 	if ((buf = malloc(sizeof(char) * (BUFFER_SIZE + 1))) == NULL)
-		return (free_return(line, NULL, STATUS_ERROR));
+		return (gnl_free_return(line, NULL, GNL_STATUS_ERROR));
 	while ((ret = read(fd, buf, BUFFER_SIZE)) > 0)
 	{
 		buf[ret] = '\0';
@@ -56,15 +56,15 @@ static int		read_line(int fd, char **line, char *rest)
 			ft_strcpy(rest, buf + split_at + 1);
 			buf[split_at] = '\0';
 			if ((*line = ft_strjoin_free(*line, buf, 1)) == NULL)
-				return (free_return(&buf, NULL, STATUS_ERROR));
-			return (free_return(&buf, NULL, STATUS_LINE));
+				return (gnl_free_return(&buf, NULL, GNL_STATUS_ERROR));
+			return (gnl_free_return(&buf, NULL, GNL_STATUS_LINE));
 		}
 		if ((*line = ft_strjoin_free(*line, buf, 1)) == NULL)
-			return (free_return(&buf, NULL, STATUS_ERROR));
+			return (gnl_free_return(&buf, NULL, GNL_STATUS_ERROR));
 	}
 	if (ret == -1)
-		return (free_return(&buf, line, STATUS_ERROR));
-	return (free_return(&buf, NULL, ret));
+		return (gnl_free_return(&buf, line, GNL_STATUS_ERROR));
+	return (gnl_free_return(&buf, NULL, ret));
 }
 
 /*
@@ -91,25 +91,25 @@ int				get_next_line(int fd, char **line)
 	static char	rest[OPEN_MAX][BUFFER_SIZE + 1] = {{0}};
 
 	if (fd < 0 || fd > OPEN_MAX || line == NULL || BUFFER_SIZE <= 0)
-		return (STATUS_ERROR);
+		return (GNL_STATUS_ERROR);
 	if ((*line = ft_strdup("")) == NULL)
-		return (STATUS_ERROR);
+		return (GNL_STATUS_ERROR);
 	if (rest[fd][0] == '\0')
-		return (read_line(fd, line, rest[fd]));
+		return (gnl_read_line(fd, line, rest[fd]));
 	if (HAS_NEWLINE(rest[fd], split_at))
 	{
 		free(*line);
 		if ((*line = (char*)malloc(sizeof(char) * (split_at + 1))) == NULL)
-			return (STATUS_ERROR);
+			return (GNL_STATUS_ERROR);
 		ft_strncpy(*line, rest[fd], split_at);
 		(*line)[split_at] = '\0';
 		ft_strcpy(rest[fd], rest[fd] + split_at + 1);
-		return (STATUS_LINE);
+		return (GNL_STATUS_LINE);
 	}
 	free(*line);
 	if (!(*line = (char*)malloc(sizeof(char) * (ft_strlen(rest[fd]) + 1))))
-		return (STATUS_ERROR);
+		return (GNL_STATUS_ERROR);
 	ft_strcpy(*line, rest[fd]);
 	rest[fd][0] = '\0';
-	return (read_line(fd, line, rest[fd]));
+	return (gnl_read_line(fd, line, rest[fd]));
 }

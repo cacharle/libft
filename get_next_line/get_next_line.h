@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 13:52:59 by cacharle          #+#    #+#             */
-/*   Updated: 2019/11/21 02:47:49 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/01/15 07:22:07 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@
 #  define BUFFER_SIZE 32
 # endif
 
-# define STATUS_LINE 1
-# define STATUS_EOF 0
-# define STATUS_ERROR -1
+# define GNL_STATUS_LINE 1
+# define GNL_STATUS_EOF 0
+# define GNL_STATUS_ERROR -1
 
 /*
 ** get_next_line.c
