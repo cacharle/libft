@@ -1,18 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strict_atoi.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 09:46:16 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/15 10:56:06 by cacharle         ###   ########.fr       */
+/*   Created: 2020/01/15 10:06:29 by cacharle          #+#    #+#             */
+/*   Updated: 2020/01/15 11:32:17 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int			ft_atoi(const char *str)
+int	ft_strict_atoi(const char *s)
 {
-	return ((int)ft_strtol(str, (char**)NULL, 10));
+	char	*end;
+	long	ret;
+
+	if (*s != '-' && !ft_isdigit(*s))
+	{
+		errno = EINVAL;
+		return (0);
+	}
+	errno = 0;
+	ret = ft_strtol(s, &end, 10);
+	if (errno == ERANGE || ret > INT_MAX || ret < INT_MIN)
+	{
+		errno = ERANGE;
+		return (0);
+	}
+	if (*end != '\0')
+	{
+		errno = EINVAL;
+		return (0);
+	}
+	return (ret);
 }

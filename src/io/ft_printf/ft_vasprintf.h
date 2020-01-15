@@ -6,12 +6,12 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 00:06:46 by cacharle          #+#    #+#             */
-/*   Updated: 2019/11/13 09:29:23 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/01/15 11:39:15 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_H
-# define HEADER_H
+#ifndef FT_VASPRINTF_H
+# define FT_VASPRINTF_H
 
 # include <unistd.h>
 # include <stdlib.h>

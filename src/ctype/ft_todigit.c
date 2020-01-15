@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_todigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 09:46:16 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/15 10:56:06 by cacharle         ###   ########.fr       */
+/*   Created: 2020/01/15 10:37:57 by cacharle          #+#    #+#             */
+/*   Updated: 2020/01/15 10:38:46 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int			ft_atoi(const char *str)
+int	ft_todigit(int c)
 {
-	return ((int)ft_strtol(str, (char**)NULL, 10));
+	if (!ft_isdigit(c))
+		return (-1);
+	return (c & 0x0F);
 }
