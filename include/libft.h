@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 09:45:02 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/15 11:33:27 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/01/15 12:52:37 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,8 @@ void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 								void (*del)(void *));
 void				ft_lstpop_front(t_list **lst, void (*del)(void *));
+t_list				*ft_lstreverse_ret(t_list *lst);
+void				ft_lstreverse(t_list **lst);
 
 /*
 ** mem

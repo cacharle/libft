@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 03:32:51 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/25 03:35:58 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/01/15 12:46:28 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void				ft_lstpop_front(t_list **lst, void (*del)(void *))
 	if (lst == NULL || *lst == NULL)
 		return ;
 	tmp = (*lst)->next;
-	del((*lst)->content);
-	free(*lst);
+	ft_lstdelone(*lst, del);
 	*lst = tmp;
 }

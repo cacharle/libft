@@ -1,39 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strict_atoi.c                                   :+:      :+:    :+:   */
+/*   ft_lstreverse_ret.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/15 10:06:29 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/15 14:09:03 by cacharle         ###   ########.fr       */
+/*   Created: 2020/01/15 12:51:15 by cacharle          #+#    #+#             */
+/*   Updated: 2020/01/15 13:36:46 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-#include <stdio.h>
-int	ft_strict_atoi(const char *s)
+t_list	*ft_lstreverse_ret(t_list *lst)
 {
-	char	*end;
-	long	ret;
-
-	if (*s != '-' && !ft_isdigit(*s))
-	{
-		errno = EINVAL;
-		return (0);
-	}
-	errno = 0;
-	ret = ft_strtol(s, &end, 10);
-	if (errno == ERANGE || ret > INT_MAX || ret < INT_MIN)
-	{
-		errno = ERANGE;
-		return (0);
-	}
-	if (*end != '\0')
-	{
-		errno = EINVAL;
-		return (0);
-	}
-	return (ret);
+	t_list	*tmp;
+	if (lst == NULL)
+		return (NULL);
+	if (lst->next == NULL)
+		return (lst);
+	tmp = ft_lstreverse_ret(lst->next);
+	lst->next->next = lst;
+	lst->next = NULL;
+	return (tmp);
 }
