@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 09:45:02 by cacharle          #+#    #+#             */
-/*   Updated: 2019/11/21 03:39:19 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/01/15 10:03:22 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@
 # define MAX(x, y) ((x) > (y) ? (x) : (y))
 
 typedef unsigned char	t_byte;
+typedef int				t_bool;
+
+# define TRUE 1
+# define FALSE 0
 
 /*
 ** memory
