@@ -1,7 +1,32 @@
 # libft [![Build Status](https://api.travis-ci.com/HappyTramp/libft.svg?branch=master)](https://travis-ci.com/HappyTramp/libft)
 
-The state of this repo when I pass can be checked with the [raw](http://github.com/HappyTramp/libft/tree/raw) tag.
+libft is an extension/remake of the standard library.
 
-I have both the pre 2019 and current functions. There is also my [get\_nex\_line](http://github.com/HappyTramp/get_next_line) and [ft\_printf](http://github.com/HappyTramp/ft_printf) in the mix.
+## Getting Started
 
-The [rendu](http://github.com/HappyTramp/libft/tree/rendu) branch is the one I use for my other projects, it doesnt contain .gitignore, README.md and subjects.
+```
+git clone https://github.com/HappyTramp/libft libft
+cd libft
+make all
+```
+
+This will produce a `libft.a` library which you can link to your project.
+
+## Testing
+
+To install the test, you will have to clone this repo with the `--recurse-submodules` flag or run the following commands:
+
+```
+git submodule init
+git submodule update
+```
+
+Then: `make test`
+
+## Dependencies
+
+* [CTest](https://github.com/HappyTramp/ctest) - my testing library
+
+### School turn in
+
+The state of this project when I turned it in for correction is [here](http://github.com/HappyTramp/libft/tree/raw).

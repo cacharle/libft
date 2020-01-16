@@ -3,5 +3,6 @@
 *.a
 *.ghc
 a.out
+test_libft
 main.c
 build/*

@@ -12,25 +12,26 @@
 
 LIB = ar rcs
 RM = rm -f
+MAKE_ARGS = --no-print-directory
 
 CC = gcc
 CCFLAGS = -I$(INCLUDE_DIR) -Wall -Wextra -Werror
 
 NAME = libft.a
+SRC_DIR = src
+INCLUDE_DIR = include
+BUILD_DIR = build
+TEST_DIR = test
 
 # AVAILABLE_FEATURES = get_next_line ft_printf ft_lst
 CONF_FILE = libft.conf
 
+# ifndef (FEATURES)
+# endif
 ifeq ($(wildcard $(CONF_FILE)),)
 $(warning "No configuration file found with name $(CONF_FILE), using default")
-	SRC_DIR = src
-	BUILD_DIR = build
-	INCLUDE_DIR = include
 	FEATURES = get_next_line
 else
-	SRC_DIR = $(shell sed -n 's/SRC_DIR=//p' $(CONF_FILE))
-	BUILD_DIR = $(shell sed -n 's/BUILD_DIR=//p' $(CONF_FILE))
-	INCLUDE_DIR = $(shell sed -n 's/INCLUDE_DIR=//p' $(CONF_FILE))
 	FEATURES = $(shell sed -n 's/FEATURES=//p' $(CONF_FILE))
 endif
 
@@ -45,13 +46,16 @@ ifeq ($(findstring ft_lst,$(FEATURES)),)
 endif
 
 SRC = $(shell find $(SRC_DIR) $(FIND_ARGS) -name *.c)
-
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
 
 HEADER_FILES = libft.h get_next_line.h
 HEADER = $(addprefix $(INCLUDE_DIR)/,$(HEADER_FILES))
 
 all: make_build_dirs $(NAME)
+
+.PHONY: test
+test:
+	@$(MAKE) $(MAKE_ARGS) -C $(TEST_DIR) run_raw
 
 make_build_dirs:
 	@for dir in $$(find $(SRC_DIR)/* $(FIND_ARGS) -type d | \
@@ -72,7 +76,6 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
 clean:
 	@echo "Removing objects"
 	@$(RM) -r $(BUILD_DIR)
-
 
 fclean: clean
 	@echo "Removing library"
