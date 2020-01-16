@@ -1,4 +1,4 @@
-# libft
+# libft [![Build Status](https://api.travis-ci.com/HappyTramp/libft.svg?branch=master)](https://travis-ci.com/HappyTramp/libft)
 
 The state of this repo when I pass can be checked with the [raw](http://github.com/HappyTramp/libft/tree/raw) tag.
 
