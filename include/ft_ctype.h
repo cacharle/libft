@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_ctype.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 13:52:59 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/15 07:22:07 by cacharle         ###   ########.fr       */
+/*   Created: 2020/01/17 09:59:10 by cacharle          #+#    #+#             */
+/*   Updated: 2020/01/17 10:00:13 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-
-# include <unistd.h>
-# include <stdlib.h>
-# include <limits.h>
-# include "libft.h"
-
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 32
-# endif
-
-# define GNL_STATUS_LINE 1
-# define GNL_STATUS_EOF 0
-# define GNL_STATUS_ERROR -1
+#ifndef FT_CTYPE_H
+# define FT_CTYPE_H
 
 /*
-** get_next_line.c
+** assertion
 */
 
-int		get_next_line(int fd, char **line);
+int	ft_isalpha(int c);
+int	ft_isdigit(int c);
+int	ft_isalnum(int c);
+int	ft_isascii(int c);
+int	ft_isprint(int c);
+int	ft_isspace(int c);
+
+/*
+** conversion
+*/
+
+int	ft_toupper(int c);
+int	ft_tolower(int c);
+int	ft_todigit(int c);
 
 #endif

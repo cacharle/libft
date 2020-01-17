@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strict_atoi.c                                   :+:      :+:    :+:   */
+/*   ft_io.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/15 10:06:29 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/17 10:12:54 by cacharle         ###   ########.fr       */
+/*   Created: 2020/01/17 09:47:14 by cacharle          #+#    #+#             */
+/*   Updated: 2020/01/17 10:07:47 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_IO_H
+# define FT_IO_H
 
-int	ft_strict_atoi(const char *s)
-{
-	char	*end;
-	long	ret;
+void	ft_putendl(char *s);
+void	ft_putchar(char c);
+void	ft_putstr(char const *s);
+void	ft_putnbr(int n);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putendl_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
 
-	if (*s != '-' && !ft_isdigit(*s))
-	{
-		errno = EINVAL;
-		return (0);
-	}
-	errno = 0;
-	ret = ft_strtol(s, &end, 10);
-	if (errno == ERANGE || ret > INT_MAX || ret < INT_MIN)
-	{
-		errno = ERANGE;
-		return (0);
-	}
-	if (*end != '\0')
-	{
-		errno = EINVAL;
-		return (0);
-	}
-	return (ret);
-}
+#endif

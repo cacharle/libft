@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strict_atoi.c                                   :+:      :+:    :+:   */
+/*   ft_types.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/15 10:06:29 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/17 10:12:54 by cacharle         ###   ########.fr       */
+/*   Created: 2020/01/17 09:59:15 by cacharle          #+#    #+#             */
+/*   Updated: 2020/01/17 10:16:14 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_TYPES_H
+# define FT_TYPES_H
 
-int	ft_strict_atoi(const char *s)
-{
-	char	*end;
-	long	ret;
+typedef unsigned char		t_ftbyte;
+typedef int					t_ftbool;
 
-	if (*s != '-' && !ft_isdigit(*s))
-	{
-		errno = EINVAL;
-		return (0);
-	}
-	errno = 0;
-	ret = ft_strtol(s, &end, 10);
-	if (errno == ERANGE || ret > INT_MAX || ret < INT_MIN)
-	{
-		errno = ERANGE;
-		return (0);
-	}
-	if (*end != '\0')
-	{
-		errno = EINVAL;
-		return (0);
-	}
-	return (ret);
-}
+typedef char				t_ftchar;
+typedef unsigned char		t_ftuchar;
+typedef int					t_ftint;
+typedef unsigned int		t_ftuint;
+typedef long int			t_ftlong;
+typedef unsigned long int	t_ftulong;
+
+#endif

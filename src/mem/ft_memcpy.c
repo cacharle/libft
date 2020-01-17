@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 10:00:07 by cacharle          #+#    #+#             */
-/*   Updated: 2019/11/21 18:04:36 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/01/17 10:39:04 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	while (n % 8 > 0)
 	{
 		n--;
-		((t_byte*)dest)[n] = ((t_byte*)src)[n];
+		((t_ftbyte*)dest)[n] = ((t_ftbyte*)src)[n];
 	}
 	long_dest = dest;
 	long_src = src;

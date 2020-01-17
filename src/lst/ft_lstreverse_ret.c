@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 12:51:15 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/15 13:36:46 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/01/17 10:12:42 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 t_list	*ft_lstreverse_ret(t_list *lst)
 {
 	t_list	*tmp;
+
 	if (lst == NULL)
 		return (NULL);
 	if (lst->next == NULL)

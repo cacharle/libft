@@ -14,10 +14,21 @@ ASSERT_FUNC1(ft_strlen, char*, str)
 }
 ASSERT_FUNC1_END
 
+ASSERT_PRINT_ARG_FUNC1(ft_strlen, char*, str)
+{
+	printf("(str: \"%.30s", str);
+	if (strlen(str) > 30)
+		fputs("...", stdout);
+	fputs("\")", stdout);
+}
+ASSERT_PRINT_ARG_FUNC1_END
+
 
 TEST(ft_strlen)
 {
-	ASSERT(ft_strlen, "bonjour");
-	ASSERT(ft_strlen, "yo");
-	ASSERT(ft_strlen, "slt");
+	ASSERT(ft_strlen, CTEST_DEF_EMPTY);
+	ASSERT(ft_strlen, CTEST_DEF_HELLO);
+	ASSERT(ft_strlen, CTEST_DEF_HIDDEN);
+	ASSERT(ft_strlen, CTEST_DEF_FORMAT);
+	ASSERT(ft_strlen, CTEST_DEF_LOREM_IPSUM);
 }

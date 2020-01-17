@@ -6,7 +6,7 @@
 #    By: cacharle <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/08 15:45:53 by cacharle          #+#    #+#              #
-#    Updated: 2020/01/16 10:23:07 by cacharle         ###   ########.fr        #
+#    Updated: 2020/01/17 10:51:24 by cacharle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,30 +26,36 @@ TEST_DIR = test
 # AVAILABLE_FEATURES = get_next_line ft_printf ft_lst
 CONF_FILE = libft.conf
 
-# ifndef (FEATURES)
-# endif
+ifndef (FEATURES)
+endif
 ifeq ($(wildcard $(CONF_FILE)),)
 $(warning "No configuration file found with name $(CONF_FILE), using default")
 	FEATURES = get_next_line
+	CCFLAGS += -D FT_FEATURES_FT_GET_NEXT_LINE
 else
 	FEATURES = $(shell sed -n 's/FEATURES=//p' $(CONF_FILE))
 endif
 
 ifeq ($(findstring get_next_line,$(FEATURES)),)
-	FIND_ARGS += -not -path "*get_next_line*"
+	FIND_ARGS += -not -name "ft_get_next_line.c"
+else
+	CCFLAGS += -D FT_FEATURES_FT_GET_NEXT_LINE
 endif
 ifeq ($(findstring ft_printf,$(FEATURES)),)
 	FIND_ARGS += -not -path "*printf*"
+else
+	CCFLAGS += -D FT_FEATURES_FT_PRINTF
 endif
 ifeq ($(findstring ft_lst,$(FEATURES)),)
-	FIND_ARGS += -not -name "ft_lst*"
+	FIND_ARGS += -not -name "ft_lst*.c"
+else
+	CCFLAGS += -D FT_FEATURES_FT_LST
 endif
 
-SRC = $(shell find $(SRC_DIR) $(FIND_ARGS) -name *.c)
+SRC = $(shell find $(SRC_DIR) $(FIND_ARGS) -name "*.c")
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
 
-HEADER_FILES = libft.h get_next_line.h
-HEADER = $(addprefix $(INCLUDE_DIR)/,$(HEADER_FILES))
+HEADER = $(shell find $(INCLUDE_DIR) -name "*.h")
 
 all: make_build_dirs $(NAME)
 
@@ -67,7 +73,7 @@ make_build_dirs:
 
 $(NAME): $(OBJ) $(HEADER)
 	@echo "Linking: $@"
-	@$(LIB) $(NAME) $(OBJ)
+	@$(LIB) $@ $(OBJ)
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
 	@echo "Compiling: $@"

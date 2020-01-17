@@ -6,13 +6,11 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/19 09:08:36 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/15 07:26:50 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/01/17 10:53:23 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-
-#define HAS_NEWLINE(str, split_at) ((split_at = gnl_find_newline(str)) != -1)
+#include "libft.h"
 
 static int		gnl_find_newline(char *str)
 {
@@ -46,12 +44,12 @@ static int		gnl_read_line(int fd, char **line, char *rest)
 	int		split_at;
 	char	*buf;
 
-	if ((buf = malloc(sizeof(char) * (BUFFER_SIZE + 1))) == NULL)
+	if ((buf = malloc(sizeof(char) * (GNL_BUFFER_SIZE + 1))) == NULL)
 		return (gnl_free_return(line, NULL, GNL_STATUS_ERROR));
-	while ((ret = read(fd, buf, BUFFER_SIZE)) > 0)
+	while ((ret = read(fd, buf, GNL_BUFFER_SIZE)) > 0)
 	{
 		buf[ret] = '\0';
-		if (HAS_NEWLINE(buf, split_at))
+		if ((split_at = gnl_find_newline(buf)) != -1)
 		{
 			ft_strcpy(rest, buf + split_at + 1);
 			buf[split_at] = '\0';
@@ -88,15 +86,15 @@ static int		gnl_read_line(int fd, char **line, char *rest)
 int				get_next_line(int fd, char **line)
 {
 	int			split_at;
-	static char	rest[OPEN_MAX][BUFFER_SIZE + 1] = {{0}};
+	static char	rest[OPEN_MAX][GNL_BUFFER_SIZE + 1] = {{0}};
 
-	if (fd < 0 || fd > OPEN_MAX || line == NULL || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd > OPEN_MAX || line == NULL || GNL_BUFFER_SIZE <= 0)
 		return (GNL_STATUS_ERROR);
 	if ((*line = ft_strdup("")) == NULL)
 		return (GNL_STATUS_ERROR);
 	if (rest[fd][0] == '\0')
 		return (gnl_read_line(fd, line, rest[fd]));
-	if (HAS_NEWLINE(rest[fd], split_at))
+	if ((split_at = gnl_find_newline(rest[fd])) != -1)
 	{
 		free(*line);
 		if ((*line = (char*)malloc(sizeof(char) * (split_at + 1))) == NULL)

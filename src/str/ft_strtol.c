@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 10:26:45 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/15 14:15:40 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/01/17 10:54:41 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static long	errno_return(int err)
 
 long		ft_strtol(const char *str, char **endptr, int base)
 {
-	t_bool		is_negative;
+	t_ftbool	is_negative;
 	long long	nb;
 	char		base_str[37];
 
