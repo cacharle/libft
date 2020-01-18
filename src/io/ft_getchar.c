@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstreverse_ret.c                                :+:      :+:    :+:   */
+/*   ft_getchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/15 12:51:15 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/18 11:52:50 by cacharle         ###   ########.fr       */
+/*   Created: 2020/01/18 10:29:54 by cacharle          #+#    #+#             */
+/*   Updated: 2020/01/18 10:46:56 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstreverse_ret(t_list *lst)
+char	ft_getchar(void)
 {
-	t_list	*tmp;
+	char	c;
 
-	if (lst == NULL)
-		return (NULL);
-	if (lst->next == NULL)
-		return (lst);
-	tmp = ft_lstreverse_ret(lst->next);
-	lst->next->next = lst;
-	lst->next = NULL;
-	return (tmp);
+	if (read(STDIN_FILENO, &c, 1) < 0)
+		return (-1);
+	return (c);
 }

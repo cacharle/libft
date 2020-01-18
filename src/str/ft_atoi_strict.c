@@ -6,13 +6,12 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 10:06:29 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/15 14:09:03 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/01/18 11:53:07 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-#include <stdio.h>
 int	ft_strict_atoi(const char *s)
 {
 	char	*end;
