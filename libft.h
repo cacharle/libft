@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 09:45:02 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/04 04:08:15 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/02/04 04:41:08 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,6 @@ void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 
 long				ft_strtol(const char *str, char **endptr, int base);
-
 
 /*
 ** bonus
