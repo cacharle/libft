@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 09:45:02 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/15 14:46:50 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/02/02 22:09:47 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # define FALSE 0
 
 typedef unsigned char	t_byte;
+typedef int				t_bool;
 
 typedef struct		s_list
 {
@@ -33,6 +34,12 @@ void				*ft_memccpy(void *dest, const void *src, int c, size_t n);
 void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
+void				ft_memswap(void *a, void *b, size_t size);
+
+/*
+** str
+*/
+
 size_t				ft_strlen(const char *s);
 char				*ft_strdup(const char *s);
 char				*ft_strcpy(char *dest, const char *src);
@@ -97,5 +104,19 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 								void (*del)(void *));
+
+typedef struct
+{
+	int		lo;
+	int		hi;
+}			t_ftrange;
+
+typedef int	(*t_ftcompar_func)(const void*, const void*);
+
+t_bool		ft_is_set(void *base, size_t nel, size_t width,
+						t_ftcompar_func compar);
+void		ft_qsort(void *base, size_t nel, size_t width,
+						t_ftcompar_func compar);
+int			ft_compar_int(const void *a, const void *b);
 
 #endif
