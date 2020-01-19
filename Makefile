@@ -6,12 +6,14 @@
 #    By: cacharle <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/08 15:45:53 by cacharle          #+#    #+#              #
-#    Updated: 2020/01/15 09:54:56 by cacharle         ###   ########.fr        #
+#    Updated: 2020/01/19 08:17:08 by cacharle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 LIB = ar rcs
 RM = rm -f
+
+INCLUDE_DIR = include
 
 CC = gcc
 CCFLAGS = -I$(INCLUDE_DIR) -Wall -Wextra -Werror

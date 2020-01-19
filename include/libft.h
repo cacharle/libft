@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 09:45:02 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/15 12:52:37 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/01/19 08:20:37 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,10 @@
 # include <stdlib.h>
 # include <stddef.h>
 # include <limits.h>
-
 # include <errno.h>
 
-
 # include "get_next_line.h"
+# include "ft_algo.h"
 
 # ifdef __linux__
 #  include <stdio.h>
@@ -118,6 +117,7 @@ int					ft_memcmp(const void *s1, const void *s2, size_t n);
 void				*ft_memalloc(size_t size);
 void				ft_memdel(void **ap);
 void				*ft_calloc(size_t count, size_t size);
+void				ft_memswap(void *a, void *b, size_t size);
 
 /*
 ** str
