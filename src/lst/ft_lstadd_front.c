@@ -11,8 +11,9 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "libft_lst.h"
 
-void	ft_lstadd_front(t_list **alst, t_list *new)
+void	ft_lstadd_front(t_ftlst **alst, t_ftlst *new)
 {
 	if (alst == NULL || new == NULL)
 		return ;

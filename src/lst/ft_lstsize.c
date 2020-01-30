@@ -11,8 +11,9 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "libft_lst.h"
 
-int	ft_lstsize(t_list *lst)
+int	ft_lstsize(t_ftlst *lst)
 {
 	int	counter;
 

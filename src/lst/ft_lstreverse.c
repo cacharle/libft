@@ -11,8 +11,9 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "libft_lst.h"
 
-void	ft_lstreverse(t_list **lst)
+void	ft_lstreverse(t_ftlst **lst)
 {
 	*lst = ft_lstreverse_ret(*lst);
 }

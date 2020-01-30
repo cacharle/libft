@@ -48,7 +48,7 @@ $(NAME): $(OBJ) $(HEADER)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@echo "Compiling: $@"
-	@$(CC) $(CCFLAGS) -c -o $@ $<
+	$(CC) $(CCFLAGS) -c -o $@ $<
 
 clean:
 	@echo "Removing objects"

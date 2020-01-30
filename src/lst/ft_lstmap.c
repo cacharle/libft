@@ -11,11 +11,12 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "libft_lst.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_ftlst	*ft_lstmap(t_ftlst *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*mapped;
-	t_list	*tmp;
+	t_ftlst	*mapped;
+	t_ftlst	*tmp;
 
 	if (lst == NULL || f == NULL)
 		return (NULL);
@@ -36,7 +37,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 /*
 ** Rest in peace, my beautiful recursion.
 **
-** t_list  *tmp;
+** t_ftlst  *tmp;
 **
 ** if (lst == NULL)
 **     return (NULL);

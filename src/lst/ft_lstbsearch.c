@@ -11,11 +11,12 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "libft_lst.h"
 
-static t_list	*st_lstmiddle(t_list *lst, t_list)
+static t_ftlst	*st_lstmiddle(t_ftlst *lst, t_ftlst *last)
 {
-	t_list	*slow;
-	t_list	*fast;
+	t_ftlst	*slow;
+	t_ftlst	*fast;
 
 	if (lst == NULL)
 		return (NULL);
@@ -32,25 +33,25 @@ static t_list	*st_lstmiddle(t_list *lst, t_list)
 	return (slow);
 }
 
-static t_list	*st_lstbsearch_rec(t_list *lst, t_list *last,
+static t_ftlst	*st_lstbsearch_rec(t_ftlst *lst, t_ftlst *last,
 							t_ftbool (*equal)(void *ref, void *content), void *ref)
 {
-	t_list	*mid;
-	t_list	*left;
+	t_ftlst	*mid;
+	t_ftlst	*left;
 
 	if (lst == NULL)
 		return (NULL);
-	if ((*equal)(lst->content))
-		return (lst);
 	mid = st_lstmiddle(lst, last);
-	left = ft_lstbsearch_rec(lst->next, mid, equal));
+	if ((*equal)(ref, mid->content))
+		return (mid);
+	left = st_lstbsearch_rec(lst, mid, equal, ref);
 	if (left != NULL)
 		return (left);
-	return (ft_lstbsearch_rec(mid, NULL, equal));
+	return (st_lstbsearch_rec(mid, NULL, equal, ref));
 }
 
-t_list	*ft_lstbsearch(t_list *lst,
+t_ftlst	*ft_lstbsearch(t_ftlst *lst,
 						t_ftbool (*equal)(void *ref, void *content), void *ref)
 {
-	return (ft_lstbsearch_rec(lst, NULL, equal));
+	return (st_lstbsearch_rec(lst, NULL, equal, ref));
 }

@@ -11,16 +11,17 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "libft_lst.h"
 
-void	ft_lstremove_if(t_list **lst,
+void	ft_lstremove_if(t_ftlst **lst,
 						t_ftbool (*equal)(void *ref, void *content), void *ref,
 						void (*del)(void *content))
 {
-	t_list *saved_next;
+	t_ftlst *saved_next;
 
 	if (lst == NULL || *lst == NULL)
 		return ;
-	if (!equal(ref, &(*lst)->val))
+	if (!equal(ref, &(*lst)->content))
 	{
 		ft_lstremove_if(&(*lst)->next, equal, ref, del);
 		return ;
@@ -28,5 +29,5 @@ void	ft_lstremove_if(t_list **lst,
 	saved_next = (*lst)->next;
 	ft_lstdelone(*lst, del);
 	*lst = saved_next;
-	ref_ft_list_remove_if(lst, equal, ref, del);
+	ft_lstremove_if(lst, equal, ref, del);
 }

@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
+#include "libft_lst.h"
 
-void				ft_lstpop_front(t_list **lst, void (*del)(void *))
+void	ft_lstpop_front(t_ftlst **lst, void (*del)(void *))
 {
-	t_list	*tmp;
+	t_ftlst	*tmp;
 
 	if (lst == NULL || *lst == NULL)
 		return ;

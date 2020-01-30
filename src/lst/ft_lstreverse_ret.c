@@ -11,10 +11,11 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "libft_lst.h"
 
-t_list	*ft_lstreverse_ret(t_list *lst)
+t_ftlst	*ft_lstreverse_ret(t_ftlst *lst)
 {
-	t_list	*tmp;
+	t_ftlst	*tmp;
 
 	if (lst == NULL)
 		return (NULL);
