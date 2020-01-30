@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_types.h                                         :+:      :+:    :+:   */
+/*   ft_htdestroy.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/17 09:59:15 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/30 09:54:28 by cacharle         ###   ########.fr       */
+/*   Created: 2020/01/30 08:19:06 by cacharle          #+#    #+#             */
+/*   Updated: 2020/01/30 08:33:09 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_TYPES_H
-# define FT_TYPES_H
+#include "libft.h"
 
-typedef unsigned char		t_ftbyte;
-typedef int					t_ftbool;
-typedef unsigned int		t_ftsize;
-
-typedef char				t_ftchar;
-typedef unsigned char		t_ftuchar;
-typedef int					t_ftint;
-typedef unsigned int		t_ftuint;
-typedef long int			t_ftlong;
-typedef unsigned long int	t_ftulong;
-
-#endif
+void	ft_htdestroy(t_ftht *ht, void (*del)(t_ftht_content*))
+{
+	if (ht == NULL)
+		return ;
+	while (ht->size-- > 0)
+		ft_lstclear(ht->entries + ht->size, del);
+	free(ht->entries);
+	free(ht);
+}

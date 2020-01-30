@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 09:58:02 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/17 09:58:45 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/01/30 09:55:43 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,8 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 void				ft_lstpop_front(t_list **lst, void (*del)(void *));
 t_list				*ft_lstreverse_ret(t_list *lst);
 void				ft_lstreverse(t_list **lst);
+void				ft_lstremove_if(t_list **lst,
+						t_ftbool (*equal)(void *ref, void *content), void *ref,
+						void (*del)(void *content));
 
 #endif

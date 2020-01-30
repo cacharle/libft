@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_types.h                                         :+:      :+:    :+:   */
+/*   ft_htdestroy_value.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/17 09:59:15 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/30 09:54:28 by cacharle         ###   ########.fr       */
+/*   Created: 2020/01/30 08:31:29 by cacharle          #+#    #+#             */
+/*   Updated: 2020/01/30 08:31:49 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_TYPES_H
-# define FT_TYPES_H
+#include "libft.h"
 
-typedef unsigned char		t_ftbyte;
-typedef int					t_ftbool;
-typedef unsigned int		t_ftsize;
+static void	st_htdelcontent_value(t_ftht_content *content)
+{
+	if (content == NULL)
+		return ;
+	free(content->value);
+}
 
-typedef char				t_ftchar;
-typedef unsigned char		t_ftuchar;
-typedef int					t_ftint;
-typedef unsigned int		t_ftuint;
-typedef long int			t_ftlong;
-typedef unsigned long int	t_ftulong;
-
-#endif
+void	ft_htdestroy_value(t_ftht *ht)
+{
+	ft_htdestroy(ht, *st_dtdelcontent_value);
+}

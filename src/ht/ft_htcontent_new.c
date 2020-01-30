@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_types.h                                         :+:      :+:    :+:   */
+/*   ft_htcontent_new.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/17 09:59:15 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/30 09:54:28 by cacharle         ###   ########.fr       */
+/*   Created: 2020/01/30 08:45:36 by cacharle          #+#    #+#             */
+/*   Updated: 2020/01/30 09:52:28 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_TYPES_H
-# define FT_TYPES_H
+#include "libft.h"
+#include "libft_ht.h"
 
-typedef unsigned char		t_ftbyte;
-typedef int					t_ftbool;
-typedef unsigned int		t_ftsize;
+t_ftht_content	*ft_htcontent_new(char *key, void *value)
+{
+	t_ftht_content	*content;
 
-typedef char				t_ftchar;
-typedef unsigned char		t_ftuchar;
-typedef int					t_ftint;
-typedef unsigned int		t_ftuint;
-typedef long int			t_ftlong;
-typedef unsigned long int	t_ftulong;
-
-#endif
+	if (key == NULL)
+		return (NULL);
+	if ((content = (t_ftht_content*)malloc(sizeof(t_ftht_content))) == NULL)
+		return (NULL);
+	if ((content->key = ft_strdup(key)) == NULL)
+	{
+		free(content);
+		return (NULL);
+	}
+	content->value = value;
+	return (content);
+}
