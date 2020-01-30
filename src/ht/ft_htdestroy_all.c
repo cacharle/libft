@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_ht.h"
 
 static void	st_htdelcontent_all(t_ftht_content *content)
 {
@@ -22,5 +22,5 @@ static void	st_htdelcontent_all(t_ftht_content *content)
 
 void	ft_htdestroy_all(t_ftht *ht)
 {
-	ft_htdestroy(ht, *st_dtdelcontent_all);
+	ft_htdestroy(ht, *st_htdelcontent_all);
 }

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "libft_ht.h"
 
 t_ftht_content	*ft_htget(t_ftht *ht, char *key)
 {
@@ -20,5 +21,6 @@ t_ftht_content	*ft_htget(t_ftht *ht, char *key)
 		return (NULL);
 	digest = ft_hthash(ht, key);
 	return (ft_lstbsearch(ht->entries[digest],
-				&ft_inter_htkey_equal, key)->content);
+				(t_ftbool (*)(void*, void*))ft_inter_htkey_equal,
+				key)->content);
 }

@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft_ht.h"
+
 t_ftht_digest	ft_hthash(t_ftht *ht, char *key)
 {
 	t_ftht_digest	digest;
@@ -19,8 +21,8 @@ t_ftht_digest	ft_hthash(t_ftht *ht, char *key)
 	digest = *key++ << 7;
 	while (*key != '\0')
 	{
-		digest = ((1000003 * digest) ^ *key) & (1<<32);
+		digest = ((1000003 * digest) ^ *key) & (1 << 16);
 		key++;
 	}
-	return (digest);
+	return (digest % ht->size);
 }

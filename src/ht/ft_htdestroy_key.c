@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "libft_ht.h"
 
 void	ft_inter_htdelcontent_key(t_ftht_content *content)
 {
@@ -21,5 +22,5 @@ void	ft_inter_htdelcontent_key(t_ftht_content *content)
 
 void	ft_htdestroy_key(t_ftht *ht)
 {
-	ft_htdestroy(ht, *st_dtdelcontent_key);
+	ft_htdestroy(ht, *ft_inter_htdelcontent_key);
 }

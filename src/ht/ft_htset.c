@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "libft_ht.h"
 
 t_ftht_content	*ft_htset(t_ftht *ht, char *key, void *value)
 {
@@ -19,10 +20,10 @@ t_ftht_content	*ft_htset(t_ftht *ht, char *key, void *value)
 	t_ftht_entry	entry;
 
 	if (ht == NULL || key == NULL)
-		return (NULL)
+		return (NULL);
 	if ((content = ft_htcontent_new(key, value)) == NULL)
 		return (NULL);
-	if ((entry = ft_lstnew(content)) = NULL)
+	if ((entry = ft_lstnew(content)) == NULL)
 	{
 		free(content);
 		return (NULL);

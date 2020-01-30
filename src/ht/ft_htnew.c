@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "libft_ht.h"
 
 t_ftht	*ft_htnew(t_ftsize size)
 {

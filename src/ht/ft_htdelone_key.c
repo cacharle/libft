@@ -11,8 +11,9 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "libft_ht.h"
 
-void			ft_htdelone_key(t_ftht *ht, char *key)
+void	ft_htdelone_key(t_ftht *ht, char *key)
 {
 	ft_htdelone(ht, key, ft_inter_htdelcontent_key);
 }

@@ -32,9 +32,9 @@ OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 HEADER = $(shell find $(INCLUDE_DIR) -name "*.h")
 
-all: make_build_dirs $(NAME)
+all: prebuild $(NAME)
 
-make_build_dirs:
+prebuild:
 	@for dir in $$(find $(SRC_DIR)/* $(FIND_ARGS) -type d | \
 				   sed 's_$(SRC_DIR)/_$(OBJ_DIR)/_g'); \
 	do \
@@ -48,7 +48,7 @@ $(NAME): $(OBJ) $(HEADER)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@echo "Compiling: $@"
-	$(CC) $(CCFLAGS) -c -o $@ $<
+	@$(CC) $(CCFLAGS) -c -o $@ $<
 
 clean:
 	@echo "Removing objects"

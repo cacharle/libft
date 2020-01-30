@@ -15,5 +15,7 @@
 
 void	ft_htdelone(t_ftht *ht, char *key, void (*del)(t_ftht_content*))
 {
-	ft_lstremove_if(ht->entries + ft_hthash(key), ft_iter_htkey_equal, key, del);
+	ft_lstremove_if(ht->entries + ft_hthash(ht, key),
+			(t_ftbool (*)(void*, void*))ft_inter_htkey_equal, key,
+			(void (*)(void*))del);
 }

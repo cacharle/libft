@@ -11,13 +11,14 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "libft_ht.h"
 
 void	ft_htdestroy(t_ftht *ht, void (*del)(t_ftht_content*))
 {
 	if (ht == NULL)
 		return ;
 	while (ht->size-- > 0)
-		ft_lstclear(ht->entries + ht->size, del);
+		ft_lstclear(ht->entries + ht->size, (void (*)(void*))del);
 	free(ht->entries);
 	free(ht);
 }

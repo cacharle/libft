@@ -26,5 +26,7 @@ void				ft_lstreverse(t_ftlst **lst);
 void				ft_lstremove_if(t_ftlst **lst,
 						t_ftbool (*equal)(void *ref, void *content), void *ref,
 						void (*del)(void *content));
+t_ftlst				*ft_lstbsearch(t_ftlst *lst,
+						t_ftbool (*equal)(void *ref, void *content), void *ref);
 
 #endif
