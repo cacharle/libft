@@ -17,55 +17,26 @@ MAKE_ARGS = --no-print-directory
 CC = gcc
 CCFLAGS = -I$(INCLUDE_DIR) -Wall -Wextra -Werror
 
-NAME = libft.a
 SRC_DIR = src
 INCLUDE_DIR = include
-BUILD_DIR = build
-TEST_DIR = test
+OBJ_DIR = obj
+SCRIPT_DIR = script
 
-# AVAILABLE_FEATURES = get_next_line ft_printf ft_lst
-CONF_FILE = libft.conf
+IGNORE_FILE = .libftignore
+IGNORE_DEFAULT = ft_printf
 
-ifndef (FEATURES)
-endif
-ifeq ($(wildcard $(CONF_FILE)),)
-$(warning "No configuration file found with name $(CONF_FILE), using default")
-	FEATURES = get_next_line
-	CCFLAGS += -D FT_FEATURES_FT_GET_NEXT_LINE
-else
-	FEATURES = $(shell sed -n 's/FEATURES=//p' $(CONF_FILE))
-endif
+NAME = libft.a
 
-ifeq ($(findstring get_next_line,$(FEATURES)),)
-	FIND_ARGS += -not -name "ft_get_next_line.c"
-else
-	CCFLAGS += -D FT_FEATURES_FT_GET_NEXT_LINE
-endif
-ifeq ($(findstring ft_printf,$(FEATURES)),)
-	FIND_ARGS += -not -path "*printf*"
-else
-	CCFLAGS += -D FT_FEATURES_FT_PRINTF
-endif
-ifeq ($(findstring ft_lst,$(FEATURES)),)
-	FIND_ARGS += -not -name "ft_lst*.c"
-else
-	CCFLAGS += -D FT_FEATURES_FT_LST
-endif
-
-SRC = $(shell find $(SRC_DIR) $(FIND_ARGS) -name "*.c")
-OBJ = $(SRC:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
+SRC = $(shell sh $(SCRIPT_DIR)/find_src.sh $(IGNORE_FILE))
+OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 HEADER = $(shell find $(INCLUDE_DIR) -name "*.h")
 
 all: make_build_dirs $(NAME)
 
-.PHONY: test
-test:
-	@$(MAKE) $(MAKE_ARGS) -C $(TEST_DIR) run_raw
-
 make_build_dirs:
 	@for dir in $$(find $(SRC_DIR)/* $(FIND_ARGS) -type d | \
-				   sed 's_$(SRC_DIR)/_$(BUILD_DIR)/_g'); \
+				   sed 's_$(SRC_DIR)/_$(OBJ_DIR)/_g'); \
 	do \
 		if [ ! -d "$$dir" ]; then \
 			mkdir -p $$dir; echo "Making build dir: $$dir"; fi \
@@ -75,13 +46,13 @@ $(NAME): $(OBJ) $(HEADER)
 	@echo "Linking: $@"
 	@$(LIB) $@ $(OBJ)
 
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@echo "Compiling: $@"
 	@$(CC) $(CCFLAGS) -c -o $@ $<
 
 clean:
 	@echo "Removing objects"
-	@$(RM) -r $(BUILD_DIR)
+	@$(RM) -r $(OBJ_DIR)
 
 fclean: clean
 	@echo "Removing library"

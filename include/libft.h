@@ -20,30 +20,15 @@
 # include <limits.h>
 # include <errno.h>
 
-# include "ft_types.h"
-# include "ft_ctype.h"
-# include "ft_io.h"
-# include "ft_mem.h"
-# include "ft_str.h"
-
-# ifdef FT_FEATURES_FT_LST
-#  include "ft_lst.h"
-# endif
-
-# ifdef FT_FEATURES_FT_GET_NEXT_LINE
-#  include "ft_get_next_line.h"
-# endif
-
-# ifdef FT_FEATURES_FT_PRINTF
-#  include "ft_printf.h"
-# endif
+# include "libft_types.h"
+# include "libft_ctype.h"
+# include "libft_io.h"
+# include "libft_mem.h"
+# include "libft_str.h"
 
 # ifdef __linux__
 #  include <stdio.h>
 #  define OPEN_MAX FOPEN_MAX
 # endif
-
-# define TRUE 1
-# define FALSE 0
 
 #endif

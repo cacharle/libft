@@ -1,3 +1,0 @@
-[submodule "test/ctest"]
-	path = test/ctest
-	url = https://github.com/HappyTramp/ctest

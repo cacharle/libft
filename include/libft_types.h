@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_types.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 13:52:59 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/17 10:53:43 by cacharle         ###   ########.fr       */
+/*   Created: 2020/01/17 09:59:15 by cacharle          #+#    #+#             */
+/*   Updated: 2020/01/30 09:54:28 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_GET_NEXT_LINE_H
-# define FT_GET_NEXT_LINE_H
+#ifndef FT_TYPES_H
+# define FT_TYPES_H
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <limits.h>
-# include "libft.h"
+# define TRUE 1
+# define FALSE 0
 
-# ifndef GNL_BUFFER_SIZE
-#  define GNL_BUFFER_SIZE 32
-# endif
+typedef unsigned char		t_ftbyte;
+typedef int					t_ftbool;
+typedef unsigned int		t_ftsize;
 
-# define GNL_STATUS_LINE 1
-# define GNL_STATUS_EOF 0
-# define GNL_STATUS_ERROR -1
-
-/*
-** get_next_line.c
-*/
-
-int		get_next_line(int fd, char **line);
+typedef char				t_ftchar;
+typedef unsigned char		t_ftuchar;
+typedef int					t_ftint;
+typedef unsigned int		t_ftuint;
+typedef long int			t_ftlong;
+typedef unsigned long int	t_ftulong;
 
 #endif

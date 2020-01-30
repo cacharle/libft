@@ -12,20 +12,9 @@ make all
 
 This will produce a `libft.a` library which you can link to your project.
 
-## Testing
+## .libftignore
 
-To install the test, you will have to clone this repo with the `--recurse-submodules` flag or run the following commands:
-
-```
-git submodule init
-git submodule update
-```
-
-Then: `make test`
-
-## Dependencies
-
-* [CTest](https://github.com/HappyTramp/ctest) - my testing library
+Much like the `.gitignore` file, you can put the files/directory to ignore when compiling.
 
 ### School turn in
 

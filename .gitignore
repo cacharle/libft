@@ -5,5 +5,4 @@
 a.out
 test_libft
 main.c
-build/*
-test/*
+obj/*
