@@ -14,7 +14,7 @@ fi
 
 SRC_DIR=src
 
-IGNORE_FIND_ARGS=`sed 's/.*/-not -path "&"/' $IGNORE_FILE | paste -sd " "`
+IGNORE_FIND_ARGS=`sed 's/.*/-not -path "&"/' $IGNORE_FILE | paste -sd " " -`
 IGNORE_FIND_ARGS="$IGNORE_FIND_ARGS -not -name \"*inter*\""
 
 sh -c "find $SRC_DIR $IGNORE_FIND_ARGS -name \"*.c\""
