@@ -4,6 +4,6 @@
 *.ghc
 *.dSYM
 a.out
-libft_test
+test_libft
 obj/*
 rendu.makefile
