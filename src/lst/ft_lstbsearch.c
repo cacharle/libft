@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 09:17:51 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/30 09:17:53 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/01/31 10:42:22 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static t_ftlst	*st_lstmiddle(t_ftlst *lst, t_ftlst *last)
 	{
 		fast = fast->next;
 		if (fast == NULL)
-			break;
+			break ;
 		slow = slow->next;
 		fast = fast->next;
 	}
@@ -34,7 +34,7 @@ static t_ftlst	*st_lstmiddle(t_ftlst *lst, t_ftlst *last)
 }
 
 static t_ftlst	*st_lstbsearch_rec(t_ftlst *lst, t_ftlst *last,
-							t_ftbool (*equal)(void *ref, void *content), void *ref)
+						t_ftbool (*equal)(void *ref, void *content), void *ref)
 {
 	t_ftlst	*mid;
 	t_ftlst	*left;
@@ -50,7 +50,7 @@ static t_ftlst	*st_lstbsearch_rec(t_ftlst *lst, t_ftlst *last,
 	return (st_lstbsearch_rec(mid, NULL, equal, ref));
 }
 
-t_ftlst	*ft_lstbsearch(t_ftlst *lst,
+t_ftlst			*ft_lstbsearch(t_ftlst *lst,
 						t_ftbool (*equal)(void *ref, void *content), void *ref)
 {
 	return (st_lstbsearch_rec(lst, NULL, equal, ref));

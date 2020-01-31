@@ -12,6 +12,16 @@ make all
 
 This will produce a `libft.a` library which you can link to your project.
 
+## Unit Test
+
+```
+make test
+```
+
+## Dependencies
+
+* [Unity](https://github.com/ThrowTheSwitch/Unity) - unit testing lib
+
 ## .libftignore
 
 Much like the `.gitignore` file, you can put the files/directory to ignore when compiling.

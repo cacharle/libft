@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 08:33:21 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/30 09:25:51 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/01/31 10:40:57 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 
 t_ftht_content	*ft_htget(t_ftht *ht, char *key)
 {
+	
 	t_ftht_digest	digest;
 
+	return (NULL); // lstbsearch breaking
 	if (ht == NULL || key == NULL)
 		return (NULL);
 	digest = ft_hthash(ht, key);

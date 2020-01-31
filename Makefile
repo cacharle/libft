@@ -6,7 +6,7 @@
 #    By: cacharle <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/08 15:45:53 by cacharle          #+#    #+#              #
-#    Updated: 2020/01/31 08:26:39 by cacharle         ###   ########.fr        #
+#    Updated: 2020/01/31 09:20:36 by cacharle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,8 @@ SRC = $(shell sh $(SCRIPT_DIR)/find_src.sh $(IGNORE_FILE))
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 INCLUDE = $(shell find $(INCLUDE_DIR) -name "*.h")
+
+# export LIBFT_SRC = $(SRC)
 
 all: prebuild $(NAME)
 

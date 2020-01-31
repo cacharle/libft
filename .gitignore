@@ -2,8 +2,8 @@
 *.so
 *.a
 *.ghc
+*.dSYM
 a.out
 test_libft
-main.c
 obj/*
 rendu.makefile
