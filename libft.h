@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 09:45:02 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/02 22:09:47 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/02/04 03:33:44 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,16 +107,18 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 
 typedef struct
 {
-	int		lo;
-	int		hi;
-}			t_ftrange;
+	int				lo;
+	int				hi;
+}					t_ftrange;
 
-typedef int	(*t_ftcompar_func)(const void*, const void*);
+typedef int			(*t_ftcompar_func)(const void*, const void*);
 
-t_bool		ft_is_set(void *base, size_t nel, size_t width,
+t_bool				ft_is_set(void *base, size_t nel, size_t width,
 						t_ftcompar_func compar);
-void		ft_qsort(void *base, size_t nel, size_t width,
+void				ft_qsort(void *base, size_t nel, size_t width,
 						t_ftcompar_func compar);
-int			ft_compar_int(const void *a, const void *b);
+int					ft_compar_int(const void *a, const void *b);
+
+int					ft_abs(int i);
 
 #endif
