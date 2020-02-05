@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 09:45:02 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/04 04:41:08 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/02/04 20:23:20 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <errno.h>
 # include <string.h>
+# include <stdlib.h>
 
 # define TRUE 1
 # define FALSE 0
@@ -82,6 +83,7 @@ char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s1, char const *set);
 char				**ft_split(char const *s, char c);
+char				**ft_split_strict(char const *s, char c);
 char				*ft_itoa(int n);
 void				ft_putendl(char *s);
 void				ft_putchar(char c);

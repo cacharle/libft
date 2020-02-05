@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 05:20:26 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/04 05:21:29 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/02/04 23:27:46 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static size_t	count_segment(char const *s, char c)
 	while (s[++i])
 		if (s[i] == c)
 			counter++;
-	return (counter);
+	return (counter + 1);
 }
 
 static char		*ft_strndup(const char *s1, size_t n)
@@ -53,7 +53,7 @@ static void		*destroy_strs(char **strs)
 	return (NULL);
 }
 
-char			**ft_split(char const *s, char c)
+char			**ft_split_strict(char const *s, char c)
 {
 	char	**strs;
 	size_t	tab_counter;
@@ -63,20 +63,18 @@ char			**ft_split(char const *s, char c)
 	if (s == NULL)
 		return (NULL);
 	tab_counter = count_segment(s, c);
-	if ((strs = (char**)malloc(sizeof(char*) * (tab_counter + 1))) == NULL)
+	if ((strs = (char**)malloc(sizeof(char*) * (tab_counter + 20))) == NULL)
 		return (NULL);
 	tab_counter = 0;
 	j = -1;
-	while (s[++j])
+	while (s[++j] != '\0')
 	{
-		if (s[j] == c)
-			continue ;
 		i = 0;
 		while (s[j + i] && s[j + i] != c)
 			i++;
 		if ((strs[tab_counter++] = ft_strndup(&s[j], i)) == NULL)
 			return (destroy_strs(strs));
-		j += i - 1;
+		j += i;
 	}
 	strs[tab_counter] = NULL;
 	return (strs);
