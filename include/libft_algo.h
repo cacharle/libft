@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/19 07:22:57 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/10 03:04:17 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/02/10 05:17:39 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,6 @@ int				ft_mergesort(void *base, size_t nel, size_t width,
 					int (*compar)(const void *, const void *));
 int				ft_heapsort(void *base, size_t nel, size_t width,
 					int (*compar)(const void *, const void *));
+void			ft_reverse(void *base, size_t nel, size_t width);
 
 #endif

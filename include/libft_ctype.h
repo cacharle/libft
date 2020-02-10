@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 10:35:31 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/31 10:36:34 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/02/10 05:18:30 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	ft_isalnum(int c);
 int	ft_isascii(int c);
 int	ft_isprint(int c);
 int	ft_isspace(int c);
+int	ft_isblank(int c);
 
 /*
 ** conversion

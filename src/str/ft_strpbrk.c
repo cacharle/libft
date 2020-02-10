@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtoupper.c                                    :+:      :+:    :+:   */
+/*   ft_strpbrk.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/10 04:12:04 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/10 05:05:38 by cacharle         ###   ########.fr       */
+/*   Created: 2020/02/10 04:39:29 by cacharle          #+#    #+#             */
+/*   Updated: 2020/02/10 04:54:13 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_str.h"
-#include "libft_ctype.h"
 
-char	*ft_strtolower(char *s)
+char	*ft_strpbrk(const char *s, const char *charset)
 {
-	int	i;
-
-	if (s == NULL)
+	if (s == NULL || charset == NULL)
 		return (NULL);
-	i = -1;
-	while (s[i])
-		s[i] = ft_tolower(s[i]);
-	return (s);
+	while (*s && ft_strchr(charset, *s) == NULL)
+		s++;
+	if (*s == '\0')
+		return (NULL);
+	return ((char*)s);
 }

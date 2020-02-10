@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtoupper.c                                    :+:      :+:    :+:   */
+/*   ft_reverse.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/10 04:12:04 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/10 05:05:38 by cacharle         ###   ########.fr       */
+/*   Created: 2020/02/10 05:07:13 by cacharle          #+#    #+#             */
+/*   Updated: 2020/02/10 05:19:22 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_str.h"
-#include "libft_ctype.h"
+#include "libft_algo.h"
 
-char	*ft_strtolower(char *s)
+void	ft_reverse(void *base, size_t nel, size_t width)
 {
-	int	i;
+	size_t	i;
 
-	if (s == NULL)
-		return (NULL);
-	i = -1;
-	while (s[i])
-		s[i] = ft_tolower(s[i]);
-	return (s);
+	i = 0;
+	nel--;
+	while (i < nel)
+	{
+		ft_memswap(base + i * width, base + nel * width, width);
+		i++;
+		nel--;
+	}
 }

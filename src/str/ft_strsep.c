@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtoupper.c                                    :+:      :+:    :+:   */
+/*   ft_strsep.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/10 04:12:04 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/10 05:05:38 by cacharle         ###   ########.fr       */
+/*   Created: 2020/02/10 04:44:11 by cacharle          #+#    #+#             */
+/*   Updated: 2020/02/10 04:51:15 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_str.h"
-#include "libft_ctype.h"
 
-char	*ft_strtolower(char *s)
+char	*ft_strsep(char **stringp, const char *delim)
 {
-	int	i;
+	char	*tmp;
 
-	if (s == NULL)
+	if (stringp == NULL || *stringp == NULL || delim == NULL)
 		return (NULL);
-	i = -1;
-	while (s[i])
-		s[i] = ft_tolower(s[i]);
-	return (s);
+	tmp = ft_strpbrk(*stringp, delim);
+	if (tmp == NULL)
+		return (NULL);
+	*tmp = '\0';
+	*stringp = tmp;
+	return (tmp);
 }

@@ -1,26 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtoupper.c                                    :+:      :+:    :+:   */
+/*   ft_isblank.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/10 04:12:04 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/10 05:05:38 by cacharle         ###   ########.fr       */
+/*   Created: 2020/02/10 05:17:45 by cacharle          #+#    #+#             */
+/*   Updated: 2020/02/10 05:18:34 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_str.h"
-#include "libft_ctype.h"
-
-char	*ft_strtolower(char *s)
+int	ft_isblank(int c)
 {
-	int	i;
-
-	if (s == NULL)
-		return (NULL);
-	i = -1;
-	while (s[i])
-		s[i] = ft_tolower(s[i]);
-	return (s);
+	return (c == ' ' || c == '\t');
 }
