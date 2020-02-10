@@ -6,11 +6,11 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/19 07:25:51 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/19 08:28:32 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/02/10 02:55:14 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_algo.h"
 
 static t_ftrange	ft_range_new(int lo, int hi)
 {

@@ -6,13 +6,14 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/19 07:17:15 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/19 08:21:12 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/02/10 02:51:41 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "libft_algo.h"
 
-t_bool	ft_is_set(void *base, size_t nel, size_t width,
+t_ftbool	ft_is_set(void *base, size_t nel, size_t width,
 						t_ftcompar_func compar)
 {
 	size_t	i;
