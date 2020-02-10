@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strtoupper.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 10:16:07 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/10 04:18:11 by cacharle         ###   ########.fr       */
+/*   Created: 2020/02/10 04:12:04 by cacharle          #+#    #+#             */
+/*   Updated: 2020/02/10 04:12:17 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_str.h"
+#include "libft_ctype.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+char	*ft_strtolower(char *s)
 {
-	while (*s1 && *s2 && *s1 == *s2)
-	{
-		s1++;
-		s2++;
-	}
-	return (*s1 - *s2);
+	int	i;
+
+	if (s == NULL)
+		return (NULL);
+	i = -1;
+	while (s[i])
+		s[i] = ft_tolower(s[i]);
+	return (s);
 }

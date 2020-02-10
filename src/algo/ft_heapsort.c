@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 02:59:22 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/10 03:57:50 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/02/10 04:22:19 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,10 @@
 int		ft_heapsort(void *base, size_t nel, size_t width,
 				int (*compar)(const void *, const void *))
 {
+	(void)base;
+	(void)nel;
+	(void)width;
+	(void)compar;
 	/* size_t	i; */
     /*  */
 	/* if (nel < 2) */
