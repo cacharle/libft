@@ -1,34 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_getchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 09:45:02 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/10 02:19:47 by cacharle         ###   ########.fr       */
+/*   Created: 2020/01/18 10:29:54 by cacharle          #+#    #+#             */
+/*   Updated: 2020/01/18 10:46:56 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdlib.h>
-# include <stddef.h>
-# include <limits.h>
-# include <errno.h>
+char	ft_getchar(void)
+{
+	char	c;
 
-# include "libft_types.h"
-# include "libft_ctype.h"
-# include "libft_io.h"
-# include "libft_mem.h"
-# include "libft_str.h"
-
-# ifdef __linux__
-#  include <stdio.h>
-#  define OPEN_MAX FOPEN_MAX
-# endif
-
-#endif
+	if (read(STDIN_FILENO, &c, 1) < 0)
+		return (-1);
+	return (c);
+}

@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 10:26:45 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/17 10:54:41 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/02/10 02:21:16 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 #define STRTOL_STD_BASE "0123456789abcdefghijklmnopqrstuvwxyz"
 
-static int	strtol_handle_base(int base, const char **str)
+static int	st_strtol_handle_base(int base, const char **str)
 {
+	if (base > 36)
+		return (-1);
 	if (base != 16 && base != 0)
 		return (base);
 	if (base == 16 && **str == '0' && (*str)[1] == 'x')
@@ -37,7 +39,7 @@ static int	strtol_handle_base(int base, const char **str)
 	return (10);
 }
 
-static long	errno_return(int err)
+static long	st_errno_return(int err)
 {
 	errno = err;
 	return (0);
@@ -55,17 +57,17 @@ long		ft_strtol(const char *str, char **endptr, int base)
 	long long	nb;
 	char		base_str[37];
 
-	if (base > 36)
-		return (errno_return(EINVAL));
 	while (ft_isspace(*str))
 		str++;
 	is_negative = *str == '-' ? TRUE : FALSE;
 	if (*str == '-' || *str == '+')
 		str++;
-	base = strtol_handle_base(base, &str);
+	if ((base = st_strtol_handle_base(base, &str)) == -1)
+		return (st_errno_return(EINVAL));
 	ft_strncpy(base_str, STRTOL_STD_BASE, base);
+	base_str[base] = '\0';
 	nb = 0;
-	while (ft_strchr(base_str, *str) != base_str + base)
+	while (*str != '\0' && ft_strchr(base_str, *str) != NULL)
 	{
 		nb *= base;
 		nb += ft_strchr(base_str, ft_tolower(*str++)) - base_str;

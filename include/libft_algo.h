@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_algo.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 09:45:02 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/10 02:19:47 by cacharle         ###   ########.fr       */
+/*   Created: 2020/01/19 07:22:57 by cacharle          #+#    #+#             */
+/*   Updated: 2020/02/10 02:21:47 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef LIBFT_ALGO_H
+# define LIBFT_ALGO_H
 
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdlib.h>
-# include <stddef.h>
-# include <limits.h>
-# include <errno.h>
+typedef int	t_bool;
 
-# include "libft_types.h"
-# include "libft_ctype.h"
-# include "libft_io.h"
-# include "libft_mem.h"
-# include "libft_str.h"
+typedef struct
+{
+	int		lo;
+	int		hi;
+}			t_ftrange;
 
-# ifdef __linux__
-#  include <stdio.h>
-#  define OPEN_MAX FOPEN_MAX
-# endif
+typedef int	(*t_ftcompar_func)(const void*, const void*);
+
+t_bool		ft_is_set(void *base, size_t nel, size_t width,
+						t_ftcompar_func compar);
+void		ft_qsort(void *base, size_t nel, size_t width,
+						t_ftcompar_func compar);
+int			ft_compar_int(const void *a, const void *b);
 
 #endif

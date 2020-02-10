@@ -6,7 +6,7 @@
 #    By: cacharle <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/08 15:45:53 by cacharle          #+#    #+#              #
-#    Updated: 2020/01/31 09:20:36 by cacharle         ###   ########.fr        #
+#    Updated: 2020/02/10 02:18:58 by cacharle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,8 @@ INCLUDE_DIR = include
 OBJ_DIR = obj
 SCRIPT_DIR = script
 TEST_DIR = test
+
+INCLUDE_DIR = include
 
 CC = gcc
 CCFLAGS = -I$(INCLUDE_DIR) -Wall -Wextra -Werror

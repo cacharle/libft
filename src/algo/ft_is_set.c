@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_is_set.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 09:45:02 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/10 02:19:47 by cacharle         ###   ########.fr       */
+/*   Created: 2020/01/19 07:17:15 by cacharle          #+#    #+#             */
+/*   Updated: 2020/01/19 08:21:12 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdlib.h>
-# include <stddef.h>
-# include <limits.h>
-# include <errno.h>
+t_bool	ft_is_set(void *base, size_t nel, size_t width,
+						t_ftcompar_func compar)
+{
+	size_t	i;
 
-# include "libft_types.h"
-# include "libft_ctype.h"
-# include "libft_io.h"
-# include "libft_mem.h"
-# include "libft_str.h"
-
-# ifdef __linux__
-#  include <stdio.h>
-#  define OPEN_MAX FOPEN_MAX
-# endif
-
-#endif
+	if (nel < 2)
+		return (TRUE);
+	ft_qsort(base, nel, width, compar);
+	i = 0;
+	while (i < nel - 1)
+	{
+		if (compar(base + (i * width), base + ((i + 1) * width)) == 0)
+			return (FALSE);
+		i++;
+	}
+	return (TRUE);
+}
