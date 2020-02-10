@@ -6,13 +6,14 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 10:36:39 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/31 10:36:41 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/02/10 02:12:26 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_LST_H
 # define LIBFT_LST_H
 
+# include <stdlib.h>
 # include "libft_types.h"
 
 typedef struct		s_ftlst
@@ -30,7 +31,7 @@ void				ft_lstdelone(t_ftlst *lst, void (*del)(void *));
 void				ft_lstclear(t_ftlst **lst, void (*del)(void *));
 void				ft_lstiter(t_ftlst *lst, void (*f)(void *));
 t_ftlst				*ft_lstmap(t_ftlst *lst, void *(*f)(void *),
-								void (*del)(void *));
+						void (*del)(void *));
 void				ft_lstpop_front(t_ftlst **lst, void (*del)(void *));
 t_ftlst				*ft_lstreverse_ret(t_ftlst *lst);
 void				ft_lstreverse(t_ftlst **lst);
@@ -39,5 +40,8 @@ void				ft_lstremove_if(t_ftlst **lst,
 						void (*del)(void *content));
 t_ftlst				*ft_lstbsearch(t_ftlst *lst,
 						t_ftbool (*equal)(void *ref, void *content), void *ref);
+void				ft_lstsort(t_ftlst **begin_list, int (*cmp)(void *, void*));
+t_ftlst				*ft_lstsorted_merge(t_ftlst *l1, t_ftlst *l2,
+						int (*cmp)(void *, void *));
 
 #endif
