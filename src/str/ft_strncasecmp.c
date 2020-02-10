@@ -6,14 +6,14 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 04:18:36 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/10 04:21:10 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/02/10 04:31:38 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "libft_types.h"
 
-int	strncasecmp(const char *s1, const char *s2, size_t n)
+int	ft_strncasecmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
 
