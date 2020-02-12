@@ -2,6 +2,7 @@
 # define LIBFT_TEST_H
 
 # include <string.h>
+# include <ctype.h>
 # include <sys/wait.h>
 
 # include "unity.h"
