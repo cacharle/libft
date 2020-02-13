@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_types.h                                      :+:      :+:    :+:   */
+/*   ft_memset_pattern4.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/31 10:36:56 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/13 03:07:56 by cacharle         ###   ########.fr       */
+/*   Created: 2020/02/13 03:06:41 by cacharle          #+#    #+#             */
+/*   Updated: 2020/02/13 03:10:42 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_TYPES_H
-# define LIBFT_TYPES_H
+#include "libft_mem.h"
 
-# define TRUE 1
-# define FALSE 0
+void	ft_memset_pattern4(void *b, const void *pattern4, size_t len)
+{
+	int	i;
 
-typedef unsigned char		t_ftbyte;
-typedef int					t_ftbool;
-typedef unsigned int		t_ftsize;
-
-typedef char				t_ftchar;
-typedef unsigned char		t_ftuchar;
-typedef int					t_ftint;
-typedef unsigned int		t_ftuint;
-typedef long int			t_ftlong;
-typedef unsigned long int	t_ftulong;
-
-#endif
+	i = len / 4;
+	while (i-- > 0)
+		((int*)b)[i] = *(int*)pattern4;
+	i = len % 4;
+	while (i-- > 0)
+		((int*)b)[len / 4 + i] = ((t_ftbyte*)pattern4)[i];
+}
