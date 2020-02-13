@@ -35,6 +35,16 @@ static void run_all_test(void)
 	RUN_TEST_GROUP(ft_htget);
 	RUN_TEST_GROUP(ft_htset);
 
+	// algo
+	RUN_TEST_GROUP(ft_bsearch);
+	RUN_TEST_GROUP(ft_compar_int);
+	RUN_TEST_GROUP(ft_heapsort);
+	RUN_TEST_GROUP(ft_is_set);
+	RUN_TEST_GROUP(ft_lfind);
+	RUN_TEST_GROUP(ft_lsearch);
+	RUN_TEST_GROUP(ft_mergesort);
+	RUN_TEST_GROUP(ft_qsort);
+	RUN_TEST_GROUP(ft_reverse);
 }
 
 int main(int argc, const char **argv)

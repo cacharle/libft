@@ -11,6 +11,7 @@
 # include "unity.h"
 # include "unity_fixture.h"
 # include "libft.h"
+# include "libft_algo.h"
 # include "libft_ht.h"
 
 # include "helper/helper_segfault.h"

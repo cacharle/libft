@@ -46,17 +46,18 @@ Much like the `.gitignore` file, you can put the files/directory to ignore when 
 
 ### algo
 
-| Name          | Prototype | Description | Tested |
-|---------------|-----------|-------------|--------|
-| ft_bsearch    |  |  | [ ] |
-| ft_compar_int |  |  | [ ] |
-| ft_heapsort   |  |  | [ ] |
-| ft_is_set     |  |  | [ ] |
-| ft_lfind      |  |  | [ ] |
-| ft_lsearch    |  |  | [ ] |
-| ft_mergesort  |  |  | [ ] |
-| ft_qsort      |  |  | [ ] |
-| ft_reverse    |  |  | [ ] |
+
+| Name          | Prototype                                                                                           | Description                                                                        | Tested |
+|---------------|-----------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|--------|
+| ft_bsearch    | `void *ft_bsearch(const void *base, size_t nel, size_t width, t_ftsearch_const *consts)`            | search `consts.key` in `base` using binary search (NULL if not found)              | [x]    |
+| ft_compar_int | `int ft_compar_int(const void *a, const void *b)`                                                   | comparison function of `int`                                                       | [x]    |
+| ft_heapsort   | `int ft_heapsort(void *base, size_t nel, size_t width, int (*compar)(const void *, const void *))`  | sort `base` using heapsort                                                         | [?]    |
+| ft_is_set     | `t_ftbool ft_is_set(void *base, size_t nel, size_t width, t_ftcompar_func compar)`                  | check is `base` has unique elements                                                | [x]    |
+| ft_lfind      | `void *ft_lfind(const void *base, size_t *nelp, size_t width, t_ftsearch_const *consts)`            | search `consts.key` in `base` using linear search (NULL if not found)              | [x]    |
+| ft_lsearch    | `void *ft_lsearch(const void *base, size_t *nelp, size_t width, t_ftsearch_const *consts)`          | search `consts.key` in `base` using linear search (insert at the end if not found) | [x]    |
+| ft_mergesort  | `int ft_mergesort(void *base, size_t nel, size_t width, int (*compar)(const void *, const void *))` | sort `base` using mergesort                                                        | [x]    |
+| ft_qsort      | `void ft_qsort(void *base, size_t nel, size_t width, t_ftcompar_func compar)`                       | sort `base` using quicksort                                                        | [x]    |
+| ft_reverse    | `void ft_reverse(void *base, size_t nel, size_t width)`                                             | reverse `base`                                                                     | [x]    |
 
 ### bt
 
