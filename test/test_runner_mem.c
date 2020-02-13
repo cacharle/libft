@@ -1,0 +1,12 @@
+test_ft_bzero.c
+test_ft_calloc.c
+test_ft_memalloc.c
+test_ft_memccpy.c
+test_ft_memchr.c
+test_ft_memcmp.c
+test_ft_memcpy.c
+test_ft_memmem.c
+test_ft_memmove.c
+test_ft_memset.c
+test_ft_memset_pattern4.c
+test_ft_memswap.c
