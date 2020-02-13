@@ -4,6 +4,9 @@
 # include <string.h>
 # include <ctype.h>
 # include <sys/wait.h>
+# ifdef __APPLE__
+#  include <malloc/malloc.h>
+# endif
 
 # include "unity.h"
 # include "unity_fixture.h"

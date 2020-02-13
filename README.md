@@ -30,48 +30,44 @@ Much like the `.gitignore` file, you can put the files/directory to ignore when 
 
 ### mem
 
-
-
-
-
 | Name               | Prototype                                                                                 | Description                                                                        | Tested |
 |--------------------|-------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|--------|
 | ft_bzero           | `void ft_bzero(void *s, size_t n)`                                                        | fill `n` bytes of `s` with 0                                                       | [x]    |
-| ft_calloc          | `void *ft_calloc(size_t count, size_t size)`                                              | allocate `count` element of `size` and initialize them to 0                        | [ ]    |
-| ft_memccpy         | `void *ft_memccpy(void *dest, const void *src, int c, size_t n)`                          | copy `n` byte from `src` to `dest` until `c` is reached                            | [ ]    |
-| ft_memchr          | `void *ft_memchr(const void *s, int c, size_t n)`                                         | return the address of the first occurance of `c` in `s` or NULL if `c` isn't found | [ ]    |
-| ft_memcmp          | `int	 ft_memcmp(const void *s1, const void *s2, size_t n)`                                | compare `n` byte of `s1` and `s2`                                                  | [ ]    |
+| ft_calloc          | `void *ft_calloc(size_t count, size_t size)`                                              | allocate `count` element of `size` and initialize them to 0                        | [x]    |
+| ft_memccpy         | `void *ft_memccpy(void *dest, const void *src, int c, size_t n)`                          | copy `n` byte from `src` to `dest` until `c` is reached                            | [x]    |
+| ft_memchr          | `void *ft_memchr(const void *s, int c, size_t n)`                                         | return the address of the first occurance of `c` in `s` or NULL if `c` isn't found | [x]    |
+| ft_memcmp          | `int	 ft_memcmp(const void *s1, const void *s2, size_t n)`                                | compare `n` byte of `s1` and `s2`                                                  | [x]    |
 | ft_memcpy          | `void *ft_memcpy(void *dest, const void *src, size_t n)`                                  | copy `n` byte from `src` to `dest`                                                 | [x]    |
-| ft_memmem          | `void *ft_memmem(const void *big, size_t big_len, const void *little, size_t little_len)` | search `little` in `big`                                                           | [ ]    |
-| ft_memmove         | `void *ft_memmove(void *dst, const void *src, size_t len)`                                | copy `len` byte from `src` to `dst` and the copied memory can overlap              | [ ]    |
+| ft_memmem          | `void *ft_memmem(const void *big, size_t big_len, const void *little, size_t little_len)` | search `little` in `big`                                                           | [x]    |
+| ft_memmove         | `void *ft_memmove(void *dst, const void *src, size_t len)`                                | copy `len` byte from `src` to `dst` and the copied memory can overlap              | [x]    |
 | ft_memset          | `void *ft_memset(void *s, int c, size_t n)`                                               | set `n` byte of `s` to `c`                                                         | [x]    |
-| ft_memset_pattern4 | `void ft_memset_pattern4(void *b, const void *pattern4, size_t len)`                      | set `len` byte of `b` to a reapeated pattern of 4 bytes                            | [ ]    |
+| ft_memset_pattern4 | `void ft_memset_pattern4(void *b, const void *pattern4, size_t len)`                      | set `len` byte of `b` to a reapeated pattern of 4 bytes                            | [x]    |
 | ft_memswap         | `void ft_memswap(void *a, void *b, size_t size)`                                          | swap `a` and `b` memory                                                            | [x]    |
 
 ### algo
 
-| Name | prototype | description | tested |
-|------|-----------|-------------|--------|
-| ft_bsearch |  |  |  |
-| ft_compar_int |  |  |  |
-| ft_heapsort |  |  |  |
-| ft_is_set |  |  |  |
-| ft_lfind |  |  |  |
-| ft_lsearch |  |  |  |
-| ft_mergesort |  |  |  |
-| ft_qsort |  |  |  |
-| ft_reverse |  |  |  |
+| Name          | Prototype | Description | Tested |
+|---------------|-----------|-------------|--------|
+| ft_bsearch    |  |  | [ ] |
+| ft_compar_int |  |  | [ ] |
+| ft_heapsort   |  |  | [ ] |
+| ft_is_set     |  |  | [ ] |
+| ft_lfind      |  |  | [ ] |
+| ft_lsearch    |  |  | [ ] |
+| ft_mergesort  |  |  | [ ] |
+| ft_qsort      |  |  | [ ] |
+| ft_reverse    |  |  | [ ] |
 
 ### bt
 
-| Name | prototype | description | tested |
-|------|-----------|-------------|--------|
+| Name         | Prototype | Description | Tested |
+|--------------|-----------|-------------|--------|
 | ft_btdestroy |  |  |  |
-| ft_btnew |  |  |  |
+| ft_btnew     |  |  |  |
 
 ### ctype
 
-| Name       | Prototype               | Description                                        | tested |
+| Name       | Prototype               | Description                                        | Tested |
 |------------|-------------------------|----------------------------------------------------|--------|
 | ft_isalnum | `int	ft_isalnum(int c)` | c is alphanumeric                                  | [x]    |
 | ft_isalpha | `int	ft_isalpha(int c)` | c is alphabetic                                    | [x]    |
@@ -86,68 +82,68 @@ Much like the `.gitignore` file, you can put the files/directory to ignore when 
 
 ### ht
 
-| Name | prototype | description | tested |
-|------|-----------|-------------|--------|
+| Name             | Prototype | Description | Tested |
+|------------------|-----------|-------------|--------|
 | ft_htcontent_new |  |  |  |
-| ft_htdelone |  |  |  |
-| ft_htdelone_key |  |  |  |
-| ft_htdestroy |  |  |  |
+| ft_htdelone      |  |  |  |
+| ft_htdelone_key  |  |  |  |
+| ft_htdestroy     |  |  |  |
 | ft_htdestroy_all |  |  |  |
 | ft_htdestroy_key |  |  |  |
-| ft_htget |  |  |  |
-| ft_hthash |  |  |  |
-| ft_htnew |  |  |  |
-| ft_htset |  |  |  |
+| ft_htget         |  |  |  |
+| ft_hthash        |  |  |  |
+| ft_htnew         |  |  |  |
+| ft_htset         |  |  |  |
 
 ### io
 
-| Name | prototype | description | tested |
-|------|-----------|-------------|--------|
-| ft_getchar |  |  |  |
-| ft_next_line |  |  |  |
-| ft_asprintf |  |  |  |
-| ft_dprintf |  |  |  |
-| ft_printf |  |  |  |
-| ft_snprintf |  |  |  |
-| ft_sprintf |  |  |  |
-| ft_vasprintf |  |  |  |
-| ft_vdprintf |  |  |  |
-| ft_vprintf |  |  |  |
-| ft_vsnprintf |  |  |  |
-| ft_vsprintf |  |  |  |
-| ft_putchar |  |  |  |  |
-| ft_putchar_fd |  |  |  |  |
-| ft_putendl |  |  |  |  |
-| ft_putendl_fd |  |  |  |  |
-| ft_putnbr |  |  |  |  |
-| ft_putnbr_fd |  |  |  |  |
-| ft_putstr |  |  |  |  |
-| ft_putstr_fd |  |  |  |  |
+| Name          | Prototype | Description | Tested |
+|---------------|-----------|-------------|--------|
+| ft_getchar    |  |  |  |
+| ft_next_line  |  |  |  |
+| ft_asprintf   |  |  |  |
+| ft_dprintf    |  |  |  |
+| ft_printf     |  |  |  |
+| ft_snprintf   |  |  |  |
+| ft_sprintf    |  |  |  |
+| ft_vasprintf  |  |  |  |
+| ft_vdprintf   |  |  |  |
+| ft_vprintf    |  |  |  |
+| ft_vsnprintf  |  |  |  |
+| ft_vsprintf   |  |  |  |
+| ft_putchar    |  |  |  |
+| ft_putchar_fd |  |  |  |
+| ft_putendl    |  |  |  |
+| ft_putendl_fd |  |  |  |
+| ft_putnbr     |  |  |  |
+| ft_putnbr_fd  |  |  |  |
+| ft_putstr     |  |  |  |
+| ft_putstr_fd  |  |  |  |
 
 ### lst
 
-| Name | prototype | description | tested |
+| Name | Prototype | Description | Tested |
 |------|-----------|-------------|--------|
-| ft_lstadd_back |  |  |  |  |
-| ft_lstadd_front |  |  |  |  |
-| ft_lstbsearch |  |  |  |  |
-| ft_lstclear |  |  |  |  |
-| ft_lstdelone |  |  |  |  |
-| ft_lstiter |  |  |  |  |
-| ft_lstlast |  |  |  |  |
-| ft_lstmap |  |  |  |  |
-| ft_lstnew |  |  |  |  |
-| ft_lstpop_front |  |  |  |  |
-| ft_lstremove_if |  |  |  |  |
-| ft_lstreverse |  |  |  |  |
-| ft_lstreverse_ret |  |  |  |  |
-| ft_lstsize |  |  |  |  |
-| ft_lstsort |  |  |  |  |
-| ft_lstsorted_merge |  |  |  |  |
+| ft_lstadd_back     |  |  |  |
+| ft_lstadd_front    |  |  |  |
+| ft_lstbsearch      |  |  |  |
+| ft_lstclear        |  |  |  |
+| ft_lstdelone       |  |  |  |
+| ft_lstiter         |  |  |  |
+| ft_lstlast         |  |  |  |
+| ft_lstmap          |  |  |  |
+| ft_lstnew          |  |  |  |
+| ft_lstpop_front    |  |  |  |
+| ft_lstremove_if    |  |  |  |
+| ft_lstreverse      |  |  |  |
+| ft_lstreverse_ret  |  |  |  |
+| ft_lstsize         |  |  |  |
+| ft_lstsort         |  |  |  |
+| ft_lstsorted_merge |  |  |  |
 
 ### str
 
-| Name | prototype | description | tested |
+| Name | Prototype | Description | Tested |
 |------|-----------|-------------|--------|
 | ft_atoi |  |  |  |  |
 | ft_atoi_strict |  |  |  |  |

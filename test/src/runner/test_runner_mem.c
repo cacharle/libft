@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 03:36:16 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/13 03:39:11 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/02/13 20:40:24 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ TEST_GROUP_RUNNER(ft_memcpy)
 TEST_GROUP_RUNNER(ft_memmem)
 {
 	RUN_TEST_CASE(ft_memmem, basic);
+	RUN_TEST_CASE(ft_memmem, invalid_len);
 }
 
 TEST_GROUP_RUNNER(ft_memmove)
