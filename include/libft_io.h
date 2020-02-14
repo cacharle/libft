@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 10:35:43 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/31 10:35:48 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/02/14 02:23:43 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+
+char	ft_getchar(void);
 
 # ifndef FTNL_BUFFER_SIZE
 #  define FTNL_BUFFER_SIZE 32

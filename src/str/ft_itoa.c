@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 10:19:56 by cacharle          #+#    #+#             */
-/*   Updated: 2019/11/20 03:13:10 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/02/14 03:39:11 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@ char		*ft_itoa(int n)
 		u_nbr /= 10;
 		len++;
 	}
-	if ((str = ft_strnew(len)) == NULL)
+	if ((str = (char*)malloc(sizeof(char) * (len + 1))) == NULL)
 		return (NULL);
+	str[len] = '\0';
 	u_nbr = n < 0 ? -n : n;
 	if (n < 0)
 		str[0] = '-';

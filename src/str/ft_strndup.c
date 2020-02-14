@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 03:28:52 by cacharle          #+#    #+#             */
-/*   Updated: 2019/11/20 04:15:44 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/02/14 03:43:55 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ char		*ft_strndup(const char *s1, size_t n)
 {
 	char	*clone;
 
-	if ((clone = ft_strnew(n)) == NULL)
+	if ((clone = (char*)malloc(sizeof(char) * (n + 1))) == NULL)
 		return (NULL);
+	clone[n] = '\0';
 	return (ft_strncpy(clone, s1, n));
 }

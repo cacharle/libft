@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 10:39:38 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/31 10:39:40 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/02/14 03:38:01 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,11 @@ static int		st_read_line(int fd, char **line, char *rest)
 		{
 			ft_strcpy(rest, buf + split_at + 1);
 			buf[split_at] = '\0';
-			if ((*line = ft_strjoin_free(*line, buf, 1)) == NULL)
+			if ((*line = ft_strjoinf(*line, buf, FT_STRJOINF_FST)) == NULL)
 				return (st_free_return(&buf, NULL, FTNL_STATUS_ERROR));
 			return (st_free_return(&buf, NULL, FTNL_STATUS_LINE));
 		}
-		if ((*line = ft_strjoin_free(*line, buf, 1)) == NULL)
+		if ((*line = ft_strjoinf(*line, buf, FT_STRJOINF_FST)) == NULL)
 			return (st_free_return(&buf, NULL, FTNL_STATUS_ERROR));
 	}
 	if (ret == -1)
