@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 08:33:21 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/14 02:18:00 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/02/16 02:23:23 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ void	*ft_htget(t_ftht *ht, char *key)
 		return (NULL);
 	digest = ft_hthash(ht, key);
 	return (((t_ftht_content*)ft_lstbsearch(ht->entries[digest],
-				(t_ftbool (*)(void*, void*))ft_inter_htkey_equal,
+				ft_inter_htkey_equal,
 				key)->content)->value);
 }

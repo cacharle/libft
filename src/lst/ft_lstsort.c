@@ -6,13 +6,13 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 01:53:55 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/10 02:09:28 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/02/16 02:18:05 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_lst.h"
 
-void	ft_lstsort(t_ftlst **begin_list, int (*cmp)(void *, void*))
+void	ft_lstsort(t_ftlst **begin_list, t_ftcompar_func cmp)
 {
 	t_ftlst	*fast;
 	t_ftlst	*slow;

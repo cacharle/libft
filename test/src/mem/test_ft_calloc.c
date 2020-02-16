@@ -19,6 +19,7 @@ TEST(ft_calloc, basic)
 #endif
 	for (int i = 0; i < 45; i++)
 		TEST_ASSERT_EQUAL(0x0, ptr[i]);
+	/* free(ptr); */
 
 	int *ptrint = NULL;
 	ptrint = ft_calloc(10, sizeof(int));
@@ -28,4 +29,5 @@ TEST(ft_calloc, basic)
 #endif
 	for (int i = 0; i < 10; i++)
 		TEST_ASSERT_EQUAL(0x0, ptrint[i]);
+	/* free(ptrint); */
 }

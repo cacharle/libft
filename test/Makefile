@@ -6,7 +6,7 @@
 #    By: cacharle <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/15 04:35:44 by cacharle          #+#    #+#              #
-#    Updated: 2020/02/15 04:35:45 by cacharle         ###   ########.fr        #
+#    Updated: 2020/02/15 22:46:20 by cacharle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,10 @@ run: all
 run_v: all
 	@echo "Test: Running"
 	@./$(NAME) -v
+
+run_s: all
+	@echo "Test: Running"
+	@./$(NAME) -s
 
 $(NAME): libft_all $(OBJ)
 	@echo "Test: Linking: $@"

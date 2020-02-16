@@ -36,4 +36,6 @@ TEST(ft_lstadd_back, basic)
 	TEST_ASSERT_NOT_NULL(lst->next->next);
 	TEST_ASSERT_EQUAL_PTR(&c, lst->next->next->content);
 	TEST_ASSERT_EQUAL(c, *(int*)lst->next->next->content);
+
+	ft_lstclear(&lst, NULL);
 }

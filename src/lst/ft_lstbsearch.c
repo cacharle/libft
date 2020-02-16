@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 09:17:51 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/31 10:42:22 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/02/16 04:40:16 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static t_ftlst	*st_lstmiddle(t_ftlst *lst, t_ftlst *last)
 	while (fast != last)
 	{
 		fast = fast->next;
-		if (fast == NULL)
+		if (fast == last)
 			break ;
 		slow = slow->next;
 		fast = fast->next;
@@ -34,24 +34,32 @@ static t_ftlst	*st_lstmiddle(t_ftlst *lst, t_ftlst *last)
 }
 
 static t_ftlst	*st_lstbsearch_rec(t_ftlst *lst, t_ftlst *last,
-						t_ftbool (*equal)(void *ref, void *content), void *ref)
+					t_ftcompar_func cmp, const void *ref)
 {
+	int		res;
 	t_ftlst	*mid;
-	t_ftlst	*left;
 
 	if (lst == NULL)
 		return (NULL);
 	mid = st_lstmiddle(lst, last);
-	if ((*equal)(ref, mid->content))
-		return (mid);
-	left = st_lstbsearch_rec(lst, mid, equal, ref);
-	if (left != NULL)
-		return (left);
-	return (st_lstbsearch_rec(mid, NULL, equal, ref));
+	if (mid == NULL)
+		return NULL;
+	if (mid->next == NULL)
+	{
+		if (cmp(ref, mid->content) == 0)
+			return (mid);
+		return NULL;
+	}
+	res = cmp(ref, mid->next->content);
+	if (res < 0)
+		return (st_lstbsearch_rec(lst, mid, cmp, ref));
+	else if (res > 0)
+		return (st_lstbsearch_rec(mid->next->next, NULL, cmp, ref));
+	return (mid->next);
 }
 
-t_ftlst			*ft_lstbsearch(t_ftlst *lst,
-						t_ftbool (*equal)(void *ref, void *content), void *ref)
+t_ftlst				*ft_lstbsearch(t_ftlst *lst, t_ftcompar_func cmp,
+									const void *ref)
 {
-	return (st_lstbsearch_rec(lst, NULL, equal, ref));
+	return (st_lstbsearch_rec(lst, NULL, cmp, ref));
 }

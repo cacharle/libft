@@ -10,5 +10,5 @@ TEST_TEAR_DOWN(ft_lstclear)
 
 TEST(ft_lstclear, basic)
 {
-
+	TEST_PASS();  // how to test free?
 }

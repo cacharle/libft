@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 10:36:09 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/14 02:14:57 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/02/16 02:23:06 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ t_ftht_content		*ft_htcontent_new(char *key, void *value);
 */
 
 void				ft_inter_htdelcontent_key(t_ftht_content *content);
-t_ftbool			ft_inter_htkey_equal(char *ref_key,
-						t_ftht_content *content);
+int					ft_inter_htkey_equal(const void *ref_key,
+											const void *content);
 
 #endif

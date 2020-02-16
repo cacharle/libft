@@ -32,4 +32,6 @@ TEST(ft_lstsize, basic)
 	TEST_ASSERT_EQUAL(8, ft_lstsize(lst));
 	ft_lstadd_front(&lst, ft_lstnew(&a));
 	TEST_ASSERT_EQUAL(9, ft_lstsize(lst));
+
+	ft_lstclear(&lst, NULL);
 }
