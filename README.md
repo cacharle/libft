@@ -84,14 +84,14 @@ Much like the `.gitignore` file, you can put the files/directory to ignore when 
 
 | Name             | Prototype                                                               | Description                                               | Tested |
 |------------------|-------------------------------------------------------------------------|-----------------------------------------------------------|--------|
-| ft_htcontent_new | `t_ftht_content *ft_htcontent_new(char *key, void *value)`              | create a new key/value pair                               | [ ]    |
+| ft_htcontent_new | `t_ftht_content *ft_htcontent_new(char *key, void *value)`              | create a new key/value pair                               | [x]    |
 | ft_htdelone      | `void ft_htdelone(t_ftht *ht, char *key, void (*del)(t_ftht_content*))` | delete element at `key`                                   | [ ]    |
 | ft_htdelone_key  | `void ft_htdelone_key(t_ftht *ht, char *key)`                           | delete element at `key` and free `key`                    | [ ]    |
 | ft_htdestroy     | `void ft_htdestroy(t_ftht *ht, void (*del)(t_ftht_content*))`           | destroy `ht` with the `del` functions applied on values   | [ ]    |
 | ft_htdestroy_all | `void ft_htdestroy_all(t_ftht *ht)`                                     | destroy `ht`, free keys and values                        | [ ]    |
 | ft_htdestroy_key | `void ft_htdestroy_key(t_ftht *ht)`                                     | destroy `ht`, free keys                                   | [ ]    |
 | ft_htget         | `void *ft_htget(t_ftht *ht, char *key)`                                 | return value at `key`                                     | [ ]    |
-| ft_htnew         | `t_ftht *ft_htnew(t_ftsize size)`                                       | create a new hash table with a underlying array of `size` | [ ]    |
+| ft_htnew         | `t_ftht *ft_htnew(t_ftsize size)`                                       | create a new hash table with a underlying array of `size` | [x]    |
 | ft_htset         | `t_ftht_content *ft_htset(t_ftht *ht, char *key, void *value)`          | set `key` to value, if element doesn't exist, create it   | [ ]    |
 
 ### io

@@ -31,6 +31,7 @@ static void run_all_test(void)
 	RUN_TEST_GROUP(ft_strlen);
 
 	// ht
+	RUN_TEST_GROUP(ft_htcontent_new);
 	RUN_TEST_GROUP(ft_htnew);
 	RUN_TEST_GROUP(ft_htget);
 	RUN_TEST_GROUP(ft_htset);

@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 10:36:09 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/17 03:06:32 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/02/17 04:54:05 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void				ft_htdestroy(t_ftht *ht, void (*del)(t_ftht_content*));
 void				ft_htdestroy_all(t_ftht *ht);
 void				ft_htdestroy_key(t_ftht *ht);
 void				*ft_htget(t_ftht *ht, char *key);
-t_ftht_content		*ft_htset(t_ftht *ht, char *key, void *value);
+t_ftht_content		*ft_htset(t_ftht *ht, char *key, void *value, void (*del)(void*));
 void				ft_htdelone(t_ftht *ht, char *key,
 								void (*del)(t_ftht_content*));
 void				ft_htdelone_key(t_ftht *ht, char *key);

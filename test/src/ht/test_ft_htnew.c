@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 22:30:06 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/12 22:30:09 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/02/17 04:18:20 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int helper_segfault_pid;
 
 TEST(ft_htnew, segfault)
 {
-	TEST_IGNORE();
 	TEST_ASSERT_SEGFAULT(ft_htnew(10));
 	TEST_ASSERT_SEGFAULT(ft_htnew(0));
 	TEST_ASSERT_SEGFAULT(ft_htnew((1 << 14) + 1));
@@ -32,20 +31,17 @@ TEST(ft_htnew, segfault)
 
 TEST(ft_htnew, error_null)
 {
-	TEST_IGNORE();
-	TEST_ASSERT_NOT_NULL(ft_htnew(10));  // leak
+	TEST_ASSERT_NOT_NULL(ft_htnew(10));
 	TEST_ASSERT_NULL(ft_htnew(0));
-	TEST_ASSERT_NULL(ft_htnew((1 << 14) + 1));
 }
 
 TEST(ft_htnew, happy_path)
 {
-	TEST_IGNORE();
 	t_ftht *ht;
 
 	ht = ft_htnew(10);
 	TEST_ASSERT_NOT_NULL(ht);
-	TEST_ASSERT_EQUAL(ht->size, 10);
+	TEST_ASSERT_EQUAL(10, ht->size);
 	TEST_ASSERT_NOT_NULL(ht->entries);
 	for (t_ftsize i = 0; i < ht->size; i++)
 		TEST_ASSERT_NULL(ht->entries[i]);
