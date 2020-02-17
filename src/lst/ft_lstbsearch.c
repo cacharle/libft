@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 09:17:51 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/16 04:40:16 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/02/17 03:03:21 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,12 @@ static t_ftlst	*st_lstbsearch_rec(t_ftlst *lst, t_ftlst *last,
 		return (NULL);
 	mid = st_lstmiddle(lst, last);
 	if (mid == NULL)
-		return NULL;
+		return (NULL);
 	if (mid->next == NULL)
 	{
 		if (cmp(ref, mid->content) == 0)
 			return (mid);
-		return NULL;
+		return (NULL);
 	}
 	res = cmp(ref, mid->next->content);
 	if (res < 0)
@@ -58,7 +58,7 @@ static t_ftlst	*st_lstbsearch_rec(t_ftlst *lst, t_ftlst *last,
 	return (mid->next);
 }
 
-t_ftlst				*ft_lstbsearch(t_ftlst *lst, t_ftcompar_func cmp,
+t_ftlst			*ft_lstbsearch(t_ftlst *lst, t_ftcompar_func cmp,
 									const void *ref)
 {
 	return (st_lstbsearch_rec(lst, NULL, cmp, ref));

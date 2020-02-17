@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/15 03:54:05 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/15 03:59:08 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/02/17 03:24:41 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,16 @@ TEST_GROUP_RUNNER(ft_lstadd_front)
 TEST_GROUP_RUNNER(ft_lstbsearch)
 {
 	RUN_TEST_CASE(ft_lstbsearch, basic);
+}
+
+TEST_GROUP_RUNNER(ft_lstlsearch)
+{
+	RUN_TEST_CASE(ft_lstlsearch, basic);
+}
+
+TEST_GROUP_RUNNER(ft_lstlfind)
+{
+	RUN_TEST_CASE(ft_lstlfind, basic);
 }
 
 TEST_GROUP_RUNNER(ft_lstclear)

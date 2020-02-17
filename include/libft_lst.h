@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 10:36:39 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/16 02:15:26 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/02/17 03:05:36 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,10 @@ void				ft_lstremove_if(t_ftlst **lst,
 						t_ftcompar_func cmp, const void *ref,
 						t_ftdel_func del);
 t_ftlst				*ft_lstbsearch(t_ftlst *lst, t_ftcompar_func cmp,
+									const void *ref);
+t_ftlst				*ft_lstlsearch(t_ftlst *lst, t_ftcompar_func cmp,
+									const void *ref);
+t_ftlst				*ft_lstlfind(t_ftlst *lst, t_ftcompar_func cmp,
 									const void *ref);
 void				ft_lstsort(t_ftlst **begin_list, t_ftcompar_func cmp);
 t_ftlst				*ft_lstsorted_merge(t_ftlst *l1, t_ftlst *l2,

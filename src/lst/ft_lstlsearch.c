@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_htdelone.c                                      :+:      :+:    :+:   */
+/*   ft_lstlsearch.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/30 09:27:18 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/17 03:06:58 by cacharle         ###   ########.fr       */
+/*   Created: 2020/02/17 02:57:12 by cacharle          #+#    #+#             */
+/*   Updated: 2020/02/17 03:35:45 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "libft_ht.h"
+#include "libft_lst.h"
 
-void	ft_htdelone(t_ftht *ht, char *key, void (*del)(t_ftht_content*))
+t_ftlst	*ft_lstlsearch(t_ftlst *lst, t_ftcompar_func cmp, const void *ref)
 {
-	ft_lstremove_if(ht->entries + ft_hthash(ht, key),
-			ft_inter_htkey_cmp, key,
-			(void (*)(void*))del);
+	if (lst == NULL)
+		return (ft_lstnew(ref));
+	if (cmp(ref, lst->content) == 0)
+		return (lst);
+	if (lst->next == NULL)
+	{
+		lst->next = ft_lstnew(ref);
+		return (lst->next);
+	}
+	return (ft_lstlsearch(lst->next, cmp, ref));
 }
