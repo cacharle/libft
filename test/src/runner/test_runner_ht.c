@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 22:44:39 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/17 05:02:25 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/02/19 02:46:34 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ TEST_GROUP_RUNNER(ft_htget)
 {
 	RUN_TEST_CASE(ft_htget, segfault);
 	RUN_TEST_CASE(ft_htget, error_null);
+	RUN_TEST_CASE(ft_htget, basic);
 }
 
 TEST_GROUP_RUNNER(ft_htset)
@@ -37,4 +38,14 @@ TEST_GROUP_RUNNER(ft_htset)
 	RUN_TEST_CASE(ft_htset, happy_path);
 	RUN_TEST_CASE(ft_htset, reset);
 	RUN_TEST_CASE(ft_htset, collision);
+}
+
+TEST_GROUP_RUNNER(ft_htdelone)
+{
+	RUN_TEST_CASE(ft_htdelone, basic);
+}
+
+TEST_GROUP_RUNNER(ft_htdestroy)
+{
+	RUN_TEST_CASE(ft_htdestroy, basic);
 }

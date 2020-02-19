@@ -35,6 +35,8 @@ static void run_all_test(void)
 	RUN_TEST_GROUP(ft_htnew);
 	RUN_TEST_GROUP(ft_htget);
 	RUN_TEST_GROUP(ft_htset);
+	RUN_TEST_GROUP(ft_htdelone);
+	RUN_TEST_GROUP(ft_htdestroy);
 
 	// algo
 	RUN_TEST_GROUP(ft_bsearch);

@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 09:36:49 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/16 03:57:07 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/02/19 02:06:22 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_lstremove_if(t_ftlst **lst, t_ftcompar_func cmp,
 
 	if (lst == NULL || *lst == NULL)
 		return ;
-	if (cmp((*lst)->content, ref) == 0)
+	if (cmp(ref, (*lst)->content) == 0)
 	{
 		saved_next = (*lst)->next;
 		ft_lstdelone(*lst, del);

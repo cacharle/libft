@@ -10,10 +10,17 @@
 
 # include "unity.h"
 # include "unity_fixture.h"
+
+# undef free
+# undef malloc
+
+# include <stdlib.h>
+
 # include "libft.h"
 # include "libft_algo.h"
 # include "libft_ht.h"
 
 # include "helper/helper_segfault.h"
+
 
 #endif
