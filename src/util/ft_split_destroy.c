@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_htnew.c                                         :+:      :+:    :+:   */
+/*   ft_split_destroy.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/30 08:19:16 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/28 12:23:43 by cacharle         ###   ########.fr       */
+/*   Created: 2020/02/27 16:30:55 by cacharle          #+#    #+#             */
+/*   Updated: 2020/02/27 17:52:31 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "libft_ht.h"
+#include "libft_util.h"
 
-t_ftht	*ft_htnew(t_ftsize size)
+void	*ft_split_destroy(char **strs)
 {
-	t_ftht	*ht;
+	int	i;
 
-	if (size == 0)
-		return (NULL);
-	if ((ht = (t_ftht*)malloc(sizeof(t_ftht))) == NULL)
-		return (NULL);
-	ht->entries = (t_ftht_entry*)ft_calloc(size, sizeof(t_ftht_entry));
-	if (ht->entries == NULL)
-	{
-		free(ht);
-		return (NULL);
-	}
-	ht->size = size;
-	return (ht);
+	i = -1;
+	while (strs[++i] != NULL)
+		free(strs[i]);
+	free(strs);
+	return (NULL);
 }
