@@ -13,6 +13,13 @@
 #include "libft.h"
 #include "libft_ht.h"
 
+/*
+** Create/Update a entry in an hash table.
+** If `key` already exist in `ht`, updates only the list element content.
+** else create a new list node in addition the list content.
+** Return a pointer to the created entry, NULL if an allocation failed.
+*/
+
 t_ftht_content	*ft_htset(t_ftht *ht, char *key, void *value,
 							void (*del)(t_ftht_content*))
 {
@@ -30,14 +37,13 @@ t_ftht_content	*ft_htset(t_ftht *ht, char *key, void *value,
 	if (tmp != NULL)
 	{
 		if (del != NULL)
-			(*del)(tmp->content);
+			del(tmp->content);
 		tmp->content = content;
 		return ((t_ftht_content*)tmp->content);
 	}
-
 	if ((entry = ft_lstnew(content)) == NULL)
 	{
-		free(content);
+		del(content);
 		return (NULL);
 	}
 	ft_lstadd_front(ht->entries + digest, entry);

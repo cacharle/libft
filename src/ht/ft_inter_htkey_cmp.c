@@ -13,6 +13,10 @@
 #include "libft.h"
 #include "libft_ht.h"
 
+/*
+** Hash table internal function to compare key string in linked list.
+*/
+
 int	ft_inter_htkey_cmp(const void *ref_key, const void *content)
 {
 	if (ref_key == NULL || content == NULL)

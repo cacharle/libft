@@ -13,9 +13,14 @@
 #include "libft.h"
 #include "libft_ht.h"
 
+/*
+** Retrieve a value with associated key.
+** Returns NULL if there is no value at `key`.
+*/
+
 void	*ft_htget(t_ftht *ht, char *key)
 {
-	
+
 	t_ftht_digest	digest;
 	t_ftlst			*found;
 

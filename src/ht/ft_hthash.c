@@ -12,6 +12,11 @@
 
 #include "libft_ht.h"
 
+/*
+** Hash a string according to the size of the hash table.
+*/
+
+// maybe use a less efficient but understandable function
 t_ftht_digest	ft_hthash(t_ftht *ht, char *key)
 {
 	t_ftht_digest	digest;

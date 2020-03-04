@@ -13,6 +13,11 @@
 #include "libft.h"
 #include "libft_ht.h"
 
+/*
+** Destroy an hash table.
+** The `del` function is used to destroy each key/value pair
+*/
+
 void	ft_htdestroy(t_ftht *ht, void (*del)(t_ftht_content*))
 {
 	if (ht == NULL)

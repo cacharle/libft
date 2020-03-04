@@ -13,6 +13,12 @@
 #include "libft.h"
 #include "libft_ht.h"
 
+/*
+** Create a new hash table key/value pair.
+** `key` is always duplicated.
+** Return a pointer to the created content or NULL is an allocation failed.
+*/
+
 t_ftht_content	*ft_htcontent_new(char *key, void *value)
 {
 	t_ftht_content	*content;

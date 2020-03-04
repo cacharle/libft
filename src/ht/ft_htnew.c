@@ -13,6 +13,12 @@
 #include "libft.h"
 #include "libft_ht.h"
 
+/*
+** Create a new hash table.
+** `size` is the size of the underlying array of linked list (buckets)
+** Return NULL is an allocation failed.
+*/
+
 t_ftht	*ft_htnew(t_ftsize size)
 {
 	t_ftht	*ht;

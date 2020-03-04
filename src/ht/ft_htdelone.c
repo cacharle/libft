@@ -13,6 +13,10 @@
 #include "libft.h"
 #include "libft_ht.h"
 
+/*
+** Delete one hash table entry at `key`.
+*/
+
 void	ft_htdelone(t_ftht *ht, char *key, void (*del)(t_ftht_content*))
 {
 	ft_lstremove_if(ht->entries + ft_hthash(ht, key),
