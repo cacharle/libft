@@ -45,6 +45,7 @@ void				ft_htdelone(t_ftht *ht, char *key,
 								void (*del)(t_ftht_content*));
 void				ft_htdelone_key(t_ftht *ht, char *key);
 t_ftht_content		*ft_htcontent_new(char *key, void *value);
+void                ft_htiter(t_ftht *ht, void (*f)(t_ftht_content*));
 
 /*
 ** internals
