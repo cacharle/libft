@@ -14,11 +14,16 @@
 # define LIBFT_H
 
 # include <errno.h>
+# include <unistd.h>
 # include <string.h>
 # include <stdlib.h>
 
 # define TRUE 1
 # define FALSE 0
+
+# ifndef OPEN_MAX
+#  define OPEN_MAX 1024
+# endif
 
 typedef unsigned char	t_byte;
 typedef int				t_bool;
