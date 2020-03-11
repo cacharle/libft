@@ -11,21 +11,29 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "libft_mem.h"
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	long int	buf;
-	long int	*long_s;
+	uint64_t	buf;
+	void *cpy;
 
-	c = (unsigned char)c;
-	while (n % 8 > 0)
-		*((t_ftbyte*)s + --n) = c;
-	buf = (long int)c | (long int)c << 8 | (long int)c << 16
-			| (long int)c << 24 | (long int)c << 32 | (long int)c << 40
-			| (long int)c << 48 | (long int)c << 56;
-	n /= 8;
-	long_s = s;
+	cpy = s;
+	c = (uint8_t)c;
+	buf = (uint64_t)c | (uint64_t)c << 8 | (uint64_t)c << 16
+		| (uint64_t)c << 24 | (uint64_t)c << 32 | (uint64_t)c << 40
+		| (uint64_t)c << 48 | (uint64_t)c << 56;
+	while (n > 8)
+	{
+		*(uint64_t*)s = buf;
+		n -= 8;
+		s += 8;
+	}
 	while (n > 0)
-		long_s[--n] = buf;
-	return (s);
+	{
+		*(uint8_t*)s = c;
+		s++;
+		n--;
+	}
+	return (cpy);
 }

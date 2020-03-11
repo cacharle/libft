@@ -15,6 +15,7 @@
 
 # include <stddef.h>
 # include "libft_ctype.h"
+# include "libft_mem.h"
 
 typedef enum
 {

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "libft_str.h"
 
 char	*ft_strstr(const char *haystack, const char *needle)
 {
@@ -19,11 +20,5 @@ char	*ft_strstr(const char *haystack, const char *needle)
 	needle_len = ft_strlen(needle);
 	if (needle_len == 0)
 		return ((char*)haystack);
-	while (*haystack)
-	{
-		if (ft_strnequ(haystack, needle, needle_len))
-			return ((char*)haystack);
-		haystack++;
-	}
-	return (NULL);
+	return (ft_memmem(haystack, ft_strlen(haystack), needle, needle_len));
 }

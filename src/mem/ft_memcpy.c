@@ -11,18 +11,19 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "libft_mem.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	long int		*long_dest;
-	const long int	*long_src;
+	uint64_t		*long_dest;
+	const uint64_t	*long_src;
 
 	if (dest == src)
 		return (dest);
 	while (n % 8 > 0)
 	{
 		n--;
-		((t_ftbyte*)dest)[n] = ((t_ftbyte*)src)[n];
+		((uint8_t*)dest)[n] = ((uint8_t*)src)[n];
 	}
 	long_dest = dest;
 	long_src = src;

@@ -11,11 +11,12 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "libft_mem.h"
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	long int		*long_dst;
-	const long int	*long_src;
+	uint64_t		*dst64;
+	const uint64_t	*src64;
 	void			*dst_copy;
 
 	if (dst >= src)
@@ -24,12 +25,12 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	while (len % 8 > 0)
 	{
 		len--;
-		*(t_ftbyte*)dst++ = *(t_ftbyte*)src++;
+		*(uint8_t*)dst++ = *(uint8_t*)src++;
 	}
-	long_dst = dst;
-	long_src = src;
+	dst64 = dst;
+	src64 = src;
 	len /= 8;
 	while (len-- > 0)
-		*long_dst++ = *long_src++;
+		*dst64++ = *src64++;
 	return (dst_copy);
 }

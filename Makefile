@@ -24,8 +24,10 @@ TEST_DIR = test
 
 INCLUDE_DIR = include
 
+OPTIMIZATION ?= -O0
+
 CC = gcc
-CCFLAGS = -I$(INCLUDE_DIR) -Wall -Wextra -Werror
+CCFLAGS = -I$(INCLUDE_DIR) $(OPTIMIZATION) -Wall -Wextra -Werror
 
 IGNORE_FILE = .libftignore
 IGNORE_DEFAULT = ft_printf
@@ -77,3 +79,6 @@ fclean: clean
 	@$(RM) $(NAME)
 
 re: fclean all
+
+so: all
+	gcc -o libft.so -shared -fPIC $(OBJ)

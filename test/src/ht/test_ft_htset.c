@@ -63,7 +63,7 @@ TEST(ft_htset, reset)
 	TEST_ASSERT_NOT_NULL(content->value);
 	TEST_ASSERT_EQUAL_STRING(content->key, "bonjour");
 	TEST_ASSERT_EQUAL_STRING(content->value, "content");
-	
+
 	t_ftht_content *content_re = ft_htset(small, "bonjour", ft_strdup("yo"), st_del);
 	TEST_ASSERT_NOT_NULL(content_re);
 	TEST_ASSERT_NOT_NULL(content_re->key);
@@ -77,21 +77,21 @@ TEST(ft_htset, collision)
 	t_ftht *small = NULL;
 	small = ft_htnew(1);
 
-	t_ftht_content *content1 = ft_htset(ht, "bonjour", strdup("content1"), st_del);
+	t_ftht_content *content1 = ft_htset(small, "bonjour", strdup("content1"), st_del);
 	TEST_ASSERT_NOT_NULL(content1);
 	TEST_ASSERT_NOT_NULL(content1->key);
 	TEST_ASSERT_NOT_NULL(content1->value);
 	TEST_ASSERT_EQUAL_STRING(content1->key, "bonjour");
 	TEST_ASSERT_EQUAL_STRING(content1->value, "content1");
 
-	t_ftht_content *content2 = ft_htset(ht, "aurevoir", strdup("content2"), st_del);
+	t_ftht_content *content2 = ft_htset(small, "aurevoir", strdup("content2"), st_del);
 	TEST_ASSERT_NOT_NULL(content2);
 	TEST_ASSERT_NOT_NULL(content2->key);
 	TEST_ASSERT_NOT_NULL(content2->value);
 	TEST_ASSERT_EQUAL_STRING(content2->key, "aurevoir");
 	TEST_ASSERT_EQUAL_STRING(content2->value, "content2");
 
-	t_ftht_content *content3 = ft_htset(ht, "aloa", strdup("content3"), st_del);
+	t_ftht_content *content3 = ft_htset(small, "aloa", strdup("content3"), st_del);
 	TEST_ASSERT_NOT_NULL(content3);
 	TEST_ASSERT_NOT_NULL(content3->key);
 	TEST_ASSERT_NOT_NULL(content3->value);

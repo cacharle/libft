@@ -11,20 +11,42 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "libft_mem.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t		i;
-	t_ftbyte	*cast_s1;
-	t_ftbyte	*cast_s2;
-
-	cast_s1 = (t_ftbyte*)s1;
-	cast_s2 = (t_ftbyte*)s2;
-	if (n == 0)
-		return (0);
-	i = -1;
-	while (++i < n)
-		if (cast_s1[i] != cast_s2[i])
-			return (cast_s1[i] - cast_s2[i]);
+	while ((n & 0b111) != 0)
+	{
+		n--;
+		if (*(uint8_t*)s1 != *(uint8_t*)s2)
+			return (*(uint8_t*)s1 - *(uint8_t*)s2);
+		s1++;
+		s2++;
+	}
+	while (n > 0)
+	{
+		if (*(uint64_t*)s1 != *(uint64_t*)s2)
+		{
+			if (((uint8_t*)s1)[0] != ((uint8_t*)s2)[0])
+				return (((uint8_t*)s1)[0] - ((uint8_t*)s2)[0]);
+			if (((uint8_t*)s1)[1] != ((uint8_t*)s2)[1])
+				return (((uint8_t*)s1)[1] - ((uint8_t*)s2)[1]);
+			if (((uint8_t*)s1)[2] != ((uint8_t*)s2)[2])
+				return (((uint8_t*)s1)[2] - ((uint8_t*)s2)[2]);
+			if (((uint8_t*)s1)[3] != ((uint8_t*)s2)[3])
+				return (((uint8_t*)s1)[3] - ((uint8_t*)s2)[3]);
+			if (((uint8_t*)s1)[4] != ((uint8_t*)s2)[4])
+				return (((uint8_t*)s1)[4] - ((uint8_t*)s2)[4]);
+			if (((uint8_t*)s1)[5] != ((uint8_t*)s2)[5])
+				return (((uint8_t*)s1)[5] - ((uint8_t*)s2)[5]);
+			if (((uint8_t*)s1)[6] != ((uint8_t*)s2)[6])
+				return (((uint8_t*)s1)[6] - ((uint8_t*)s2)[6]);
+			if (((uint8_t*)s1)[7] != ((uint8_t*)s2)[7])
+				return (((uint8_t*)s1)[7] - ((uint8_t*)s2)[7]);
+		}
+		n -= 8;
+		s1 += 8;
+		s2 += 8;
+	}
 	return (0);
 }
