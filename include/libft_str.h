@@ -52,6 +52,7 @@ void	ft_striter(char *s, void (*f)(char *));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin3(char const *s1, char const *s2, char const *s3);
 char	*ft_strjoinf(char const *s1, char const *s2, t_ftstrjoinf_tag tag);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
