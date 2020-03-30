@@ -15,12 +15,15 @@ RM = rm -f
 NORM = norminette
 MAKE = make
 MAKE_ARGS = --no-print-directory
+DOXYGEN = doxygen
+DOXYGEN_FILE = Doxyfile
 
 SRC_DIR = src
 INCLUDE_DIR = include
 OBJ_DIR = obj
 SCRIPT_DIR = script
 TEST_DIR = test
+DOC_DIR = doc
 
 INCLUDE_DIR = include
 
@@ -77,3 +80,9 @@ fclean: clean
 	@$(RM) $(NAME)
 
 re: fclean all
+
+doc:
+	$(DOXYGEN) $(DOXYGEN_FILE)
+
+doc_clean:
+	$(RM) -r $(DOC_DIR)

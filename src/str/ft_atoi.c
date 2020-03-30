@@ -12,6 +12,10 @@
 
 #include "libft.h"
 
+/**
+** Convert a string to an int
+*/
+
 int			ft_atoi(const char *str)
 {
 	return ((int)ft_strtol(str, (char**)NULL, 10));
