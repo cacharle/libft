@@ -19,27 +19,27 @@ TEST(ft_lstreverse_ret, basic)
 	lst = ft_lstreverse_ret(lst);
 	TEST_ASSERT_NULL(lst);
 
-	ft_lstadd_front(&lst, ft_lstnew(&a));
+	ft_lstpush_front(&lst, ft_lstnew(&a));
 	lst = ft_lstreverse_ret(lst);
-	TEST_ASSERT_EQUAL_PTR(&a, lst->content);
+	TEST_ASSERT_EQUAL_PTR(&a, lst->data);
 
-	ft_lstadd_front(&lst, ft_lstnew(&b));
+	ft_lstpush_front(&lst, ft_lstnew(&b));
 	lst = ft_lstreverse_ret(lst);
-	TEST_ASSERT_EQUAL_PTR(&a, lst->content);
-	TEST_ASSERT_EQUAL_PTR(&b, lst->next->content);
+	TEST_ASSERT_EQUAL_PTR(&a, lst->data);
+	TEST_ASSERT_EQUAL_PTR(&b, lst->next->data);
 
-	ft_lstadd_front(&lst, ft_lstnew(&c));
+	ft_lstpush_front(&lst, ft_lstnew(&c));
 	lst = ft_lstreverse_ret(lst);
-	TEST_ASSERT_EQUAL_PTR(&b, lst->content);
-	TEST_ASSERT_EQUAL_PTR(&a, lst->next->content);
-	TEST_ASSERT_EQUAL_PTR(&c, lst->next->next->content);
+	TEST_ASSERT_EQUAL_PTR(&b, lst->data);
+	TEST_ASSERT_EQUAL_PTR(&a, lst->next->data);
+	TEST_ASSERT_EQUAL_PTR(&c, lst->next->next->data);
 
-	ft_lstadd_front(&lst, ft_lstnew(&d));
+	ft_lstpush_front(&lst, ft_lstnew(&d));
 	lst = ft_lstreverse_ret(lst);
-	TEST_ASSERT_EQUAL_PTR(&c, lst->content);
-	TEST_ASSERT_EQUAL_PTR(&a, lst->next->content);
-	TEST_ASSERT_EQUAL_PTR(&b, lst->next->next->content);
-	TEST_ASSERT_EQUAL_PTR(&d, lst->next->next->next->content);
+	TEST_ASSERT_EQUAL_PTR(&c, lst->data);
+	TEST_ASSERT_EQUAL_PTR(&a, lst->next->data);
+	TEST_ASSERT_EQUAL_PTR(&b, lst->next->next->data);
+	TEST_ASSERT_EQUAL_PTR(&d, lst->next->next->next->data);
 
-	ft_lstclear(&lst, NULL);
+	ft_lstdestroy(&lst, NULL);
 }

@@ -29,13 +29,13 @@ TEST(ft_lstlsearch, basic)
 	int c = 3;
 	int d = 4;
 
-	ft_lstadd_front(&lst, ft_lstnew(&c));
-	ft_lstadd_front(&lst, ft_lstnew(&c));
-	ft_lstadd_front(&lst, ft_lstnew(&a));
-	ft_lstadd_front(&lst, ft_lstnew(&c));
-	ft_lstadd_front(&lst, ft_lstnew(&b));
-	ft_lstadd_front(&lst, ft_lstnew(&a));
-	ft_lstadd_front(&lst, ft_lstnew(&a));
+	ft_lstpush_front(&lst, ft_lstnew(&c));
+	ft_lstpush_front(&lst, ft_lstnew(&c));
+	ft_lstpush_front(&lst, ft_lstnew(&a));
+	ft_lstpush_front(&lst, ft_lstnew(&c));
+	ft_lstpush_front(&lst, ft_lstnew(&b));
+	ft_lstpush_front(&lst, ft_lstnew(&a));
+	ft_lstpush_front(&lst, ft_lstnew(&a));
 
 	found = ft_lstlsearch(lst, ft_compar_int, &c);
 	TEST_ASSERT_EQUAL_PTR(lst->next->next->next, found);
@@ -51,5 +51,5 @@ TEST(ft_lstlsearch, basic)
 	found = ft_lstlsearch(lst, ft_compar_int, &d);
 	TEST_ASSERT_EQUAL_PTR(ft_lstlast(lst), found);
 
-	ft_lstclear(&lst, NULL);
+	ft_lstdestroy(&lst, NULL);
 }

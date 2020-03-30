@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_ft_htcontent_new.c                            :+:      :+:    :+:   */
+/*   test_ft_htentry_new.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,26 +12,26 @@
 
 #include "libft_test.h"
 
-TEST_GROUP(ft_htcontent_new);
+TEST_GROUP(ft_htentry_new);
 
-TEST_SETUP(ft_htcontent_new)
+TEST_SETUP(ft_htentry_new)
 {}
 
-TEST_TEAR_DOWN(ft_htcontent_new)
+TEST_TEAR_DOWN(ft_htentry_new)
 {}
 
-TEST(ft_htcontent_new, basic)
+TEST(ft_htentry_new, basic)
 {
-	t_ftht_content *c = NULL;
+	t_ftht_entry *c = NULL;
 
 	char *k = "bonjour";
-	c = ft_htcontent_new(k, NULL);
+	c = ft_htentry_new(k, NULL);
 	TEST_ASSERT_NOT_NULL(c);
 	TEST_ASSERT(k != c->key);
 	TEST_ASSERT_EQUAL_STRING(k, c->key);
 	TEST_ASSERT_NULL(c->value); 
 
-	c = ft_htcontent_new(k, k);
+	c = ft_htentry_new(k, k);
 	TEST_ASSERT_NOT_NULL(c);
 	TEST_ASSERT(k != c->key);
 	TEST_ASSERT_EQUAL_STRING(k, c->key);

@@ -20,7 +20,7 @@ TEST_SETUP(ft_htdestroy)
 TEST_TEAR_DOWN(ft_htdestroy)
 {}
 
-static void st_del(t_ftht_content *v)
+static void st_del(t_ftht_entry *v)
 {
 	free(v->key);
 	free(v);

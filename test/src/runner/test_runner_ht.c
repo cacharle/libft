@@ -12,9 +12,9 @@
 
 #include "libft_test.h"
 
-TEST_GROUP_RUNNER(ft_htcontent_new)
+TEST_GROUP_RUNNER(ft_htentry_new)
 {
-	RUN_TEST_CASE(ft_htcontent_new, basic);
+	RUN_TEST_CASE(ft_htentry_new, basic);
 }
 
 TEST_GROUP_RUNNER(ft_htnew)

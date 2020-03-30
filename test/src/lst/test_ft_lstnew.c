@@ -15,11 +15,11 @@ TEST(ft_lstnew, basic)
 
 	lst = ft_lstnew(&a);
 	TEST_ASSERT_NOT_NULL(lst);
-	TEST_ASSERT_EQUAL_PTR(&a, lst->content);
-	TEST_ASSERT_EQUAL(a, *(int*)lst->content);
+	TEST_ASSERT_EQUAL_PTR(&a, lst->data);
+	TEST_ASSERT_EQUAL(a, *(int*)lst->data);
 
 	/* free(lst); */
 	lst = ft_lstnew(NULL);
 	TEST_ASSERT_NOT_NULL(lst);
-	TEST_ASSERT_NULL(lst->content);
+	TEST_ASSERT_NULL(lst->data);
 }

@@ -42,7 +42,7 @@ TEST(ft_htnew, happy_path)
 	ht = ft_htnew(10);
 	TEST_ASSERT_NOT_NULL(ht);
 	TEST_ASSERT_EQUAL(10, ht->size);
-	TEST_ASSERT_NOT_NULL(ht->entries);
+	TEST_ASSERT_NOT_NULL(ht->buckets);
 	for (t_ftsize i = 0; i < ht->size; i++)
-		TEST_ASSERT_NULL(ht->entries[i]);
+		TEST_ASSERT_NULL(ht->buckets[i]);
 }

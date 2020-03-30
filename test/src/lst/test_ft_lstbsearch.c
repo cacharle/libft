@@ -17,10 +17,10 @@ TEST(ft_lstbsearch, basic)
 	int c = 3;
 	int d = 4;
 
-	ft_lstadd_front(&lst, ft_lstnew(&c));
-	ft_lstadd_front(&lst, ft_lstnew(&b));
-	ft_lstadd_front(&lst, ft_lstnew(&a));
-	ft_lstadd_front(&lst, ft_lstnew(&a));
+	ft_lstpush_front(&lst, ft_lstnew(&c));
+	ft_lstpush_front(&lst, ft_lstnew(&b));
+	ft_lstpush_front(&lst, ft_lstnew(&a));
+	ft_lstpush_front(&lst, ft_lstnew(&a));
 
 	found = ft_lstbsearch(lst, ft_compar_int, &c);
 	TEST_ASSERT_NOT_NULL(found);
@@ -33,5 +33,5 @@ TEST(ft_lstbsearch, basic)
 	found = ft_lstbsearch(lst, ft_compar_int, &d);
 	TEST_ASSERT_NULL(found);
 
-	ft_lstclear(&lst, NULL);
+	ft_lstdestroy(&lst, NULL);
 }

@@ -31,7 +31,7 @@ static void run_all_test(void)
 	RUN_TEST_GROUP(ft_strlen);
 
 	// ht
-	RUN_TEST_GROUP(ft_htcontent_new);
+	RUN_TEST_GROUP(ft_htentry_new);
 	RUN_TEST_GROUP(ft_htnew);
 	RUN_TEST_GROUP(ft_htget);
 	RUN_TEST_GROUP(ft_htset);
@@ -50,12 +50,12 @@ static void run_all_test(void)
 	RUN_TEST_GROUP(ft_reverse);
 
 	// lst
-	RUN_TEST_GROUP(ft_lstadd_back);
-	RUN_TEST_GROUP(ft_lstadd_front);
+	RUN_TEST_GROUP(ft_lstpush_back);
+	RUN_TEST_GROUP(ft_lstpush_front);
 	RUN_TEST_GROUP(ft_lstbsearch);
 	RUN_TEST_GROUP(ft_lstlsearch);
 	RUN_TEST_GROUP(ft_lstlfind);
-	RUN_TEST_GROUP(ft_lstclear);
+	RUN_TEST_GROUP(ft_lstdestroy);
 	RUN_TEST_GROUP(ft_lstdelone);
 	RUN_TEST_GROUP(ft_lstiter);
 	RUN_TEST_GROUP(ft_lstlast);
