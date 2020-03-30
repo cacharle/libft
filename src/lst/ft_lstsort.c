@@ -12,6 +12,12 @@
 
 #include "libft_lst.h"
 
+/**
+** \brief      Sort list
+** \param cmp  Comparison function, <0 if less, 0 if equal, >0 if greater
+** \note       Use merge sort algorithm
+*/
+
 void	ft_lstsort(t_ftlst **begin_list, t_ftcompar_func cmp)
 {
 	t_ftlst	*fast;

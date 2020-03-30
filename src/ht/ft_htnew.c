@@ -13,10 +13,10 @@
 #include "libft.h"
 #include "libft_ht.h"
 
-/*
-** Create a new hash table.
-** `size` is the size of the underlying array of linked list (buckets)
-** Return NULL is an allocation failed.
+/**
+** \brief       Create a new hash table.
+** \param size  Size of the underlying array of linked list (buckets)
+** \return      Created hash table or NULL is an allocation failed
 */
 
 t_ftht	*ft_htnew(t_ftsize size)
@@ -27,8 +27,8 @@ t_ftht	*ft_htnew(t_ftsize size)
 		return (NULL);
 	if ((ht = (t_ftht*)malloc(sizeof(t_ftht))) == NULL)
 		return (NULL);
-	ht->entries = (t_ftht_entry*)ft_calloc(size, sizeof(t_ftht_entry));
-	if (ht->entries == NULL)
+	ht->buckets = (t_ftht_bucket*)ft_calloc(size, sizeof(t_ftht_entry));
+	if (ht->buckets == NULL)
 	{
 		free(ht);
 		return (NULL);

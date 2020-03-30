@@ -21,5 +21,5 @@ int	ft_inter_htkey_cmp(const void *ref_key, const void *content)
 {
 	if (ref_key == NULL || content == NULL)
 		return (-1);
-	return (ft_strcmp((char*)ref_key, ((t_ftht_content*)content)->key));
+	return (ft_strcmp((char*)ref_key, ((t_ftht_entry*)content)->key));
 }

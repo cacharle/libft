@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,14 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "libft_lst.h"
+
+/**
+** \brief      Delete list node
+** \param del  Delete function for node's data
+*/
 
 void	ft_lstdelone(t_ftlst *lst, void (*del)(void *))
 {
 	if (lst == NULL)
 		return ;
 	if (del != NULL)
-		(*del)(lst->content);
+		(*del)(lst->data);
 	free(lst);
 }

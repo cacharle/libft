@@ -10,8 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "libft_lst.h"
+
+/**
+** \brief      Delete head node and replace it with next node
+** \param del  Delete function for node data
+*/
 
 void	ft_lstpop_front(t_ftlst **lst, void (*del)(void *))
 {

@@ -13,9 +13,11 @@
 #include "libft.h"
 #include "libft_ht.h"
 
-/*
-** Retrieve a value with associated key.
-** Returns NULL if there is no value at `key`.
+/**
+** \brief      Retrieve a value with a key
+** \param ht   Hash table where key is searched
+** \param key  Searched key
+** \return     Value void pointer at key or NULL if not found
 */
 
 void	*ft_htget(t_ftht *ht, char *key)
@@ -27,8 +29,8 @@ void	*ft_htget(t_ftht *ht, char *key)
 	if (ht == NULL || key == NULL)
 		return (NULL);
 	digest = ft_hthash(ht, key);
-	found = ft_lstlfind(ht->entries[digest], ft_inter_htkey_cmp, key);
+	found = ft_lstlfind(ht->buckets[digest], ft_inter_htkey_cmp, key);
 	if (found == NULL)
 		return (NULL);
-	return (((t_ftht_content*)found->content)->value);
+	return (((t_ftht_entry*)found->data)->value);
 }

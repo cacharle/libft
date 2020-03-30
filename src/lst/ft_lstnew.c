@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,16 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "libft_lst.h"
 
-t_ftlst	*ft_lstnew(void const *content)
+/**
+** \brief       Create a list node
+** \param data  Pointer to data of node
+*/
+
+t_ftlst	*ft_lstnew(void const *data)
 {
 	t_ftlst	*elem;
 
 	if ((elem = (t_ftlst*)malloc(sizeof(t_ftlst))) == NULL)
 		return (NULL);
-	elem->content = (void*)content;
+	elem->data = (void*)data;
 	elem->next = NULL;
 	return (elem);
 }

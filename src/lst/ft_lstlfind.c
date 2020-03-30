@@ -16,7 +16,7 @@ t_ftlst	*ft_lstlfind(t_ftlst *lst, t_ftcompar_func cmp, const void *ref)
 {
 	if (lst == NULL)
 		return (NULL);
-	if (cmp(ref, lst->content) == 0)
+	if (cmp(ref, lst->data) == 0)
 		return (lst);
 	return (ft_lstlfind(lst->next, cmp, ref));
 }

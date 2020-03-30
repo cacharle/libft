@@ -10,8 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "libft_lst.h"
+
+/**
+** \brief   Reverse list
+** \return  Pointer to reversed list
+*/
 
 t_ftlst	*ft_lstreverse_ret(t_ftlst *lst)
 {

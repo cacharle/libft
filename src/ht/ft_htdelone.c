@@ -13,13 +13,17 @@
 #include "libft.h"
 #include "libft_ht.h"
 
-/*
-** Delete one hash table entry at `key`.
+/**
+** \brief      Delete one hash table entry
+** \param key  Key of entry to delete
+** \param del  Function to destroy the entry
+** \warning    The del function HAS to free the key
+** \note       Do nothing if their is to entry which correspond to key
 */
 
-void	ft_htdelone(t_ftht *ht, char *key, void (*del)(t_ftht_content*))
+void	ft_htdelone(t_ftht *ht, char *key, void (*del)(t_ftht_entry*))
 {
-	ft_lstremove_if(ht->entries + ft_hthash(ht, key),
+	ft_lstremove_if(ht->buckets + ft_hthash(ht, key),
 					ft_inter_htkey_cmp, key,
 					(void (*)(void*))del);
 }

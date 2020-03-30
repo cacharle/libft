@@ -13,17 +13,18 @@
 #include "libft.h"
 #include "libft_ht.h"
 
-/*
-** Destroy an hash table.
-** The `del` function is used to destroy each key/value pair
+/**
+** \brief      Destroy an hash table.
+** \param del  Function to delete each entry
+** \warning    The del function HAS to free the key
 */
 
-void	ft_htdestroy(t_ftht *ht, void (*del)(t_ftht_content*))
+void	ft_htdestroy(t_ftht *ht, void (*del)(t_ftht_entry*))
 {
 	if (ht == NULL)
 		return ;
 	while (ht->size-- > 0)
-		ft_lstclear(ht->entries + ht->size, (void (*)(void*))del);
-	free(ht->entries);
+		ft_lstdestroy(ht->buckets + ht->size, (void (*)(void*))del);
+	free(ht->buckets);
 	free(ht);
 }

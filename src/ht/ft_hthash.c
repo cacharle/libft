@@ -12,8 +12,11 @@
 
 #include "libft_ht.h"
 
-/*
-** Hash a string according to the size of the hash table.
+/**
+** \brief      Hash a string
+** \param ht   So that the index is in the hash table bound
+** \param key  String to hash
+** \return     Hash
 */
 
 // maybe use a less efficient but understandable function

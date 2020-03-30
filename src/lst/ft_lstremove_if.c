@@ -10,8 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "libft_lst.h"
+
+/**
+** \brief    Remove node on some condition
+** \param cmp  Comparison function, return 0 if equal
+** \param ref  Reference data passed has the first arg of `cmp`
+** \param del  Delete function to free removed node data
+*/
 
 void	ft_lstremove_if(t_ftlst **lst, t_ftcompar_func cmp,
 						const void *ref, t_ftdel_func del)
@@ -20,7 +26,7 @@ void	ft_lstremove_if(t_ftlst **lst, t_ftcompar_func cmp,
 
 	if (lst == NULL || *lst == NULL)
 		return ;
-	if (cmp(ref, (*lst)->content) == 0)
+	if (cmp(ref, (*lst)->data) == 0)
 	{
 		saved_next = (*lst)->next;
 		ft_lstdelone(*lst, del);

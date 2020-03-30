@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "libft_lst.h"
+
+/**
+** \brief    Iterate of list
+** \param f  Funtion applied to data of each node
+*/
 
 void	ft_lstiter(t_ftlst *lst, void (*f)(void *))
 {
@@ -19,7 +23,7 @@ void	ft_lstiter(t_ftlst *lst, void (*f)(void *))
 		return ;
 	while (lst != NULL)
 	{
-		(*f)(lst->content);
+		(*f)(lst->data);
 		lst = lst->next;
 	}
 }
