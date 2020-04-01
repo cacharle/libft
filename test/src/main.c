@@ -68,6 +68,14 @@ static void run_all_test(void)
 	RUN_TEST_GROUP(ft_lstsize);
 	RUN_TEST_GROUP(ft_lstsort);
 	RUN_TEST_GROUP(ft_lstsorted_merge);
+
+	// vec
+	RUN_TEST_GROUP(ft_vecdestroy);
+	RUN_TEST_GROUP(ft_vecgrow);
+	RUN_TEST_GROUP(ft_veciter);
+	RUN_TEST_GROUP(ft_vecnew);
+	RUN_TEST_GROUP(ft_vecpop);
+	RUN_TEST_GROUP(ft_vecpush);
 }
 
 int main(int argc, const char **argv)
