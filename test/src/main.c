@@ -76,6 +76,7 @@ static void run_all_test(void)
 	RUN_TEST_GROUP(ft_vecnew);
 	RUN_TEST_GROUP(ft_vecpop);
 	RUN_TEST_GROUP(ft_vecpush);
+	RUN_TEST_GROUP(ft_vecremove);
 }
 
 int main(int argc, const char **argv)

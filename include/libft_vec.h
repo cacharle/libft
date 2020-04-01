@@ -6,7 +6,7 @@
 /*   By: charles <charles.cabergs@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/01 18:57:16 by charles           #+#    #+#             */
-/*   Updated: 2020/04/01 19:40:53 by charles          ###   ########.fr       */
+/*   Updated: 2020/04/01 22:53:33 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,6 @@ t_ftvec			*ft_vecgrow(t_ftvec *vec);
 t_ftvec			*ft_vecpush(t_ftvec *vec, void *pushed);
 void			ft_vecpop(t_ftvec *vec, void (*del)(void *elem));
 void			ft_veciter(t_ftvec *vec, void (*f)(void *elem));
+void			ft_vecremove(t_ftvec *vec, size_t i, void (*del)(void *elem));
 
 #endif
