@@ -12,7 +12,7 @@
 
 #include "libft_lst.h"
 
-/**
+/*
 ** \brief      Delete head node and replace it with next node
 ** \param del  Delete function for node data
 */

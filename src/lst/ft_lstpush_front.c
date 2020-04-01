@@ -12,7 +12,7 @@
 
 #include "libft_lst.h"
 
-/**
+/*
 ** \brief      Push node to list front
 ** \param new  Pushed node
 */

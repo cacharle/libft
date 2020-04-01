@@ -12,7 +12,7 @@
 
 #include "libft_lst.h"
 
-/**
+/*
 ** \brief      Clone a list and map a function to each node data
 ** \param lst  Origin list
 ** \param f    Function applied to each node's data

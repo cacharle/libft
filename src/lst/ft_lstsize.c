@@ -12,7 +12,7 @@
 
 #include "libft_lst.h"
 
-/**
+/*
 ** \brief   List size
 ** \return  Number of node in list
 */

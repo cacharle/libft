@@ -13,7 +13,7 @@
 #include "libft.h"
 #include "libft_ht.h"
 
-/**
+/*
 ** \brief       Create a new hash table.
 ** \param size  Size of the underlying array of linked list (buckets)
 ** \return      Created hash table or NULL is an allocation failed

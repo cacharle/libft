@@ -12,7 +12,7 @@
 
 #include "libft_lst.h"
 
-/**
+/*
 ** \brief    Iterate of list
 ** \param f  Funtion applied to data of each node
 */

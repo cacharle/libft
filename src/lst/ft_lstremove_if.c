@@ -12,7 +12,7 @@
 
 #include "libft_lst.h"
 
-/**
+/*
 ** \brief    Remove node on some condition
 ** \param cmp  Comparison function, return 0 if equal
 ** \param ref  Reference data passed has the first arg of `cmp`

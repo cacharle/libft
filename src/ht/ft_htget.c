@@ -6,14 +6,14 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 08:33:21 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/28 12:21:09 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/04/01 18:02:57 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "libft_ht.h"
 
-/**
+/*
 ** \brief      Retrieve a value with a key
 ** \param ht   Hash table where key is searched
 ** \param key  Searched key
@@ -22,7 +22,6 @@
 
 void	*ft_htget(t_ftht *ht, char *key)
 {
-
 	t_ftht_digest	digest;
 	t_ftlst			*found;
 

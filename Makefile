@@ -6,7 +6,7 @@
 #    By: cacharle <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/08 15:45:53 by cacharle          #+#    #+#              #
-#    Updated: 2020/02/28 12:08:33 by cacharle         ###   ########.fr        #
+#    Updated: 2020/04/01 18:09:04 by charles          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,10 @@ DOC_DIR = doc
 
 INCLUDE_DIR = include
 
+
 CC = gcc
-CCFLAGS = -I$(INCLUDE_DIR) -Wall -Wextra -Werror
+OFLAG ?= -O1
+CCFLAGS = $(OFLAG) -I$(INCLUDE_DIR) -Wall -Wextra -Werror
 
 IGNORE_FILE = .libftignore
 IGNORE_DEFAULT = ft_printf
@@ -81,8 +83,12 @@ fclean: clean
 
 re: fclean all
 
+.PHONY: doc
 doc:
+	mkdir -p tmp
+	for f in $(SRC) $(INCLUDE); do mkdir -p tmp/`dirname $$f` && sed 's_^/\*$$_/**_' $$f > tmp/$$f; done
 	$(DOXYGEN) $(DOXYGEN_FILE)
 
 doc_clean:
 	$(RM) -r $(DOC_DIR)
+

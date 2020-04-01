@@ -6,16 +6,17 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 08:41:52 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/28 12:11:00 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/04/01 18:02:12 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "libft_ht.h"
 
-/**
+/*
 ** \brief        Create/Update a entry in hash table.
-** \note         If `key` already exist in `ht`, only updates the list node content.
+** \note         If `key` already exist in `ht`
+**               only updates the list node content.
 **               Else create a new list node in addition the list content.
 ** \param ht     Hash table where the entry is modified
 ** \param key    Key of the new entry

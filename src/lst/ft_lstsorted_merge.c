@@ -12,7 +12,7 @@
 
 #include "libft_lst.h"
 
-/**
+/*
 ** \brief      Merge sorted lists, the new list is also sorted
 ** \param l1   First list
 ** \param l2   Second list

@@ -12,7 +12,7 @@
 
 #include "libft_lst.h"
 
-/**
+/*
 ** \brief   Reverse list
 ** \return  Pointer to reversed list
 */

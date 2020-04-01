@@ -12,7 +12,7 @@
 
 #include "libft_ht.h"
 
-/**
+/*
 ** \brief      Hash a string
 ** \param ht   So that the index is in the hash table bound
 ** \param key  String to hash

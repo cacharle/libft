@@ -12,7 +12,7 @@
 
 #include "libft_lst.h"
 
-/**
+/*
 ** \brief       Create a list node
 ** \param data  Pointer to data of node
 */

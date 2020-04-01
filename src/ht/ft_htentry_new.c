@@ -13,7 +13,7 @@
 #include "libft.h"
 #include "libft_ht.h"
 
-/**
+/*
 ** \brief      Create a new hash table key/value pair.
 ** \param key  Hash entry string key (always duplicated)
 ** \return     Content or NULL if an allocation failed.

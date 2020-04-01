@@ -12,7 +12,7 @@
 
 #include "libft_lst.h"
 
-/**
+/*
 ** \brief      Sort list
 ** \param cmp  Comparison function, <0 if less, 0 if equal, >0 if greater
 ** \note       Use merge sort algorithm

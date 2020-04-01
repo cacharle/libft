@@ -12,7 +12,7 @@
 
 #include "libft_lst.h"
 
-/**
+/*
 ** \brief      Delete list node
 ** \param del  Delete function for node's data
 */

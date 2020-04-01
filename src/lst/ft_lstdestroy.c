@@ -12,7 +12,7 @@
 
 #include "libft_lst.h"
 
-/**
+/*
 ** \brief      Destroy a list and set his pointer to NULL
 ** \param del  Delete Function for data of each node
 */

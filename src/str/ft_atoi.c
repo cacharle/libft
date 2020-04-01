@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-/**
+/*
 ** Convert a string to an int
 */
 

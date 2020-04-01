@@ -6,14 +6,14 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 10:36:39 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/28 12:23:31 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/04/01 17:59:50 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_LST_H
 # define LIBFT_LST_H
 
-/**
+/*
 ** \file libft_lst.h
 ** \brief  Linked list Manipulation
 */
@@ -22,7 +22,7 @@
 # include "libft_types.h"
 # include "libft_algo.h"
 
-/**
+/*
 ** \brief    List struct
 ** \param data  Pointer to node data
 ** \param next  Pointer to next node or NULL if last node

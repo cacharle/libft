@@ -13,7 +13,7 @@
 #include "libft.h"
 #include "libft_ht.h"
 
-/**
+/*
 ** \brief      Destroy an hash table.
 ** \param del  Function to delete each entry
 ** \warning    The del function HAS to free the key
