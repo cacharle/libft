@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/17 03:04:52 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/19 02:03:11 by cacharle         ###   ########.fr       */
+/*   Created: 2020/02/27 18:00:37 by cacharle          #+#    #+#             */
+/*   Updated: 2020/02/28 12:24:05 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_ftlst	*ft_lstlfind(t_ftlst *lst, t_ftcompar_func cmp, const void *ref)
 {
 	if (lst == NULL)
 		return (NULL);
-	if (cmp(ref, lst->content) == 0)
+	if (cmp(ref, lst->data) == 0)
 		return (lst);
 	return (ft_lstlfind(lst->next, cmp, ref));
 }

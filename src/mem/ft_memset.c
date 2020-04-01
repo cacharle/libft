@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 10:01:23 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/17 10:39:10 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/04/01 21:49:42 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	*ft_memset(void *s, int c, size_t n)
 {
 	uint64_t	buf;
-	void *cpy;
+	void		*cpy;
 
 	cpy = s;
 	c = (uint8_t)c;

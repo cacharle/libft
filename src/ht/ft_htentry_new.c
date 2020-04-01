@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_htcontent_new.c                                 :+:      :+:    :+:   */
+/*   ft_htentry_new.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,13 +13,19 @@
 #include "libft.h"
 #include "libft_ht.h"
 
-t_ftht_content	*ft_htcontent_new(char *key, void *value)
+/*
+** \brief      Create a new hash table key/value pair.
+** \param key  Hash entry string key (always duplicated)
+** \return     Content or NULL if an allocation failed.
+*/
+
+t_ftht_entry	*ft_htentry_new(char *key, void *value)
 {
-	t_ftht_content	*content;
+	t_ftht_entry	*content;
 
 	if (key == NULL)
 		return (NULL);
-	if ((content = (t_ftht_content*)malloc(sizeof(t_ftht_content))) == NULL)
+	if ((content = (t_ftht_entry*)malloc(sizeof(t_ftht_entry))) == NULL)
 		return (NULL);
 	if ((content->key = ft_strdup(key)) == NULL)
 	{

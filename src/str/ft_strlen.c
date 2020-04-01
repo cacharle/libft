@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 10:32:48 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/17 11:13:43 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/04/01 21:45:38 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,22 @@
 **
 ** 0x7F -> 0b 0111 1111
 **
-** null_high = lw & 0x7F7F7F7F        // will set the high bit of each byte to 0
-** overflow = null_high + 0x7F7F7F7F  // addition will overflow the high bit is one of the other bits was 1.
+** null_high = lw & 0x7F7F7F7F       // will set the high bit of each byte to 0
+** overflow = null_high + 0x7F7F7F7F // addition will overflow the high bit
+**                                      is one of the other bits was 1.
 **
-** oring = overflow | lw              // the high bit of a byte is set iff any bit in the byte was set
-** ones = oring | 0x7F7F7F7F          // the high bits and ones everywhere else
-** has_no_zero_byte = ~ones           // the ones become zeros, if no high bit was set, there was no zero
-**
+** oring = overflow | lw             // the high bit of a byte is set
+**                                      iff any bit in the byte was set
+** ones = oring | 0x7F7F7F7F         // the high bits and ones everywhere else
+** has_no_zero_byte = ~ones          // the ones become zeros, if no high bit
+**                                      was set, there was no zero
 **
 ** (lw - 0x01010101) & ~lw & 0x80808080
 **
-** overflow = lw - 0x01010101         // overflow the high bit if one was 0 or > 0x80 (0b 1000 0000)  0 || >0x80
-** no_high_bit = ~lw & 0x80808080     // high bit set if the high bit was 0 (i.e < 0x80)              0 || <0x80
+** overflow = lw - 0x01010101         // overflow the high bit if one was
+**                                       0 or > 0x80 (0b 1000 0000)  0 || >0x80
+** no_high_bit = ~lw & 0x80808080     // high bit set if the high bit was
+**                                       0 (i.e < 0x80)              0 || <0x80
 ** has_zero = overflow & no_high_bit  // (0 || >0x80) && (0 || <0x80) -> 0 && 0
 **
 **
@@ -52,38 +56,18 @@ size_t	ft_strlen(const char *s)
 {
 	uint64_t	*ptr;
 	const char	*cpy;
-	uint64_t	lw;
+	const char	*found;
 
 	cpy = s;
 	while (((uint64_t)cpy & 0b111) != 0)
-	{
-		if (*cpy == 0)
-			return (cpy - s);
-		cpy++;
-	}
+		if (*cpy++ == '\0')
+			return (cpy - s - 1);
 	ptr = (uint64_t*)cpy;
 	while (TRUE)
-	{
-		lw = *ptr++;
-		if (((lw - LOMAGIC) & HIMAGIC) != 0)
+		if (((*ptr++ - LOMAGIC) & HIMAGIC) != 0)
 		{
 			cpy = (const char*)(ptr - 1);
-			if (cpy[0] == '\0')
-				return (cpy - s);
-			if (cpy[1] == '\0')
-				return (cpy - s + 1);
-			if (cpy[2] == '\0')
-				return (cpy - s + 2);
-			if (cpy[3] == '\0')
-				return (cpy - s + 3);
-			if (cpy[4] == '\0')
-				return (cpy - s + 4);
-			if (cpy[5] == '\0')
-				return (cpy - s + 5);
-			if (cpy[6] == '\0')
-				return (cpy - s + 6);
-			if (cpy[7] == '\0')
-				return (cpy - s + 7);
+			if ((found = ft_memchr(cpy, '\0', sizeof(uint64_t))) != NULL)
+				return (found - s);
 		}
-	}
 }

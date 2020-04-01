@@ -6,15 +6,15 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 22:44:39 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/19 02:46:34 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/02/28 12:17:33 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_test.h"
 
-TEST_GROUP_RUNNER(ft_htcontent_new)
+TEST_GROUP_RUNNER(ft_htentry_new)
 {
-	RUN_TEST_CASE(ft_htcontent_new, basic);
+	RUN_TEST_CASE(ft_htentry_new, basic);
 }
 
 TEST_GROUP_RUNNER(ft_htnew)

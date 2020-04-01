@@ -10,8 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "libft_lst.h"
+
+/*
+** \brief  Reverse a list
+*/
 
 void	ft_lstreverse(t_ftlst **lst)
 {

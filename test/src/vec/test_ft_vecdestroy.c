@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
+/*   test_ft_vecdestroy.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: charles <charles.cabergs@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 09:02:25 by cacharle          #+#    #+#             */
-/*   Updated: 2019/10/18 12:16:06 by cacharle         ###   ########.fr       */
+/*   Created: 2020/04/01 19:41:59 by charles           #+#    #+#             */
+/*   Updated: 2020/04/01 19:55:14 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "libft_lst.h"
+#include "libft_test.h"
 
-void	ft_lstadd_front(t_ftlst **alst, t_ftlst *new)
+TEST_GROUP(ft_vecdestroy);
+
+TEST_SETUP(ft_vecdestroy)
+{}
+
+TEST_TEAR_DOWN(ft_vecdestroy)
+{}
+
+TEST(ft_vecdestroy, basic)
 {
-	if (alst == NULL || new == NULL)
-		return ;
-	new->next = *alst;
-	*alst = new;
+	TEST_PASS();
 }

@@ -16,7 +16,7 @@ TEST_TEAR_DOWN(ft_htget)
 
 int helper_segfault_pid;
 
-static void st_del(t_ftht_content *c)
+static void st_del(t_ftht_entry *c)
 {
 	free(c->key);
 	free(c);

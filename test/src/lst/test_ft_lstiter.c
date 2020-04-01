@@ -26,27 +26,27 @@ TEST(ft_lstiter, basic)
 	ft_lstiter(lst, square_iter_func);
 	TEST_ASSERT_NULL(lst);
 
-	ft_lstadd_front(&lst, ft_lstnew(&a));
+	ft_lstpush_front(&lst, ft_lstnew(&a));
 	ft_lstiter(lst, square_iter_func);
-	TEST_ASSERT_EQUAL(4, *(int*)lst->content);
+	TEST_ASSERT_EQUAL(4, *(int*)lst->data);
 
-	ft_lstadd_front(&lst, ft_lstnew(&b));
+	ft_lstpush_front(&lst, ft_lstnew(&b));
 	ft_lstiter(lst, square_iter_func);
-	TEST_ASSERT_EQUAL(9, *(int*)lst->content);
-	TEST_ASSERT_EQUAL(16, *(int*)lst->next->content);
+	TEST_ASSERT_EQUAL(9, *(int*)lst->data);
+	TEST_ASSERT_EQUAL(16, *(int*)lst->next->data);
 
-	ft_lstadd_front(&lst, ft_lstnew(&c));
+	ft_lstpush_front(&lst, ft_lstnew(&c));
 	ft_lstiter(lst, square_iter_func);
-	TEST_ASSERT_EQUAL(16, *(int*)lst->content);
-	TEST_ASSERT_EQUAL(81, *(int*)lst->next->content);
-	TEST_ASSERT_EQUAL(256, *(int*)lst->next->next->content);
+	TEST_ASSERT_EQUAL(16, *(int*)lst->data);
+	TEST_ASSERT_EQUAL(81, *(int*)lst->next->data);
+	TEST_ASSERT_EQUAL(256, *(int*)lst->next->next->data);
 
-	ft_lstadd_front(&lst, ft_lstnew(&d));
+	ft_lstpush_front(&lst, ft_lstnew(&d));
 	ft_lstiter(lst, square_iter_func);
-	TEST_ASSERT_EQUAL(25, *(int*)lst->content);
-	TEST_ASSERT_EQUAL(256, *(int*)lst->next->content);
-	TEST_ASSERT_EQUAL(81 * 81, *(int*)lst->next->next->content);
-	TEST_ASSERT_EQUAL(256 * 256, *(int*)lst->next->next->next->content);
+	TEST_ASSERT_EQUAL(25, *(int*)lst->data);
+	TEST_ASSERT_EQUAL(256, *(int*)lst->next->data);
+	TEST_ASSERT_EQUAL(81 * 81, *(int*)lst->next->next->data);
+	TEST_ASSERT_EQUAL(256 * 256, *(int*)lst->next->next->next->data);
 
-	ft_lstclear(&lst, NULL);
+	ft_lstdestroy(&lst, NULL);
 }

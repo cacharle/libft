@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 09:55:31 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/13 04:28:00 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/04/01 21:50:49 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	{
 		lw = *(uint64_t*)s ^ buf;
 		if ((lw - LOMAGIC) & ~lw & HIMAGIC)
-			break;
+			break ;
 		n -= 8;
 		s += 8;
 	}

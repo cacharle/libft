@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 10:01:53 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/17 10:54:03 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/04/01 21:50:29 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,21 +40,21 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 		lw = *(uint64_t*)src ^ buf;
 		if ((lw - LOMAGIC) & ~lw & HIMAGIC)
 		{
-			if ( (((uint8_t*)dest)[0] = ((uint8_t*)src)[0]) == (uint8_t)c)
+			if ((((uint8_t*)dest)[0] = ((uint8_t*)src)[0]) == (uint8_t)c)
 				return ((uint8_t*)dest + 1);
-			if ( (((uint8_t*)dest)[1] = ((uint8_t*)src)[1]) == (uint8_t)c)
+			if ((((uint8_t*)dest)[1] = ((uint8_t*)src)[1]) == (uint8_t)c)
 				return ((uint8_t*)dest + 2);
-			if ( (((uint8_t*)dest)[2] = ((uint8_t*)src)[2]) == (uint8_t)c)
+			if ((((uint8_t*)dest)[2] = ((uint8_t*)src)[2]) == (uint8_t)c)
 				return ((uint8_t*)dest + 3);
-			if ( (((uint8_t*)dest)[3] = ((uint8_t*)src)[3]) == (uint8_t)c)
+			if ((((uint8_t*)dest)[3] = ((uint8_t*)src)[3]) == (uint8_t)c)
 				return ((uint8_t*)dest + 4);
-			if ( (((uint8_t*)dest)[4] = ((uint8_t*)src)[4]) == (uint8_t)c)
+			if ((((uint8_t*)dest)[4] = ((uint8_t*)src)[4]) == (uint8_t)c)
 				return ((uint8_t*)dest + 5);
-			if ( (((uint8_t*)dest)[5] = ((uint8_t*)src)[5]) == (uint8_t)c)
+			if ((((uint8_t*)dest)[5] = ((uint8_t*)src)[5]) == (uint8_t)c)
 				return ((uint8_t*)dest + 6);
-			if ( (((uint8_t*)dest)[6] = ((uint8_t*)src)[6]) == (uint8_t)c)
+			if ((((uint8_t*)dest)[6] = ((uint8_t*)src)[6]) == (uint8_t)c)
 				return ((uint8_t*)dest + 7);
-			if ( (((uint8_t*)dest)[7] = ((uint8_t*)src)[7]) == (uint8_t)c)
+			if ((((uint8_t*)dest)[7] = ((uint8_t*)src)[7]) == (uint8_t)c)
 				return ((uint8_t*)dest + 8);
 		}
 		else

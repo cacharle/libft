@@ -5,13 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/25 03:32:51 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/15 12:46:28 by cacharle         ###   ########.fr       */
+/*   Created: 2020/01/30 08:29:58 by cacharle          #+#    #+#             */
+/*   Updated: 2020/02/28 12:12:47 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "libft_lst.h"
+
+/*
+** \brief      Delete head node and replace it with next node
+** \param del  Delete function for node data
+*/
 
 void	ft_lstpop_front(t_ftlst **lst, void (*del)(void *))
 {

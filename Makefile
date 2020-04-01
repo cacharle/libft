@@ -6,7 +6,7 @@
 #    By: cacharle <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/08 15:45:53 by cacharle          #+#    #+#              #
-#    Updated: 2020/02/13 04:31:23 by cacharle         ###   ########.fr        #
+#    Updated: 2020/04/01 21:58:00 by charles          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,19 +15,25 @@ RM = rm -f
 NORM = norminette
 MAKE = make
 MAKE_ARGS = --no-print-directory
+DOXYGEN = doxygen
+DOXYGEN_FILE = Doxyfile
 
 SRC_DIR = src
 INCLUDE_DIR = include
 OBJ_DIR = obj
 SCRIPT_DIR = script
 TEST_DIR = test
+DOC_DIR = doc
 
 INCLUDE_DIR = include
 
-OPTIMIZATION ?= -O0
-
 CC = gcc
-CCFLAGS = -I$(INCLUDE_DIR) $(OPTIMIZATION) -Wall -Wextra -Werror
+OFLAG ?= -O0
+CCFLAGS = $(OFLAG) -I$(INCLUDE_DIR) -Wall -Wextra -Werror
+
+ifeq ($(TRAVIS_COMPILER),gcc)
+CCFLAGS += -Wno-unused-result
+endif
 
 IGNORE_FILE = .libftignore
 IGNORE_DEFAULT = ft_printf
@@ -80,5 +86,16 @@ fclean: clean
 
 re: fclean all
 
+.PHONY: doc
+doc:
+	mkdir -p tmp
+	for f in $(SRC) $(INCLUDE); do mkdir -p tmp/`dirname $$f` && sed 's_^/\*$$_/**_' $$f > tmp/$$f; done
+	$(DOXYGEN) $(DOXYGEN_FILE)
+
+doc_clean:
+	$(RM) -r $(DOC_DIR)
+
+# compatible with libft-unit-test
 so: all
 	gcc -o libft.so -shared -fPIC $(OBJ)
+

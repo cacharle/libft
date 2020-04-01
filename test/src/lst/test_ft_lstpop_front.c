@@ -15,16 +15,16 @@ TEST(ft_lstpop_front, basic)
 	int b = 2;
 	int c = 3;
 
-	ft_lstadd_front(&lst, ft_lstnew(&a));
-	ft_lstadd_front(&lst, ft_lstnew(&b));
-	ft_lstadd_front(&lst, ft_lstnew(&c));
+	ft_lstpush_front(&lst, ft_lstnew(&a));
+	ft_lstpush_front(&lst, ft_lstnew(&b));
+	ft_lstpush_front(&lst, ft_lstnew(&c));
 
 	ft_lstpop_front(&lst, NULL);
-	TEST_ASSERT_EQUAL_PTR(&b, lst->content);
-	TEST_ASSERT_EQUAL_PTR(&a, lst->next->content);
+	TEST_ASSERT_EQUAL_PTR(&b, lst->data);
+	TEST_ASSERT_EQUAL_PTR(&a, lst->next->data);
 
 	ft_lstpop_front(&lst, NULL);
-	TEST_ASSERT_EQUAL_PTR(&a, lst->content);
+	TEST_ASSERT_EQUAL_PTR(&a, lst->data);
 
 	ft_lstpop_front(&lst, NULL);
 	TEST_ASSERT_NULL(lst);
