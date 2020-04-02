@@ -6,7 +6,7 @@
 /*   By: charles <charles.cabergs@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/01 19:13:07 by charles           #+#    #+#             */
-/*   Updated: 2020/04/01 21:15:20 by charles          ###   ########.fr       */
+/*   Updated: 2020/04/02 10:43:01 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_ftvec		*ft_vecgrow(t_ftvec *vec)
 		new_capacity = vec->capacity * FT_VEC_GROWTH_FACTOR;
 	if ((new_data = (void**)malloc(sizeof(void*) * new_capacity)) == NULL)
 		return (NULL);
-	ft_memcpy(new_data, vec->data, vec->size);
+	ft_memcpy(new_data, vec->data, vec->size * sizeof(void*));
 	free(vec->data);
 	vec->data = new_data;
 	vec->capacity = new_capacity;
