@@ -29,6 +29,7 @@ static void run_all_test(void)
 
 	// str
 	RUN_TEST_GROUP(ft_strlen);
+	RUN_TEST_GROUP(ft_fnmatch);
 
 	// ht
 	RUN_TEST_GROUP(ft_htentry_new);

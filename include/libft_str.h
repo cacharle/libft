@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 10:39:22 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/28 12:09:56 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/04/02 23:45:42 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_STR_H
 
 # include <stddef.h>
+# include <stdbool.h>
 # include "libft_ctype.h"
 
 typedef enum
@@ -73,6 +74,12 @@ int		ft_strequ(char const *s1, char const *s2);
 int		ft_strnequ(char const *s1, char const *s2, size_t n);
 char	*ft_strtolower(char *s);
 char	*ft_strtoupper(char *s);
+
+/*
+** glob
+*/
+
+bool	ft_fnmatch(const char *pattern, const char *string);
 
 /*
 ** bloat ?
