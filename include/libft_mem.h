@@ -14,7 +14,7 @@
 # define LIBFT_MEM_H
 
 # include <stddef.h>
-# include "libft_types.h"
+# include "libft_def.h"
 
 void				ft_bzero(void *s, size_t n);
 void				*ft_memset(void *s, int c, size_t n);

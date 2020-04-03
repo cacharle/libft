@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "libft_types.h"
+#include "libft_def.h"
 
 int	ft_strncasecmp(const char *s1, const char *s2, size_t n)
 {

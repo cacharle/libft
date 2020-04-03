@@ -20,9 +20,9 @@
 */
 
 // maybe use a less efficient but understandable function
-t_ftht_digest	ft_hthash(t_ftht *ht, char *key)
+size_t	ft_hthash(t_ftht *ht, char *key)
 {
-	t_ftht_digest	digest;
+	size_t	digest;
 
 	if (*key == '\0')
 		return (0);

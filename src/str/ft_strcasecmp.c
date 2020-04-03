@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft_str.h"
-#include "libft_types.h"
+#include "libft_def.h"
 
 int	ft_strcasecmp(const char *s1, const char *s2)
 {
