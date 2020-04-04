@@ -89,6 +89,8 @@ static void run_all_test(void)
 	RUN_TEST_GROUP(ft_dstrinsert);
 	RUN_TEST_GROUP(ft_dstrnew);
 	RUN_TEST_GROUP(ft_dstrunwrap);
+	RUN_TEST_GROUP(ft_dstrsubstitute);
+	RUN_TEST_GROUP(ft_dstrerase);
 }
 
 

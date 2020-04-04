@@ -6,7 +6,7 @@
 /*   By: charles <charles.cabergs@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/04 20:44:42 by charles           #+#    #+#             */
-/*   Updated: 2020/04/04 20:47:33 by charles          ###   ########.fr       */
+/*   Updated: 2020/04/05 00:48:08 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,14 @@ TEST_GROUP_RUNNER(ft_dstrnew)
 TEST_GROUP_RUNNER(ft_dstrunwrap)
 {
 	RUN_TEST_CASE(ft_dstrunwrap, basic);
+}
+
+TEST_GROUP_RUNNER(ft_dstrsubstitute)
+{
+	RUN_TEST_CASE(ft_dstrsubstitute, basic);
+}
+
+TEST_GROUP_RUNNER(ft_dstrerase)
+{
+	RUN_TEST_CASE(ft_dstrerase, basic);
 }
