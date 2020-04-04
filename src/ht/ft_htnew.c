@@ -6,12 +6,11 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 08:19:16 by cacharle          #+#    #+#             */
-/*   Updated: 2020/04/03 06:53:51 by charles          ###   ########.fr       */
+/*   Updated: 2020/04/04 22:34:55 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_ht.h"
-#include "libft_mem.h"
 
 /*
 ** \brief       Create a new hash table.

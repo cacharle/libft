@@ -6,7 +6,7 @@
 /*   By: charles <charles.cabergs@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/03 10:39:51 by charles           #+#    #+#             */
-/*   Updated: 2020/04/04 21:18:48 by charles          ###   ########.fr       */
+/*   Updated: 2020/04/04 23:33:27 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void			ft_dstrdestroy(t_ftdstr *dstr);
 t_ftdstr		*ft_dstrgrow(t_ftdstr *dstr, size_t at_least);
 char			*ft_dstrunwrap(t_ftdstr *dstr);
 t_ftdstr		*ft_dstrinsert(t_ftdstr *dstr, char *inserted, size_t i);
-// t_ftdstr		*ft_dstrsubstitute(t_ftdstr *dstr, char *sub, size_t start, size_t end);
+t_ftdstr		*ft_dstrsubstitute(t_ftdstr *dstr, char *sub,
+									size_t start, size_t end);
 
 #endif

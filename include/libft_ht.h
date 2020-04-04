@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 10:36:09 by cacharle          #+#    #+#             */
-/*   Updated: 2020/04/03 07:12:12 by charles          ###   ########.fr       */
+/*   Updated: 2020/04/04 22:34:53 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include "libft.h"
 # include "libft_def.h"
 # include "libft_lst.h"
+# include "libft_mem.h"
 
 /*
 ** \brief        Hash table entry, key/value pair

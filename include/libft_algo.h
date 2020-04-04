@@ -6,9 +6,14 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/19 07:22:57 by cacharle          #+#    #+#             */
-/*   Updated: 2020/04/04 15:46:10 by charles          ###   ########.fr       */
+/*   Updated: 2020/04/04 23:33:51 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** \file     libft_algo.h
+** \brief    Algorithms
+*/
 
 #ifndef LIBFT_ALGO_H
 # define LIBFT_ALGO_H
@@ -18,11 +23,25 @@
 # include "libft_def.h"
 # include "libft_str.h"
 
+/*
+** \brief     Range struct
+** \param lo  Lower bound
+** \param hi  Upper bound
+*/
+
 typedef struct
 {
 	int				lo;
 	int				hi;
 }					t_ftrange;
+
+/*
+** \brief        Merge sort consts struct
+** \param base   Array to sort
+** \param left   Left subarray
+** \param right  Right subarray
+** \note         Only used internaly by ft_mergesort
+*/
 
 struct				s_merge_sorted_arrays
 {
@@ -30,6 +49,10 @@ struct				s_merge_sorted_arrays
 	void			*left;
 	void			*right;
 };
+
+/*
+** remove this horror
+*/
 
 typedef struct		s_ft_search_const
 {
