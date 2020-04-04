@@ -6,7 +6,7 @@
 /*   By: charles <charles.cabergs@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/01 18:57:16 by charles           #+#    #+#             */
-/*   Updated: 2020/04/02 11:00:57 by charles          ###   ########.fr       */
+/*   Updated: 2020/04/04 15:55:29 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@
 */
 
 # include <stdlib.h>
-# include <stddef.h>
+# include "libft_def.h"
 # include "libft_mem.h"
+# include "libft_algo.h"
 
 /*
 ** \brief           Vector struct
@@ -40,9 +41,11 @@ t_ftvec			*ft_vecnew(size_t capacity);
 void			ft_vecdestroy(t_ftvec *vec, void (*del)(void *elem));
 t_ftvec			*ft_vecgrow(t_ftvec *vec);
 t_ftvec			*ft_vecpush(t_ftvec *vec, void *pushed);
+t_ftvec			*ft_vecpush_safe(t_ftvec *vec, void *pushed);
 void			ft_vecpop(t_ftvec *vec, void (*del)(void *elem));
 void			ft_veciter(t_ftvec *vec, void (*f)(void *elem));
 void			ft_vecremove(t_ftvec *vec, size_t i, void (*del)(void *elem));
 t_ftvec			*ft_vecinsert(t_ftvec *vec, size_t i, void *elem);
+void			ft_vecsort(t_ftvec *vec, t_ftcompar_func cmp);
 
 #endif

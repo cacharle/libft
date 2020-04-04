@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/19 07:22:57 by cacharle          #+#    #+#             */
-/*   Updated: 2020/04/03 07:05:04 by charles          ###   ########.fr       */
+/*   Updated: 2020/04/04 15:46:10 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include "libft_mem.h"
 # include "libft_def.h"
+# include "libft_str.h"
 
 typedef struct
 {
@@ -39,6 +40,7 @@ typedef struct		s_ft_search_const
 bool				ft_is_set(void *base, size_t nel, size_t width,
 						t_ftcompar_func compar);
 int					ft_compar_int(const void *a, const void *b);
+int					ft_compar_str(const void *s1_p, const void *s2_p);
 void				ft_qsort(void *base, size_t nel, size_t width,
 						t_ftcompar_func compar);
 int					ft_mergesort(void *base, size_t nel, size_t width,

@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 10:39:22 by cacharle          #+#    #+#             */
-/*   Updated: 2020/04/02 23:45:42 by charles          ###   ########.fr       */
+/*   Updated: 2020/04/04 14:41:46 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stddef.h>
 # include <stdbool.h>
 # include "libft_ctype.h"
+# include "libft_util.h"
 
 typedef enum
 {
@@ -80,6 +81,13 @@ char	*ft_strtoupper(char *s);
 */
 
 bool	ft_fnmatch(const char *pattern, const char *string);
+
+/*
+** NULL terminated string array
+*/
+
+char	*ft_strsjoin(char **strs, char *delim);
+char	*ft_strsjoinf(char **strs, char *delim);
 
 /*
 ** bloat ?
