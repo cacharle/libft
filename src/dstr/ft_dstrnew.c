@@ -6,11 +6,18 @@
 /*   By: charles <charles.cabergs@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/03 13:54:52 by charles           #+#    #+#             */
-/*   Updated: 2020/04/03 13:58:17 by charles          ###   ########.fr       */
+/*   Updated: 2020/04/04 19:50:38 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_dstr.h"
+
+/*
+** \brief       Create a new dynamic string
+** \param from  Static string to create the dynamic one from
+**              (will be duplicated)
+** \return      Created dynamic string or NULL on malloc error
+*/
 
 t_ftdstr	*ft_dstrnew(char *from)
 {

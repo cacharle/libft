@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dstrunwrap.c                                    :+:      :+:    :+:   */
+/*   test_ft_dstrdestroy.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: charles <charles.cabergs@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/03 13:59:35 by charles           #+#    #+#             */
-/*   Updated: 2020/04/04 19:58:41 by charles          ###   ########.fr       */
+/*   Created: 2020/04/01 19:41:59 by charles           #+#    #+#             */
+/*   Updated: 2020/04/04 21:04:51 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_dstr.h"
+#include "libft_test.h"
 
-/*
-** \brief       Destroy dynamic string but keep the underlying static string
-** \param dstr  Dynamic string to unwrap
-** \return      Underlying string of the dynamic one
-*/
+TEST_GROUP(ft_dstrdestroy);
 
-char		*ft_dstrunwrap(t_ftdstr *dstr)
+TEST_SETUP(ft_dstrdestroy)
+{}
+
+TEST_TEAR_DOWN(ft_dstrdestroy)
+{}
+
+TEST(ft_dstrdestroy, basic)
 {
-	char	*tmp;
-
-	tmp = dstr->str;
-	free(dstr);
-	return (tmp);
+	TEST_PASS();
 }

@@ -6,7 +6,7 @@
 /*   By: charles <charles.cabergs@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/01 19:55:53 by charles           #+#    #+#             */
-/*   Updated: 2020/04/02 11:01:36 by charles          ###   ########.fr       */
+/*   Updated: 2020/04/04 19:36:41 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,9 @@ TEST_GROUP_RUNNER(ft_vecremove)
 TEST_GROUP_RUNNER(ft_vecinsert)
 {
 	RUN_TEST_CASE(ft_vecinsert, basic);
+}
+
+TEST_GROUP_RUNNER(ft_vecsort)
+{
+	RUN_TEST_CASE(ft_vecsort, basic);
 }

@@ -79,7 +79,14 @@ static void run_all_test(void)
 	RUN_TEST_GROUP(ft_vecpush);
 	RUN_TEST_GROUP(ft_vecremove);
 	RUN_TEST_GROUP(ft_vecinsert);
+
+	RUN_TEST_GROUP(ft_dstrdestroy);
+	RUN_TEST_GROUP(ft_dstrgrow);
+	RUN_TEST_GROUP(ft_dstrinsert);
+	RUN_TEST_GROUP(ft_dstrnew);
+	RUN_TEST_GROUP(ft_dstrunwrap);
 }
+
 
 int main(int argc, const char **argv)
 {

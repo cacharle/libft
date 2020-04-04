@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dstrunwrap.c                                    :+:      :+:    :+:   */
+/*   test_runner_dstr.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: charles <charles.cabergs@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/03 13:59:35 by charles           #+#    #+#             */
-/*   Updated: 2020/04/04 19:58:41 by charles          ###   ########.fr       */
+/*   Created: 2020/04/04 20:44:42 by charles           #+#    #+#             */
+/*   Updated: 2020/04/04 20:47:33 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_dstr.h"
+#include "libft_test.h"
 
-/*
-** \brief       Destroy dynamic string but keep the underlying static string
-** \param dstr  Dynamic string to unwrap
-** \return      Underlying string of the dynamic one
-*/
-
-char		*ft_dstrunwrap(t_ftdstr *dstr)
+TEST_GROUP_RUNNER(ft_dstrdestroy)
 {
-	char	*tmp;
+	RUN_TEST_CASE(ft_dstrdestroy, basic);
+}
 
-	tmp = dstr->str;
-	free(dstr);
-	return (tmp);
+TEST_GROUP_RUNNER(ft_dstrgrow)
+{
+	RUN_TEST_CASE(ft_dstrgrow, basic);
+}
+
+TEST_GROUP_RUNNER(ft_dstrinsert)
+{
+	RUN_TEST_CASE(ft_dstrinsert, basic);
+}
+
+TEST_GROUP_RUNNER(ft_dstrnew)
+{
+	RUN_TEST_CASE(ft_dstrnew, basic);
+}
+
+TEST_GROUP_RUNNER(ft_dstrunwrap)
+{
+	RUN_TEST_CASE(ft_dstrunwrap, basic);
 }
