@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 10:39:22 by cacharle          #+#    #+#             */
-/*   Updated: 2020/04/04 14:41:46 by charles          ###   ########.fr       */
+/*   Updated: 2020/04/05 13:52:10 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ int		ft_atoi(const char *nptr);
 
 void	ft_striter(char *s, void (*f)(char *));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
-char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strsub(char const *s, size_t start, size_t len);
+char	*ft_strsubf(char const *s, size_t start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strjoin3(char const *s1, char const *s2, char const *s3);
 char	*ft_strjoinf(char const *s1, char const *s2, t_ftstrjoinf_tag tag);
@@ -75,6 +76,7 @@ int		ft_strequ(char const *s1, char const *s2);
 int		ft_strnequ(char const *s1, char const *s2, size_t n);
 char	*ft_strtolower(char *s);
 char	*ft_strtoupper(char *s);
+char	*ft_strcat3(char *dest, const char *src1, const char *src2);
 
 /*
 ** glob

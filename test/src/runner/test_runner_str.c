@@ -19,3 +19,13 @@ TEST_GROUP_RUNNER(ft_strsjoinf)
 {
 	RUN_TEST_CASE(ft_strsjoinf, basic);
 }
+
+TEST_GROUP_RUNNER(ft_strsub)
+{
+	RUN_TEST_CASE(ft_strsub, basic);
+}
+
+TEST_GROUP_RUNNER(ft_strsubf)
+{
+	RUN_TEST_CASE(ft_strsubf, basic);
+}
