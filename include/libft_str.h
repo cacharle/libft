@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 10:39:22 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/28 12:09:56 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/05/08 13:39:12 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stddef.h>
 # include "libft_ctype.h"
 # include "libft_mem.h"
+# include "libft_util.h"
 
 typedef enum
 {
