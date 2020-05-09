@@ -29,6 +29,11 @@ static void run_all_test(void)
 
 	// str
 	RUN_TEST_GROUP(ft_strlen);
+	RUN_TEST_GROUP(ft_fnmatch);
+	RUN_TEST_GROUP(ft_strsjoin);
+	RUN_TEST_GROUP(ft_strsjoinf);
+	RUN_TEST_GROUP(ft_strsub);
+	RUN_TEST_GROUP(ft_strsubf);
 
 	// ht
 	RUN_TEST_GROUP(ft_htentry_new);
@@ -76,7 +81,20 @@ static void run_all_test(void)
 	RUN_TEST_GROUP(ft_vecnew);
 	RUN_TEST_GROUP(ft_vecpop);
 	RUN_TEST_GROUP(ft_vecpush);
+	RUN_TEST_GROUP(ft_vecremove);
+	RUN_TEST_GROUP(ft_vecinsert);
+	RUN_TEST_GROUP(ft_vecpush_safe);
+
+	// dstr
+	RUN_TEST_GROUP(ft_dstrdestroy);
+	RUN_TEST_GROUP(ft_dstrgrow);
+	RUN_TEST_GROUP(ft_dstrinsert);
+	RUN_TEST_GROUP(ft_dstrnew);
+	RUN_TEST_GROUP(ft_dstrunwrap);
+	RUN_TEST_GROUP(ft_dstrsubstitute);
+	RUN_TEST_GROUP(ft_dstrerase);
 }
+
 
 int main(int argc, const char **argv)
 {

@@ -16,12 +16,6 @@ TEST_TEAR_DOWN(ft_htget)
 
 int helper_segfault_pid;
 
-static void st_del(t_ftht_entry *c)
-{
-	free(c->key);
-	free(c);
-}
-
 TEST(ft_htget, segfault)
 {
 	TEST_ASSERT_SEGFAULT(ft_htget((t_ftht*)NULL, ""));
@@ -43,72 +37,72 @@ TEST(ft_htget, error_null)
 
 TEST(ft_htget, basic)
 {
-	ft_htset(ht, strdup("a"), strdup("data1"), st_del);
-	ft_htset(ht, strdup("b"), strdup("data2"), st_del);
-	ft_htset(ht, strdup("c"), strdup("data3"), st_del);
+	ft_htset(ht, strdup("a"), strdup("data1"), free);
+	ft_htset(ht, strdup("b"), strdup("data2"), free);
+	ft_htset(ht, strdup("c"), strdup("data3"), free);
 
 	char *s = ft_htget(ht, "a");
 	TEST_ASSERT_NOT_NULL(s);
-	TEST_ASSERT_EQUAL_STRING(s, "data1"); 
+	TEST_ASSERT_EQUAL_STRING(s, "data1");
 
 	s = ft_htget(ht, "b");
 	TEST_ASSERT_NOT_NULL(s);
-	TEST_ASSERT_EQUAL_STRING(s, "data2"); 
+	TEST_ASSERT_EQUAL_STRING(s, "data2");
 
 	s = ft_htget(ht, "c");
 	TEST_ASSERT_NOT_NULL(s);
-	TEST_ASSERT_EQUAL_STRING(s, "data3"); 
+	TEST_ASSERT_EQUAL_STRING(s, "data3");
 
-	ft_htset(ht, strdup("a"), strdup("bonjour1"), st_del);
-	ft_htset(ht, strdup("b"), strdup("bonjour2"), st_del);
-	ft_htset(ht, strdup("c"), strdup("bonjour3"), st_del);
+	ft_htset(ht, strdup("a"), strdup("bonjour1"), free);
+	ft_htset(ht, strdup("b"), strdup("bonjour2"), free);
+	ft_htset(ht, strdup("c"), strdup("bonjour3"), free);
 
 	s = ft_htget(ht, "a");
 	TEST_ASSERT_NOT_NULL(s);
-	TEST_ASSERT_EQUAL_STRING(s, "bonjour1"); 
+	TEST_ASSERT_EQUAL_STRING(s, "bonjour1");
 
 	s = ft_htget(ht, "b");
 	TEST_ASSERT_NOT_NULL(s);
-	TEST_ASSERT_EQUAL_STRING(s, "bonjour2"); 
+	TEST_ASSERT_EQUAL_STRING(s, "bonjour2");
 
 	s = ft_htget(ht, "c");
 	TEST_ASSERT_NOT_NULL(s);
-	TEST_ASSERT_EQUAL_STRING(s, "bonjour3"); 
+	TEST_ASSERT_EQUAL_STRING(s, "bonjour3");
 }
 
 TEST(ft_htget, collision)
 {
 	t_ftht *small = ft_htnew(1);
 
-	ft_htset(small, strdup("a"), strdup("data1"), st_del);
-	ft_htset(small, strdup("b"), strdup("data2"), st_del);
-	ft_htset(small, strdup("c"), strdup("data3"), st_del);
+	ft_htset(small, strdup("a"), strdup("data1"), free);
+	ft_htset(small, strdup("b"), strdup("data2"), free);
+	ft_htset(small, strdup("c"), strdup("data3"), free);
 
 	char *s = ft_htget(small, "a");
 	TEST_ASSERT_NOT_NULL(s);
-	TEST_ASSERT_EQUAL_STRING(s, "data1"); 
+	TEST_ASSERT_EQUAL_STRING(s, "data1");
 
 	s = ft_htget(small, "b");
 	TEST_ASSERT_NOT_NULL(s);
-	TEST_ASSERT_EQUAL_STRING(s, "data2"); 
+	TEST_ASSERT_EQUAL_STRING(s, "data2");
 
 	s = ft_htget(small, "c");
 	TEST_ASSERT_NOT_NULL(s);
-	TEST_ASSERT_EQUAL_STRING(s, "data3"); 
+	TEST_ASSERT_EQUAL_STRING(s, "data3");
 
-	ft_htset(small, strdup("a"), strdup("bonjour1"), st_del);
-	ft_htset(small, strdup("b"), strdup("bonjour2"), st_del);
-	ft_htset(small, strdup("c"), strdup("bonjour3"), st_del);
+	ft_htset(small, strdup("a"), strdup("bonjour1"), free);
+	ft_htset(small, strdup("b"), strdup("bonjour2"), free);
+	ft_htset(small, strdup("c"), strdup("bonjour3"), free);
 
 	s = ft_htget(small, "a");
 	TEST_ASSERT_NOT_NULL(s);
-	TEST_ASSERT_EQUAL_STRING(s, "bonjour1"); 
+	TEST_ASSERT_EQUAL_STRING(s, "bonjour1");
 
 	s = ft_htget(small, "b");
 	TEST_ASSERT_NOT_NULL(s);
-	TEST_ASSERT_EQUAL_STRING(s, "bonjour2"); 
+	TEST_ASSERT_EQUAL_STRING(s, "bonjour2");
 
 	s = ft_htget(small, "c");
 	TEST_ASSERT_NOT_NULL(s);
-	TEST_ASSERT_EQUAL_STRING(s, "bonjour3"); 
+	TEST_ASSERT_EQUAL_STRING(s, "bonjour3");
 }

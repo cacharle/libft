@@ -19,7 +19,7 @@
 */
 
 # include <stdlib.h>
-# include "libft_types.h"
+# include "libft_def.h"
 # include "libft_algo.h"
 
 /*

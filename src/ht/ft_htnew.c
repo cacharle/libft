@@ -6,11 +6,10 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 08:19:16 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/28 12:23:43 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/04/04 22:34:55 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "libft_ht.h"
 
 /*
@@ -19,7 +18,7 @@
 ** \return      Created hash table or NULL is an allocation failed
 */
 
-t_ftht	*ft_htnew(t_ftsize size)
+t_ftht	*ft_htnew(size_t size)
 {
 	t_ftht	*ht;
 
@@ -27,7 +26,7 @@ t_ftht	*ft_htnew(t_ftsize size)
 		return (NULL);
 	if ((ht = (t_ftht*)malloc(sizeof(t_ftht))) == NULL)
 		return (NULL);
-	ht->buckets = (t_ftht_bucket*)ft_calloc(size, sizeof(t_ftht_entry));
+	ht->buckets = (t_ftlst**)ft_calloc(size, sizeof(t_ftlst*));
 	if (ht->buckets == NULL)
 	{
 		free(ht);

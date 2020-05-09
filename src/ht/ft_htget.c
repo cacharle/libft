@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 08:33:21 by cacharle          #+#    #+#             */
-/*   Updated: 2020/04/01 18:02:57 by charles          ###   ########.fr       */
+/*   Updated: 2020/04/03 07:12:58 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 
 void	*ft_htget(t_ftht *ht, char *key)
 {
-	t_ftht_digest	digest;
-	t_ftlst			*found;
+	size_t	digest;
+	t_ftlst	*found;
 
 	if (ht == NULL || key == NULL)
 		return (NULL);

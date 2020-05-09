@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 02:45:27 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/19 02:49:36 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/04/03 07:07:07 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,13 @@ TEST_SETUP(ft_htdestroy)
 TEST_TEAR_DOWN(ft_htdestroy)
 {}
 
-static void st_del(t_ftht_entry *v)
-{
-	free(v->key);
-	free(v);
-}
-
 TEST(ft_htdestroy, basic)
 {
 	t_ftht *ht = ft_htnew(2);
 
-	ft_htset(ht, "a", "1", st_del);
-	ft_htset(ht, "b", "2", st_del);
-	ft_htset(ht, "c", "3", st_del);
-	ft_htset(ht, "d", "4", st_del);
-	ft_htdestroy(ht, st_del);
+	ft_htset(ht, "a", strdup("1"), free);
+	ft_htset(ht, "b", strdup("2"), free);
+	ft_htset(ht, "c", "3", NULL);
+	ft_htset(ht, "d", "4", NULL);
+	ft_htdestroy(ht, NULL);
 }

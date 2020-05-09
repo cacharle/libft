@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 10:35:57 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/28 12:17:48 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/05/09 12:28:55 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 # define LIBFT_MEM_H
 
 # include <stddef.h>
-# include <stdint.h>
-# include "libft_types.h"
+# include "libft_def.h"
 
 void				ft_bzero(void *s, size_t n);
 void				*ft_memset(void *s, int c, size_t n);
