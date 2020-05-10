@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_util.h                                       :+:      :+:    :+:   */
+/*   ft_split_len.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: charles <charles.cabergs@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/27 17:51:36 by cacharle          #+#    #+#             */
-/*   Updated: 2020/05/10 21:02:02 by charles          ###   ########.fr       */
+/*   Created: 2020/05/10 20:58:46 by charles           #+#    #+#             */
+/*   Updated: 2020/05/10 21:02:08 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_UTIL_H
-# define LIBFT_UTIL_H
+#include "libft_util.h"
 
-# include <stdlib.h>
-# include <stddef.h>
+size_t	ft_split_len(char **split)
+{
+	size_t	count;
 
-void	*ft_split_destroy(char **strs);
-size_t	ft_split_len(char **split);
-
-#endif
+	count = 0;
+	while (split[count] != NULL)
+		count++;
+	return (count);
+}

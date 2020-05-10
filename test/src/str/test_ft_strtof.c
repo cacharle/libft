@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_util.h                                       :+:      :+:    :+:   */
+/*   test_ft_strtof.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: charles <charles.cabergs@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/27 17:51:36 by cacharle          #+#    #+#             */
-/*   Updated: 2020/05/10 21:02:02 by charles          ###   ########.fr       */
+/*   Created: 2020/04/01 19:41:59 by charles           #+#    #+#             */
+/*   Updated: 2020/05/10 21:58:21 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_UTIL_H
-# define LIBFT_UTIL_H
+#include "libft_test.h"
 
-# include <stdlib.h>
-# include <stddef.h>
+TEST_GROUP(ft_strtof);
 
-void	*ft_split_destroy(char **strs);
-size_t	ft_split_len(char **split);
+TEST_SETUP(ft_strtof)
+{}
 
-#endif
+TEST_TEAR_DOWN(ft_strtof)
+{}
+
+TEST(ft_strtof, basic)
+{
+	/* float foo; */
+
+	/* foo = ft_strtof("0.0", NULL); */
+	/* TEST_ASSERT(0); */
+}

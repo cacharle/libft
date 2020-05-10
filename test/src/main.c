@@ -34,6 +34,7 @@ static void run_all_test(void)
 	RUN_TEST_GROUP(ft_strsjoinf);
 	RUN_TEST_GROUP(ft_strsub);
 	RUN_TEST_GROUP(ft_strsubf);
+	RUN_TEST_GROUP(ft_strtof);
 
 	// ht
 	RUN_TEST_GROUP(ft_htentry_new);

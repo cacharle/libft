@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_util.h                                       :+:      :+:    :+:   */
+/*   ft_atof.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: charles <charles.cabergs@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/27 17:51:36 by cacharle          #+#    #+#             */
-/*   Updated: 2020/05/10 21:02:02 by charles          ###   ########.fr       */
+/*   Created: 2020/05/10 21:03:50 by charles           #+#    #+#             */
+/*   Updated: 2020/05/10 21:04:54 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_UTIL_H
-# define LIBFT_UTIL_H
+#include "libft_str.h"
 
-# include <stdlib.h>
-# include <stddef.h>
-
-void	*ft_split_destroy(char **strs);
-size_t	ft_split_len(char **split);
-
-#endif
+float	ft_atof(const char *nptr)
+{
+	return (ft_strtof(nptr, NULL));
+}

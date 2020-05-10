@@ -29,3 +29,8 @@ TEST_GROUP_RUNNER(ft_strsubf)
 {
 	RUN_TEST_CASE(ft_strsubf, basic);
 }
+
+TEST_GROUP_RUNNER(ft_strtof)
+{
+	RUN_TEST_CASE(ft_strtof, basic);
+}
