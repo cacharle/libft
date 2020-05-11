@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 10:35:43 by cacharle          #+#    #+#             */
-/*   Updated: 2020/05/09 11:16:36 by charles          ###   ########.fr       */
+/*   Updated: 2020/05/11 09:57:42 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,14 @@ void	ft_putnbr_fd(int n, int fd);
 
 char	ft_getchar(void);
 
+# ifndef FT_GETFILE_BUFFER_SIZE
+#  define FT_GETFILE_BUFFER_SIZE 64
+# endif
+
+char	*ft_getfile(int fd);
+
 # ifndef FT_GETLINE_BUFFER_SIZE
-#  define FT_GETLINE_BUFFER_SIZE 32
+#  define FT_GETLINE_BUFFER_SIZE 64
 # endif
 
 # define FT_LINE 1
