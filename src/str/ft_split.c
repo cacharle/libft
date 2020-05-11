@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 08:29:02 by cacharle          #+#    #+#             */
-/*   Updated: 2020/05/08 13:39:31 by charles          ###   ########.fr       */
+/*   Updated: 2020/05/11 15:54:10 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char			**ft_split(char const *s, char c)
 		while (s[j + i] && s[j + i] != c)
 			i++;
 		if ((strs[tab_counter++] = ft_strndup(&s[j], i)) == NULL)
-			return (ft_split_destroy(strs));
+			return (ft_strsdestroy(strs));
 		j += i - 1;
 	}
 	strs[tab_counter] = NULL;

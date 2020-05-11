@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_util.h                                       :+:      :+:    :+:   */
+/*   ft_memjoinf1.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: charles <charles.cabergs@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/27 17:51:36 by cacharle          #+#    #+#             */
-/*   Updated: 2020/05/10 21:02:02 by charles          ###   ########.fr       */
+/*   Created: 2020/05/11 15:18:57 by charles           #+#    #+#             */
+/*   Updated: 2020/05/11 15:20:06 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_UTIL_H
-# define LIBFT_UTIL_H
+#include "libft_mem.h"
 
-# include <stdlib.h>
-# include <stddef.h>
+void	*ft_memjoinf1(void *m1, size_t m1_size, void *m2, size_t m2_size)
+{
+	void	*joined;
 
-void	*ft_split_destroy(char **strs);
-size_t	ft_split_len(char **split);
-
-#endif
+	joined = ft_memjoin(m1, m1_size, m2, m2_size);
+	free(m1);
+	return (joined);
+}

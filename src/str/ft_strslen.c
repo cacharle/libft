@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split_len.c                                     :+:      :+:    :+:   */
+/*   ft_strslen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: charles <charles.cabergs@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/10 20:58:46 by charles           #+#    #+#             */
-/*   Updated: 2020/05/10 21:02:08 by charles          ###   ########.fr       */
+/*   Updated: 2020/05/11 15:49:40 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_util.h"
+#include "libft_str.h"
 
-size_t	ft_split_len(char **split)
+size_t	ft_strslen(char **strs)
 {
 	size_t	count;
 
 	count = 0;
-	while (split[count] != NULL)
+	while (strs[count] != NULL)
 		count++;
 	return (count);
 }

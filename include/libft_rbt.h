@@ -6,7 +6,7 @@
 /*   By: charles <charles.cabergs@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 16:09:51 by charles           #+#    #+#             */
-/*   Updated: 2020/04/26 20:25:36 by charles          ###   ########.fr       */
+/*   Updated: 2020/05/11 16:11:16 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,5 @@ t_ftrbt					*ft_rbtinsert(
 							t_ftrbt *tree,
 							void *data,
 							int (*cmp)(void*, void*));
-
 
 #endif
