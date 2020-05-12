@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 10:35:43 by cacharle          #+#    #+#             */
-/*   Updated: 2020/05/12 18:00:55 by charles          ###   ########.fr       */
+/*   Updated: 2020/05/12 20:36:36 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ char			ft_getchar(void);
 # ifndef FT_GETFILE_BUFFER_SIZE
 #  define FT_GETFILE_BUFFER_SIZE 64
 # endif
+# if FT_GETFILE_BUFFER_SIZE <= 0
+#  error "FT_GETFILE_BUFFER_SIZE must be > 0"
+# endif
 
 typedef struct	s_ftmem
 {
@@ -43,7 +46,10 @@ typedef struct	s_ftmem
 int				ft_getfile(int fd, t_ftmem *mem);
 
 # ifndef FT_GETLINE_BUFFER_SIZE
-#  define FT_GETLINE_BUFFER_SIZE 1
+#  define FT_GETLINE_BUFFER_SIZE 64
+# endif
+# if FT_GETLINE_BUFFER_SIZE <= 0
+#  error "FT_GETLINE_BUFFER_SIZE must be > 0"
 # endif
 
 # define FT_LINE 1

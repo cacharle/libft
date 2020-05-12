@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 10:39:22 by cacharle          #+#    #+#             */
-/*   Updated: 2020/05/11 15:52:40 by charles          ###   ########.fr       */
+/*   Updated: 2020/05/12 20:47:36 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ int		ft_strnequ(char const *s1, char const *s2, size_t n);
 char	*ft_strtolower(char *s);
 char	*ft_strtoupper(char *s);
 char	*ft_strcat3(char *dest, const char *src1, const char *src2);
+char	*ft_strmove(char *dest, const char *src);
 
 /*
 ** glob

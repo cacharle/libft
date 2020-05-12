@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 09:55:31 by cacharle          #+#    #+#             */
-/*   Updated: 2020/04/01 21:50:49 by charles          ###   ########.fr       */
+/*   Updated: 2020/05/12 21:39:04 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,15 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	uint64_t	lw;
 
 	c = (uint8_t)c;
-	while (((uint64_t)s & 0b111) != 0)
+	while (((uint64_t)s & 0b111) != 0 && n > 0)
 	{
-		n--;
 		if (*(uint8_t*)s == (uint8_t)c)
-			return ((uint8_t*)s);
+			return ((void*)s);
+		n--;
 		s++;
 	}
-	buf = (uint64_t)c | (uint64_t)c << 8 | (uint64_t)c << 16
-		| (uint64_t)c << 24 | (uint64_t)c << 32 | (uint64_t)c << 40
-		| (uint64_t)c << 48 | (uint64_t)c << 56;
+	buf = c | c << 8 | c << 16 | c << 24;
+	buf |= buf << 32;
 	while (n >= 8)
 	{
 		lw = *(uint64_t*)s ^ buf;
@@ -45,12 +44,8 @@ void	*ft_memchr(const void *s, int c, size_t n)
 		n -= 8;
 		s += 8;
 	}
-	while (n > 0)
-	{
-		if (*(uint8_t*)s == (uint8_t)c)
-			return ((uint8_t*)s);
-		n--;
-		s++;
-	}
+	while (n-- > 0)
+		if (*(uint8_t*)s++ == (uint8_t)c)
+			return ((void*)(s - 1));
 	return (NULL);
 }

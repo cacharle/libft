@@ -6,11 +6,10 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 10:00:07 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/17 10:39:04 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/05/12 20:49:35 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "libft_mem.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
