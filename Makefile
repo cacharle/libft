@@ -6,17 +6,17 @@
 #    By: cacharle <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/08 15:45:53 by cacharle          #+#    #+#              #
-#    Updated: 2020/05/09 12:28:11 by charles          ###   ########.fr        #
+#    Updated: 2020/05/12 18:00:00 by charles          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 LIB = ar rcs
 RM = rm -f
 NORM = norminette
-MAKE = make
-MAKE_ARGS = --no-print-directory
+MAKE = make --no-print-directory
 DOXYGEN = doxygen
 DOXYGEN_FILE = Doxyfile
+JOBS = 4
 
 SRC_DIR = src
 INCLUDE_DIR = include
@@ -48,14 +48,15 @@ OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 INCLUDE = $(shell find $(INCLUDE_DIR) -name "*.h")
 
-# export LIBFT_SRC = $(SRC)
+all: prebuild
+	@$(MAKE) -j$(JOBS) allnopre
 
-all: prebuild $(NAME)
+allnopre: $(NAME)
 
 .PHONY: test
 test: all
 	@echo "Testing"
-	@$(MAKE) $(MAKE_ARGS) -C $(TEST_DIR) run
+	@$(MAKE) -C $(TEST_DIR) run
 
 norm:
 	@if [ `command -v $(NORM)` ];        \
@@ -75,7 +76,7 @@ $(NAME): $(OBJ) $(INCLUDE)
 	@echo "Linking: $@"
 	@$(LIB) $@ $(OBJ)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INCLUDE)
 	@echo "Compiling: $@"
 	@$(CC) $(CCFLAGS) -c -o $@ $<
 
@@ -84,7 +85,7 @@ clean:
 	@$(RM) -r $(OBJ_DIR)
 
 fclean: clean
-	@echo "Removing library"
+	@echo "Removing $(NAME)"
 	@$(RM) $(NAME)
 
 re: fclean all

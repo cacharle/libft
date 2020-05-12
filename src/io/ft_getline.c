@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 10:39:38 by cacharle          #+#    #+#             */
-/*   Updated: 2020/05/09 11:19:12 by charles          ###   ########.fr       */
+/*   Updated: 2020/05/12 17:56:59 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int				ft_getline(int fd, char **line)
 	int			split_at;
 	static char	rest[OPEN_MAX][FT_GETLINE_BUFFER_SIZE + 1] = {{0}};
 
-	if (fd < 0 || fd > OPEN_MAX || line == NULL || FT_GETLINE_BUFFER_SIZE <= 0)
+	if (fd < 0 || fd > OPEN_MAX || line == NULL)
 		return (FT_ERROR);
 	if ((*line = ft_strdup("")) == NULL)
 		return (FT_ERROR);
