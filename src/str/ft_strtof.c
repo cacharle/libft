@@ -6,11 +6,23 @@
 /*   By: charles <charles.cabergs@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/09 12:09:13 by charles           #+#    #+#             */
-/*   Updated: 2020/05/09 12:23:03 by charles          ###   ########.fr       */
+/*   Updated: 2020/05/13 00:36:24 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_str.h"
+
+static float	st_pow10(unsigned int exponent)
+{
+	float	ret;
+
+	if (exponent == 0)
+		return (1.0);
+	ret = 1.0;
+	while (exponent-- > 0)
+		ret *= 10.0;
+	return (ret);
+}
 
 /*
 ** \brief         Extract a float from a string
@@ -37,7 +49,7 @@ float	ft_strtof(const char *nptr, char **endptr)
 	if (*nptr == '.')
 		nptr++;
 	tmp = nptr;
-	n += (float)ft_strtol(nptr, (char**)&nptr, 10) / (10 * (nptr - tmp));
+	n += (float)ft_strtol(nptr, (char**)&nptr, 10) / st_pow10(nptr - tmp);
 	if (endptr != NULL)
 		*endptr = (char*)nptr;
 	return (is_neg ? -n : n);
