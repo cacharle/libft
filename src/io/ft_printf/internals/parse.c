@@ -6,35 +6,13 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 00:11:33 by cacharle          #+#    #+#             */
-/*   Updated: 2019/11/13 08:13:02 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/05/16 13:54:41 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_vasprintf.h"
 
-int			parse(const char *format, t_flist **flist)
-{
-	t_flist		*tmp;
-	t_pformat	*parsed;
-
-	*flist = NULL;
-	while (*format)
-	{
-		format++;
-		if (format[-1] != '%')
-			continue;
-		if ((parsed = parse_reduced(format)) == NULL)
-			return ((int)list_destroy(flist));
-		if ((tmp = list_new(parsed)) == NULL)
-			return ((int)list_destroy(flist));
-		list_push_front(flist, tmp);
-		format += (*flist)->data->fmt_len;
-	}
-	*flist = list_reverse(*flist);
-	return (1);
-}
-
-t_pformat	*parse_reduced(const char *fmt)
+static t_pformat	*st_parse_reduced(const char *fmt)
 {
 	t_pformat	*pformat;
 	const char	*start;
@@ -58,4 +36,26 @@ t_pformat	*parse_reduced(const char *fmt)
 	else
 		pformat->specifier = *ft_strchr(SPECIFIERS_STR, *fmt);
 	return (pformat);
+}
+
+int					ftpf_parse(const char *format, t_flist **flist)
+{
+	t_flist		*tmp;
+	t_pformat	*parsed;
+
+	*flist = NULL;
+	while (*format)
+	{
+		format++;
+		if (format[-1] != '%')
+			continue;
+		if ((parsed = st_parse_reduced(format)) == NULL)
+			return ((long int)list_destroy(flist));
+		if ((tmp = list_new(parsed)) == NULL)
+			return ((long int)list_destroy(flist));
+		list_push_front(flist, tmp);
+		format += (*flist)->data->fmt_len;
+	}
+	*flist = list_reverse(*flist);
+	return (1);
 }

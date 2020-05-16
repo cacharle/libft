@@ -6,11 +6,11 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 02:36:32 by cacharle          #+#    #+#             */
-/*   Updated: 2019/11/21 03:45:14 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/05/16 13:23:17 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_printf.h"
 
 int	ft_vsnprintf(char *str, size_t size, const char *format, va_list ap)
 {
@@ -19,8 +19,10 @@ int	ft_vsnprintf(char *str, size_t size, const char *format, va_list ap)
 	char	*full_out;
 
 	full_out_len = ft_vasprintf(&full_out, format, ap);
+	if (full_out_len == -1)
+		return (-1);
 	ft_strncpy(str, full_out, size);
-	ret = MIN((size_t)full_out_len, size);
+	ret = (size_t)full_out_len < size ? full_out_len : (int)size;
 	free(full_out);
 	return (ret);
 }

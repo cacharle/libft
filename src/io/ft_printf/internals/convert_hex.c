@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 23:23:06 by cacharle          #+#    #+#             */
-/*   Updated: 2019/11/05 23:58:59 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/05/16 13:54:54 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ char	*convert_hex(va_list ap, t_pformat *pformat)
 		str = handle_width(pformat, str);
 	}
 	if (pformat->flags & FLAG_ALTERNATE && n != 0)
-		str = ft_strjoin_free_snd(pformat->specifier == 'X' ? "0X" : "0x", str);
+		str = ft_strjoinf(pformat->specifier == 'X' ? "0X" : "0x",
+				str, FT_STRJOINF_SND);
 	if (!(pformat->flags & FLAG_ZERO))
 		str = handle_width(pformat, str);
 	return (str);

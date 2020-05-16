@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 23:29:53 by cacharle          #+#    #+#             */
-/*   Updated: 2019/11/06 00:00:09 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/05/16 13:54:29 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,10 @@ char	*convert_int(va_list ap, t_pformat *pformat)
 		str = handle_width(pformat, str);
 	}
 	if (is_neg)
-		str = ft_strjoin_free_snd("-", str);
+		str = ft_strjoinf("-", str, FT_STRJOINF_SND);
 	else if (pformat->flags & (FLAG_SIGNED | FLAG_SPACE))
-		str = ft_strjoin_free_snd(pformat->flags & FLAG_SPACE ? " " : "+", str);
+		str = ft_strjoinf(pformat->flags & FLAG_SPACE ? " " : "+",
+				str, FT_STRJOINF_SND);
 	if (!(pformat->flags & FLAG_ZERO))
 		str = handle_width(pformat, str);
 	return (str);

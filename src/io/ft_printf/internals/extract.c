@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 00:10:36 by cacharle          #+#    #+#             */
-/*   Updated: 2019/11/10 10:33:33 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/05/16 13:30:14 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,9 @@ const char	*extract_flags(t_pformat *pformat, const char *fmt)
 		if (*fmt == '#')
 			pformat->flags |= FLAG_ALTERNATE;
 		if (*fmt == '\'')
+		{
 			;
+		}
 		fmt++;
 	}
 	if (pformat->flags & FLAG_SIGNED)

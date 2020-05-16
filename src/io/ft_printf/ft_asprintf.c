@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_asprintf.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: charles <charles.cabergs@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/21 02:30:33 by cacharle          #+#    #+#             */
-/*   Updated: 2019/11/21 03:43:08 by cacharle         ###   ########.fr       */
+/*   Created: 2020/05/16 13:09:46 by charles           #+#    #+#             */
+/*   Updated: 2020/05/16 13:20:27 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_printf.h"
 
 int	ft_asprintf(char **ret, const char *format, ...)
 {
-	int		vret;
+	int		int_ret;
 	va_list	ap;
 
 	va_start(ap, format);
-	vret = ft_vasprintf(ret, format, ap);
+	int_ret = ft_vasprintf(ret, format, ap);
 	va_end(ap);
-	return (vret);
+	return (int_ret);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header.h                                           :+:      :+:    :+:   */
+/*   ft_vasprintf.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 00:06:46 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/15 11:39:15 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/05/16 13:53:49 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <stdarg.h>
 # include "libft.h"
+# include "libft_str.h"
 
 # define STATUS_ERROR -1
 
@@ -25,18 +26,18 @@
 
 # define IS_STANDALONE_FLAG(c) (ft_strchr(FLAGS_STR, c) != NULL)
 
-# define FLAG_MINUS               (1 << 0)
-# define FLAG_ZERO                (1 << 1)
-# define FLAG_SIGNED              (1 << 2)
-# define FLAG_SPACE               (1 << 3)
-# define FLAG_ALTERNATE           (1 << 4)
-# define FLAG_SHORT               (1 << 5)
-# define FLAG_SHORT_SHORT         (1 << 6)
-# define FLAG_LONG                (1 << 7)
-# define FLAG_LONG_LONG           (1 << 8)
-# define FLAG_WIDTH_WILDCARD      (1 << 9)
-# define FLAG_PRECISION_WILDCARD  (1 << 10)
-# define FLAG_WIDTH_OVERWRITE     (1 << 11)
+# define FLAG_MINUS               0b000000000001
+# define FLAG_ZERO                0b000000000010
+# define FLAG_SIGNED              0b000000000100
+# define FLAG_SPACE               0b000000001000
+# define FLAG_ALTERNATE           0b000000010000
+# define FLAG_SHORT               0b000000100000
+# define FLAG_SHORT_SHORT         0b000001000000
+# define FLAG_LONG                0b000010000000
+# define FLAG_LONG_LONG           0b000100000000
+# define FLAG_WIDTH_WILDCARD      0b001000000000
+# define FLAG_PRECISION_WILDCARD  0b010000000000
+# define FLAG_WIDTH_OVERWRITE     0b100000000000
 
 # define ITOA_HEX_LOW(x) (ft_itoa_unsigned_base(x, "0123456789abcdef"))
 # define ITOA_HEX_UP(x)  (ft_itoa_unsigned_base(x, "0123456789ABCDEF"))
@@ -61,7 +62,7 @@ typedef struct
 typedef struct		s_flist
 {
 	struct s_flist	*next;
-	t_pformat		*content;
+	t_pformat		*data;
 }					t_flist;
 
 typedef struct		s_printf_status
@@ -78,17 +79,12 @@ typedef struct		s_printf_status
 */
 
 int					ft_printf(const char *format, ...);
-const char			*add_conversion(t_printf_status *status,
-									t_pformat *pformat);
-const char			*add_between(t_printf_status *status);
-int					destroy_status_error(t_printf_status *status);
 
 /*
 ** parse.c
 */
 
-int					parse(const char *format, t_flist **flist);
-t_pformat			*parse_reduced(const char *fmt);
+int					ftpf_parse(const char *format, t_flist **flist);
 
 /*
 ** printer.c

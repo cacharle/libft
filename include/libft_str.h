@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 10:39:22 by cacharle          #+#    #+#             */
-/*   Updated: 2020/05/12 20:47:36 by charles          ###   ########.fr       */
+/*   Updated: 2020/05/16 13:27:06 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ char	*ft_strtolower(char *s);
 char	*ft_strtoupper(char *s);
 char	*ft_strcat3(char *dest, const char *src1, const char *src2);
 char	*ft_strmove(char *dest, const char *src);
+char	*ft_strnew(size_t size);
 
 /*
 ** glob
@@ -101,7 +102,6 @@ size_t	ft_strslen(char **strs);
 */
 
 /*
-** char	*ft_strnew(size_t size);
 ** void	ft_strdel(char **as);
 ** void	ft_strclr(char *s);
 */
