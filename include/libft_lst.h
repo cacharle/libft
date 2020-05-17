@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 10:36:39 by cacharle          #+#    #+#             */
-/*   Updated: 2020/04/01 17:59:50 by charles          ###   ########.fr       */
+/*   Updated: 2020/05/17 08:23:10 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,6 @@ t_ftlst				*ft_lstlfind(t_ftlst *lst, t_ftcompar_func cmp,
 void				ft_lstsort(t_ftlst **begin_list, t_ftcompar_func cmp);
 t_ftlst				*ft_lstsorted_merge(t_ftlst *l1, t_ftlst *l2,
 										t_ftcompar_func cmp);
+t_ftlst				*ft_lstnew_safe(void const *data);
 
 #endif
