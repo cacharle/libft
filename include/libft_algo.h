@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/19 07:22:57 by cacharle          #+#    #+#             */
-/*   Updated: 2020/04/04 23:33:51 by charles          ###   ########.fr       */
+/*   Updated: 2020/05/17 19:56:25 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ bool				ft_is_set(void *base, size_t nel, size_t width,
 						t_ftcompar_func compar);
 int					ft_compar_int(const void *a, const void *b);
 int					ft_compar_str(const void *s1_p, const void *s2_p);
+int					ft_compar_str_case(const void *s1_p, const void *s2_p);
 void				ft_qsort(void *base, size_t nel, size_t width,
 						t_ftcompar_func compar);
 int					ft_mergesort(void *base, size_t nel, size_t width,

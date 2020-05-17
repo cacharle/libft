@@ -47,4 +47,12 @@ TEST(ft_qsort, strings)
 	qsort(sorted4, sizeof(arr4) / sizeof(char*), sizeof(char*), ft_compar_str);
 	ft_qsort(arr4, sizeof(arr4) / sizeof(char*), sizeof(char*), ft_compar_str);
 	TEST_ASSERT_EQUAL_STRING_ARRAY(sorted4, arr4, sizeof(arr4) / sizeof(char*));
+
+	char *filenames[] = {"./subject.pdf", "./inc", "./README.md",
+					"./libft", "./ft_ls", "./src", "./obj", "./Makefile"};
+	char *sortedfilenames[sizeof(filenames)];
+	memcpy(sortedfilenames, filenames, sizeof(filenames));
+	qsort(sortedfilenames, sizeof(filenames) / sizeof(char*), sizeof(char*), ft_compar_str_case);
+	ft_qsort(filenames, sizeof(filenames) / sizeof(char*), sizeof(char*), ft_compar_str_case);
+	TEST_ASSERT_EQUAL_STRING_ARRAY(sortedfilenames, filenames, sizeof(filenames) / sizeof(char*));
 }

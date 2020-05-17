@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/19 07:25:51 by cacharle          #+#    #+#             */
-/*   Updated: 2020/04/04 22:10:29 by charles          ###   ########.fr       */
+/*   Updated: 2020/05/17 18:58:00 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,15 @@ static int			ft_qsort_partition(void *base, t_ftrange range,
 
 	pivot = base + (range.hi * width);
 	p = range.lo;
-	i = range.lo - 1;
-	while (++i < range.hi)
+	i = range.lo;
+	while (i < range.hi)
 	{
 		if (compar(base + (i * width), pivot) < 0)
 		{
 			ft_memswap(base + (i * width), base + (p * width), width);
 			p++;
 		}
+		i++;
 	}
 	ft_memswap(pivot, base + (p * width), width);
 	return (p);
