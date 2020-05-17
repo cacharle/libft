@@ -6,7 +6,7 @@
 /*   By: charles <charles.cabergs@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/03 14:00:44 by charles           #+#    #+#             */
-/*   Updated: 2020/04/04 21:21:19 by charles          ###   ########.fr       */
+/*   Updated: 2020/05/17 14:24:44 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_ftdstr	*ft_dstrinsert(t_ftdstr *dstr, char *inserted, size_t i)
 	if (i > dstr->length)
 		return (NULL);
 	inserted_len = ft_strlen(inserted);
-	if (ft_dstrgrow(dstr, dstr->capacity + inserted_len) == NULL)
+	if (ft_dstrreserve(dstr, dstr->length + inserted_len) == NULL)
 		return (NULL);
 	ft_memmove(dstr->str + i + inserted_len,
 				dstr->str + i,

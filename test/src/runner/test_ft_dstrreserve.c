@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_runner_dstr.c                                 :+:      :+:    :+:   */
+/*   test_ft_dstrreserve.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: charles <charles.cabergs@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/04 20:44:42 by charles           #+#    #+#             */
-/*   Updated: 2020/04/05 00:48:08 by charles          ###   ########.fr       */
+/*   Updated: 2020/05/17 13:27:52 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ TEST_GROUP_RUNNER(ft_dstrdestroy)
 	RUN_TEST_CASE(ft_dstrdestroy, basic);
 }
 
-TEST_GROUP_RUNNER(ft_dstrgrow)
+TEST_GROUP_RUNNER(ft_dstrreserve)
 {
-	RUN_TEST_CASE(ft_dstrgrow, basic);
+	RUN_TEST_CASE(ft_dstrreserve, basic);
 }
 
 TEST_GROUP_RUNNER(ft_dstrinsert)

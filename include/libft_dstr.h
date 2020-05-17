@@ -6,7 +6,7 @@
 /*   By: charles <charles.cabergs@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/03 10:39:51 by charles           #+#    #+#             */
-/*   Updated: 2020/05/16 20:29:23 by charles          ###   ########.fr       */
+/*   Updated: 2020/05/17 11:55:18 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,9 @@ typedef struct	s_ftdstr
 }				t_ftdstr;
 
 t_ftdstr		*ft_dstrnew(char *from);
+t_ftdstr		*ft_dstrnew_empty(size_t capacity);
 void			ft_dstrdestroy(t_ftdstr *dstr);
-t_ftdstr		*ft_dstrgrow(t_ftdstr *dstr, size_t at_least);
+t_ftdstr		*ft_dstrreserve(t_ftdstr *dstr, size_t at_least);
 char			*ft_dstrunwrap(t_ftdstr *dstr);
 t_ftdstr		*ft_dstrinsert(t_ftdstr *dstr, char *inserted, size_t i);
 t_ftdstr		*ft_dstrpush(t_ftdstr *dstr, char *pushed);

@@ -6,7 +6,7 @@
 #    By: cacharle <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/08 15:45:53 by cacharle          #+#    #+#              #
-#    Updated: 2020/05/12 18:00:00 by charles          ###   ########.fr        #
+#    Updated: 2020/05/17 16:51:55 by charles          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ DOC_DIR = doc
 INCLUDE_DIR = include
 
 CC = gcc
-OFLAG ?= -O0
+OFLAG ?= -g
 CCFLAGS = $(OFLAG) -I$(INCLUDE_DIR) -Wall -Wextra -Werror
 ifeq ($(TRAVIS_COMPILER),gcc)
 CCFLAGS += -Wno-unused-result
@@ -52,6 +52,9 @@ all: prebuild
 	@$(MAKE) -j$(JOBS) allnopre
 
 allnopre: $(NAME)
+
+debug: OFLAG = -g
+debug: all
 
 .PHONY: test
 test: all

@@ -88,7 +88,7 @@ static void run_all_test(void)
 
 	// dstr
 	RUN_TEST_GROUP(ft_dstrdestroy);
-	RUN_TEST_GROUP(ft_dstrgrow);
+	RUN_TEST_GROUP(ft_dstrreserve);
 	RUN_TEST_GROUP(ft_dstrinsert);
 	RUN_TEST_GROUP(ft_dstrnew);
 	RUN_TEST_GROUP(ft_dstrunwrap);

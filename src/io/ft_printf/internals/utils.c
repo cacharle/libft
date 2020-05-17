@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 00:12:40 by cacharle          #+#    #+#             */
-/*   Updated: 2019/11/13 08:49:58 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/05/17 15:22:16 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,27 +89,4 @@ char		*ft_itoa_unsigned_base(long long unsigned int n, char *base)
 		n /= radix;
 	}
 	return (str);
-}
-
-void		*ft_memjoin_free(void *dst, int dst_size, void *src, int src_size)
-{
-	void	*clone;
-
-	if (dst == NULL)
-	{
-		if ((dst = malloc(src_size)) == NULL)
-			return (NULL);
-		ft_memcpy(dst, src, src_size);
-		return (dst);
-	}
-	if ((clone = malloc(dst_size)) == NULL)
-		return (NULL);
-	ft_memcpy(clone, dst, dst_size);
-	free(dst);
-	if ((dst = malloc(dst_size + src_size)) == NULL)
-		return (NULL);
-	ft_memcpy(dst, clone, dst_size);
-	free(clone);
-	ft_memcpy(dst + dst_size, src, src_size);
-	return (dst);
 }

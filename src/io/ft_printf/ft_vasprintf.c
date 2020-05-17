@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 00:15:28 by cacharle          #+#    #+#             */
-/*   Updated: 2020/05/16 13:51:42 by charles          ###   ########.fr       */
+/*   Updated: 2020/05/17 15:51:50 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static const char	*add_conversion(
 		return (NULL);
 	if (pformat->specifier != 'c')
 		pformat->size = ft_strlen(conversion_str);
-	if ((status->out = ft_memjoin_free(status->out, status->out_size,
+	if ((status->out = ft_memjoinf1(status->out, status->out_size,
 									conversion_str, pformat->size)) == NULL)
 		return (NULL);
 	status->out_size += pformat->size;
@@ -47,7 +47,7 @@ static const char	*add_between(t_printf_status *status)
 	i = 0;
 	while (status->format[i] && status->format[i] != '%')
 		i++;
-	if ((status->out = ft_memjoin_free(status->out, status->out_size,
+	if ((status->out = ft_memjoinf1(status->out, status->out_size,
 									(void*)status->format, i)) == NULL)
 		return (NULL);
 	status->out_size += i;
@@ -60,7 +60,6 @@ static int			destroy_status_error(t_printf_status *status)
 		return (STATUS_ERROR);
 	va_end(status->ap);
 	list_destroy(&status->flist);
-	free(status->out);
 	return (STATUS_ERROR);
 }
 
@@ -68,13 +67,12 @@ int					ft_vasprintf(char **ret, const char *format, va_list ap)
 {
 	t_printf_status	status;
 
-	if (format == NULL || ret == NULL)
-		return (STATUS_ERROR);
-	if (!ftpf_parse(format, &status.flist))
+	if (format == NULL || ret == NULL
+		|| (status.out = malloc(1)) == NULL
+		|| !ftpf_parse(format, &status.flist))
 		return (STATUS_ERROR);
 	ft_memcpy(status.ap, ap, sizeof(va_list));
 	status.format = format;
-	status.out = NULL;
 	status.out_size = 0;
 	while (*status.format)
 	{
@@ -86,6 +84,8 @@ int					ft_vasprintf(char **ret, const char *format, va_list ap)
 			return (destroy_status_error(&status));
 	}
 	list_destroy(&status.flist);
+	if ((status.out = ft_memjoinf1(status.out, status.out_size, "\0", 1)) == NULL)
+		return (STATUS_ERROR);
 	*ret = status.out;
 	return (status.out_size);
 }

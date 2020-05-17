@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 00:06:46 by cacharle          #+#    #+#             */
-/*   Updated: 2020/05/16 13:53:49 by charles          ###   ########.fr       */
+/*   Updated: 2020/05/17 15:34:45 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,6 @@ typedef struct		s_printf_status
 }					t_printf_status;
 
 /*
-** ft_printf.c
-*/
-
-int					ft_printf(const char *format, ...);
-
-/*
 ** parse.c
 */
 
@@ -102,8 +96,6 @@ char				*handle_precision(t_pformat *pformat, char *str);
 char				*ft_itoa_base(long long int n, char *base);
 char				*ft_itoa_unsigned_base(long long unsigned int n,
 											char *base);
-void				*ft_memjoin_free(void *dst, int dst_size, void *src,
-										int src_size);
 
 /*
 ** extract.c

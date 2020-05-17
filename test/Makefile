@@ -6,12 +6,13 @@
 #    By: cacharle <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/15 04:35:44 by cacharle          #+#    #+#              #
-#    Updated: 2020/04/04 20:58:20 by charles          ###   ########.fr        #
+#    Updated: 2020/05/17 13:31:37 by charles          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 MAKE = make
 MAKE_ARGS = --no-print-directory
+JOBS = 2
 
 UNITY_DIR = ../vendor/_unity
 LIBFT_DIR = ..
@@ -30,7 +31,10 @@ SRC = $(shell find $(SRC_DIR) -type f -name "*.c")
 OBJ = $(SRC:.c=.o)
 
 
-all: unity_all $(NAME)
+all:
+	$(MAKE) -j$(JOBS) realall
+
+realall: unity_all $(NAME)
 
 run: all
 	@echo "Test: Running"
