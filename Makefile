@@ -6,7 +6,7 @@
 #    By: cacharle <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/08 15:45:53 by cacharle          #+#    #+#              #
-#    Updated: 2020/04/01 22:00:44 by charles          ###   ########.fr        #
+#    Updated: 2020/06/09 15:43:26 by charles          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ INCLUDE_DIR = include
 
 
 CC = gcc
-OFLAG ?= -O1
+OFLAG ?= -g -O1
 CCFLAGS = $(OFLAG) -I$(INCLUDE_DIR) -Wall -Wextra -Werror
 ifeq ($(TRAVIS_COMPILER),gcc)
 CCFLAGS += -Wno-unused-result

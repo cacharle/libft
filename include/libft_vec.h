@@ -6,7 +6,7 @@
 /*   By: charles <charles.cabergs@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/01 18:57:16 by charles           #+#    #+#             */
-/*   Updated: 2020/04/04 15:55:29 by charles          ###   ########.fr       */
+/*   Updated: 2020/06/09 13:53:48 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,12 @@ t_ftvec			*ft_vecpush(t_ftvec *vec, void *pushed);
 t_ftvec			*ft_vecpush_safe(t_ftvec *vec, void *pushed);
 void			ft_vecpop(t_ftvec *vec, void (*del)(void *elem));
 void			ft_veciter(t_ftvec *vec, void (*f)(void *elem));
+void			ft_veciter_addr(t_ftvec *vec, void (*f)(void **addr));
+void			*ft_vectake(t_ftvec *vec, size_t i);
 void			ft_vecremove(t_ftvec *vec, size_t i, void (*del)(void *elem));
 t_ftvec			*ft_vecinsert(t_ftvec *vec, size_t i, void *elem);
+t_ftvec			*ft_vecinsert_safe(t_ftvec *vec, size_t i, void *elem);
 void			ft_vecsort(t_ftvec *vec, t_ftcompar_func cmp);
+void			**ft_vecunwrap(t_ftvec *vec);
 
 #endif
