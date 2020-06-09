@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 10:39:22 by cacharle          #+#    #+#             */
-/*   Updated: 2020/04/05 13:52:10 by charles          ###   ########.fr       */
+/*   Updated: 2020/06/09 17:47:21 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ char	*ft_strjoin3(char const *s1, char const *s2, char const *s3);
 char	*ft_strjoinf(char const *s1, char const *s2, t_ftstrjoinf_tag tag);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
+char	**ft_splitf(char *s, char c);
 int		ft_strcount(char *str, char c);
 char	*ft_itoa(int n);
 int		ft_atoi_strict(const char *s);

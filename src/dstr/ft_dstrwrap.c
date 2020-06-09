@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dstrnew.c                                       :+:      :+:    :+:   */
+/*   ft_dstrwrap.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: charles <charles.cabergs@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/03 13:54:52 by charles           #+#    #+#             */
-/*   Updated: 2020/06/09 17:35:14 by charles          ###   ########.fr       */
+/*   Created: 2020/06/09 17:32:30 by charles           #+#    #+#             */
+/*   Updated: 2020/06/09 17:33:57 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_dstr.h"
 
-/*
-** \brief       Create a new dynamic string
-** \param from  Static string to create the dynamic one from
-**              (will be duplicated)
-** \return      Created dynamic string or NULL on malloc error
-*/
-
-t_ftdstr	*ft_dstrnew(char *from)
+t_ftdstr	*ft_dstrwrap(char *str)
 {
-	char		*clone;
-	t_ftdstr	*ret;
+	t_ftdstr	*dstr;
 
-	if ((clone = ft_strdup(from)) == NULL)
+	if ((dstr = (t_ftdstr*)malloc(sizeof(t_ftdstr))) == NULL)
 		return (NULL);
-	if ((ret = ft_dstrwrap(clone)) == NULL)
-		free(clone);
-	return (ret);
+	dstr->str = str;
+	dstr->length = ft_strlen(str);
+	dstr->capacity = dstr->length + 1;
+	return (dstr);
 }

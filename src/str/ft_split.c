@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 08:29:02 by cacharle          #+#    #+#             */
-/*   Updated: 2019/11/20 04:08:27 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/06/09 17:14:58 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,6 @@ static size_t	count_segment(char const *s, char c)
 	return (counter);
 }
 
-static void		*destroy_strs(char **strs)
-{
-	if (strs == NULL)
-		return (NULL);
-	while (*strs != NULL)
-		free(*strs++);
-	free(strs);
-	return (NULL);
-}
-
 char			**ft_split(char const *s, char c)
 {
 	char	**strs;
@@ -65,7 +55,7 @@ char			**ft_split(char const *s, char c)
 		while (s[j + i] && s[j + i] != c)
 			i++;
 		if ((strs[tab_counter++] = ft_strndup(&s[j], i)) == NULL)
-			return (destroy_strs(strs));
+			return (ft_split_destroy(strs));
 		j += i - 1;
 	}
 	strs[tab_counter] = NULL;
