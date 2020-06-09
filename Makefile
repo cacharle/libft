@@ -45,14 +45,15 @@ OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 INCLUDE = $(shell find $(INCLUDE_DIR) -name "*.h")
 
-# export LIBFT_SRC = $(SRC)
+all: prebuild
+	@$(MAKE) -j$(JOBS) allnopre
 
-all: prebuild $(NAME)
+allnopre: $(NAME)
 
 .PHONY: test
 test: all
 	@echo "Testing"
-	@$(MAKE) $(MAKE_ARGS) -C $(TEST_DIR) run
+	@$(MAKE) -C $(TEST_DIR) run
 
 norm:
 	@if [ `command -v $(NORM)` ];        \
@@ -72,7 +73,7 @@ $(NAME): $(OBJ) $(INCLUDE)
 	@echo "Linking: $@"
 	@$(LIB) $@ $(OBJ)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INCLUDE)
 	@echo "Compiling: $@"
 	@$(CC) $(CCFLAGS) -c -o $@ $<
 
@@ -81,7 +82,7 @@ clean:
 	@$(RM) -r $(OBJ_DIR)
 
 fclean: clean
-	@echo "Removing library"
+	@echo "Removing $(NAME)"
 	@$(RM) $(NAME)
 
 re: fclean all
