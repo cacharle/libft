@@ -6,7 +6,7 @@
 /*   By: charles <charles.cabergs@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/01 18:57:16 by charles           #+#    #+#             */
-/*   Updated: 2020/06/09 13:53:48 by charles          ###   ########.fr       */
+/*   Updated: 2020/06/14 16:02:32 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include "libft_def.h"
 # include "libft_mem.h"
 # include "libft_algo.h"
+# include "libft_lst.h"
 
 /*
 ** \brief           Vector struct
@@ -51,5 +52,6 @@ t_ftvec			*ft_vecinsert(t_ftvec *vec, size_t i, void *elem);
 t_ftvec			*ft_vecinsert_safe(t_ftvec *vec, size_t i, void *elem);
 void			ft_vecsort(t_ftvec *vec, t_ftcompar_func cmp);
 void			**ft_vecunwrap(t_ftvec *vec);
+t_ftvec			*ft_vecfrom_lst(t_ftlst *lst);
 
 #endif
