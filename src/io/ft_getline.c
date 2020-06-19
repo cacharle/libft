@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_next_line.c                                     :+:      :+:    :+:   */
+/*   ft_getline.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 10:39:38 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/28 12:11:35 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/06/19 17:46:24 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ static int		st_read_line(int fd, char **line, char *rest)
 	int		split_at;
 	char	*buf;
 
-	if ((buf = malloc(sizeof(char) * (FTNL_BUFFER_SIZE + 1))) == NULL)
-		return (st_free_return(line, NULL, FTNL_STATUS_ERROR));
-	while ((ret = read(fd, buf, FTNL_BUFFER_SIZE)) > 0)
+	if ((buf = malloc(sizeof(char) * (FTGL_BUFFER_SIZE + 1))) == NULL)
+		return (st_free_return(line, NULL, FTGL_ERROR));
+	while ((ret = read(fd, buf, FTGL_BUFFER_SIZE)) > 0)
 	{
 		buf[ret] = '\0';
 		if ((split_at = st_find_newline(buf)) != -1)
@@ -54,14 +54,14 @@ static int		st_read_line(int fd, char **line, char *rest)
 			ft_strcpy(rest, buf + split_at + 1);
 			buf[split_at] = '\0';
 			if ((*line = ft_strjoinf(*line, buf, FT_STRJOINF_FST)) == NULL)
-				return (st_free_return(&buf, NULL, FTNL_STATUS_ERROR));
-			return (st_free_return(&buf, NULL, FTNL_STATUS_LINE));
+				return (st_free_return(&buf, NULL, FTGL_ERROR));
+			return (st_free_return(&buf, NULL, FTGL_OK));
 		}
 		if ((*line = ft_strjoinf(*line, buf, FT_STRJOINF_FST)) == NULL)
-			return (st_free_return(&buf, NULL, FTNL_STATUS_ERROR));
+			return (st_free_return(&buf, NULL, FTGL_ERROR));
 	}
 	if (ret == -1)
-		return (st_free_return(&buf, line, FTNL_STATUS_ERROR));
+		return (st_free_return(&buf, line, FTGL_ERROR));
 	return (st_free_return(&buf, NULL, ret));
 }
 
@@ -80,33 +80,33 @@ static int		st_read_line(int fd, char **line, char *rest)
 **         return LINE_READ
 **     push buf in line
 **
-** return FTNL_EOF
+** return FTGL_EOF
 */
 
-int				ft_next_line(int fd, char **line)
+int				ft_getline(int fd, char **line)
 {
 	int			split_at;
-	static char	rest[OPEN_MAX][FTNL_BUFFER_SIZE + 1] = {{0}};
+	static char	rest[OPEN_MAX][FTGL_BUFFER_SIZE + 1] = {{0}};
 
-	if (fd < 0 || fd > OPEN_MAX || line == NULL || FTNL_BUFFER_SIZE <= 0)
-		return (FTNL_STATUS_ERROR);
+	if (fd < 0 || fd > OPEN_MAX || line == NULL || FTGL_BUFFER_SIZE <= 0)
+		return (FTGL_ERROR);
 	if ((*line = ft_strdup("")) == NULL)
-		return (FTNL_STATUS_ERROR);
+		return (FTGL_ERROR);
 	if (rest[fd][0] == '\0')
 		return (st_read_line(fd, line, rest[fd]));
 	if ((split_at = st_find_newline(rest[fd])) != -1)
 	{
 		free(*line);
 		if ((*line = (char*)malloc(sizeof(char) * (split_at + 1))) == NULL)
-			return (FTNL_STATUS_ERROR);
+			return (FTGL_ERROR);
 		ft_strncpy(*line, rest[fd], split_at);
 		(*line)[split_at] = '\0';
 		ft_strcpy(rest[fd], rest[fd] + split_at + 1);
-		return (FTNL_STATUS_LINE);
+		return (FTGL_OK);
 	}
 	free(*line);
 	if (!(*line = (char*)malloc(sizeof(char) * (ft_strlen(rest[fd]) + 1))))
-		return (FTNL_STATUS_ERROR);
+		return (FTGL_ERROR);
 	ft_strcpy(*line, rest[fd]);
 	rest[fd][0] = '\0';
 	return (st_read_line(fd, line, rest[fd]));
