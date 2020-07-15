@@ -6,7 +6,7 @@
 /*   By: charles <charles.cabergs@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/01 18:57:16 by charles           #+#    #+#             */
-/*   Updated: 2020/06/14 16:02:32 by charles          ###   ########.fr       */
+/*   Updated: 2020/07/15 18:28:30 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct	s_ftvec
 t_ftvec			*ft_vecnew(size_t capacity);
 void			ft_vecdestroy(t_ftvec *vec, void (*del)(void *elem));
 t_ftvec			*ft_vecgrow(t_ftvec *vec);
+t_ftvec			*ft_vecreserve(t_ftvec *vec, size_t	capacity);
 t_ftvec			*ft_vecpush(t_ftvec *vec, void *pushed);
 t_ftvec			*ft_vecpush_safe(t_ftvec *vec, void *pushed);
 void			ft_vecpop(t_ftvec *vec, void (*del)(void *elem));
@@ -53,5 +54,6 @@ t_ftvec			*ft_vecinsert_safe(t_ftvec *vec, size_t i, void *elem);
 void			ft_vecsort(t_ftvec *vec, t_ftcompar_func cmp);
 void			**ft_vecunwrap(t_ftvec *vec);
 t_ftvec			*ft_vecfrom_lst(t_ftlst *lst);
+t_ftvec			*ft_vecswallow_at(t_ftvec *vec, size_t index, t_ftvec *swallowed);
 
 #endif
