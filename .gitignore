@@ -10,3 +10,4 @@ rendu.makefile
 doc/*
 tmp/*
 *.gz
+vgcore.*

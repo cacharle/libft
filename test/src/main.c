@@ -1,5 +1,7 @@
 #include "libft_test.h"
 
+int helper_segfault_pid = -1;
+
 static void run_all_test(void)
 {
 	// ctype
@@ -34,6 +36,7 @@ static void run_all_test(void)
 	RUN_TEST_GROUP(ft_strsjoinf);
 	RUN_TEST_GROUP(ft_strsub);
 	RUN_TEST_GROUP(ft_strsubf);
+	RUN_TEST_GROUP(ft_strtol);
 
 	// ht
 	RUN_TEST_GROUP(ft_htentry_new);

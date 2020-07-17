@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 22:30:06 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/28 12:15:32 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/07/17 14:17:11 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ TEST_SETUP(ft_htnew)
 
 TEST_TEAR_DOWN(ft_htnew)
 {}
-
-int helper_segfault_pid;
 
 TEST(ft_htnew, segfault)
 {

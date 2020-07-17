@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 10:26:45 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/10 02:21:16 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/07/17 16:29:33 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ static int	st_strtol_handle_base(int base, const char **str)
 	return (10);
 }
 
-static long	st_errno_return(int err)
+static long	st_errno_return(int err, long ret)
 {
 	errno = err;
-	return (0);
+	return (ret);
 }
 
 /*
@@ -53,9 +53,9 @@ static long	st_errno_return(int err)
 
 long		ft_strtol(const char *str, char **endptr, int base)
 {
-	t_ftbool	is_negative;
-	long long	nb;
-	char		base_str[37];
+	t_ftbool			is_negative;
+	unsigned long long	nb;
+	char				base_str[37];
 
 	while (ft_isspace(*str))
 		str++;
@@ -63,16 +63,24 @@ long		ft_strtol(const char *str, char **endptr, int base)
 	if (*str == '-' || *str == '+')
 		str++;
 	if ((base = st_strtol_handle_base(base, &str)) == -1)
-		return (st_errno_return(EINVAL));
+		return (st_errno_return(EINVAL, 0));
 	ft_strncpy(base_str, STRTOL_STD_BASE, base);
 	base_str[base] = '\0';
 	nb = 0;
 	while (*str != '\0' && ft_strchr(base_str, *str) != NULL)
 	{
 		nb *= base;
-		nb += ft_strchr(base_str, ft_tolower(*str++)) - base_str;
-		if (((long)nb ^ (long)(nb / base)) < 0)
+		if (is_negative ? (nb > -(unsigned long long)LONG_MIN) : (nb > LONG_MAX))
+		{
 			errno = ERANGE;
+			return (is_negative ? LONG_MIN : LONG_MAX);
+		}
+		nb += ft_strchr(base_str, ft_tolower(*str++)) - base_str;
+		if (is_negative ? (nb > -(unsigned long long)LONG_MIN) : (nb > LONG_MAX))
+		{
+			errno = ERANGE;
+			return (is_negative ? LONG_MIN : LONG_MAX);
+		}
 	}
 	if (endptr != NULL)
 		*endptr = (char*)str;
