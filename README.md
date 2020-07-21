@@ -1,11 +1,11 @@
-# libft [![Build Status](https://api.travis-ci.com/HappyTramp/libft.svg?branch=master)](https://travis-ci.com/HappyTramp/libft)
+# libft [![Build Status](https://api.travis-ci.com/cacharle/libft.svg?branch=master)](https://travis-ci.com/cacharle/libft)
 
 libft is an extension/remake of the standard library.
 
 ## Getting Started
 
 ```
-git clone https://github.com/HappyTramp/libft libft
+git clone https://github.com/cacharle/libft libft
 cd libft
 make all
 ```
@@ -34,4 +34,4 @@ Much like the `.gitignore` file, you can put the files/directory to ignore when 
 
 ## School correction state
 
-The state of this project when I turned it in for correction is [here](http://github.com/HappyTramp/libft/tree/raw).
+The state of this project when I turned it in for correction is [here](http://github.com/cacharle/libft/tree/raw).
