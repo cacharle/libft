@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 10:35:57 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/13 03:11:09 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/08/01 15:28:15 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_MEM_H
 
 # include <stddef.h>
+# include <stdlib.h>
 # include "libft_types.h"
 
 void				ft_bzero(void *s, size_t n);
@@ -29,6 +30,8 @@ void				*ft_memmem(const void *big, size_t big_len,
 							const void *little, size_t little_len);
 void				ft_memset_pattern4(void *b, const void *pattern4,
 										size_t len);
+
+void				*ft_realloc(void *ptr, size_t ptr_size, size_t size);
 
 /*
 ** bloat ?
