@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtoupper.c                                    :+:      :+:    :+:   */
+/*   ft_memdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: charles <me@cacharle.xyz>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/10 04:12:04 by cacharle          #+#    #+#             */
-/*   Updated: 2020/08/02 14:14:17 by charles          ###   ########.fr       */
+/*   Created: 2020/08/02 13:54:17 by charles           #+#    #+#             */
+/*   Updated: 2020/08/02 13:55:05 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_str.h"
+#include "libft_io.h"
 
-char	*ft_strtoupper(char *s)
+void	*ft_memdup(const void *src, size_t n)
 {
-	size_t	i;
+	void	*ret;
 
-	if (s == NULL)
+	if ((ret = malloc(n)) == NULL)
 		return (NULL);
-	i = 0;
-	while (s[i] != '\0')
-	{
-		s[i] = ft_toupper(s[i]);
-		i++;
-	}
-	return (s);
+	return (ft_memcpy(ret, src, n));
 }
