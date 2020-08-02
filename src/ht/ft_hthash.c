@@ -12,9 +12,17 @@
 
 #include "libft_ht.h"
 
-t_ftht_digest	ft_hthash(t_ftht *ht, char *key)
+/*
+** \brief      Hash a string
+** \param ht   So that the index is in the hash table bound
+** \param key  String to hash
+** \return     Hash
+*/
+
+// maybe use a less efficient but understandable function
+size_t	ft_hthash(t_ftht *ht, char *key)
 {
-	t_ftht_digest	digest;
+	size_t	digest;
 
 	if (*key == '\0')
 		return (0);

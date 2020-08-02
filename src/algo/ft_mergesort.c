@@ -6,11 +6,18 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 02:26:41 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/13 23:14:21 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/04/04 22:40:55 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_algo.h"
+
+/*
+** \brief        Helper function to return in case of error
+** \param left   Left subarray
+** \param right  Right subarray
+** \return       -1 to indicate error
+*/
 
 static int	st_mergesort_error(void *left, void *right)
 {
@@ -18,6 +25,13 @@ static int	st_mergesort_error(void *left, void *right)
 	free(right);
 	return (-1);
 }
+
+/*
+** \brief         Merge 2 sorted arrays
+** \param arrays  Struct containing the arrays (base, left, right)
+** \param nel     Number of element in base
+** \param compar  Comparison function
+*/
 
 static void	st_merge_sorted(struct s_merge_sorted_arrays *arrays, size_t nel,
 				size_t width, int (*compar)(const void *, const void *))
@@ -48,6 +62,14 @@ static void	st_merge_sorted(struct s_merge_sorted_arrays *arrays, size_t nel,
 		ft_memcpy(arrays->base + bi++ * width,
 					arrays->right + ri++ * width, width);
 }
+
+/*
+** \brief    Sort an array using the merge sort algorithm
+** \param base    Array to sort
+** \param nel     Number of element in the array
+** \param width   Size of each element
+** \return        0 on success, -1 on error
+*/
 
 int			ft_mergesort(void *base, size_t nel, size_t width,
 				int (*compar)(const void *, const void *))

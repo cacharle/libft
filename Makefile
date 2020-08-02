@@ -6,26 +6,37 @@
 #    By: cacharle <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/08 15:45:53 by cacharle          #+#    #+#              #
-#    Updated: 2020/02/13 04:31:23 by cacharle         ###   ########.fr        #
+#    Updated: 2020/05/12 18:00:00 by charles          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 LIB = ar rcs
 RM = rm -f
 NORM = norminette
-MAKE = make
-MAKE_ARGS = --no-print-directory
+MAKE = make --no-print-directory
+DOXYGEN = doxygen
+DOXYGEN_FILE = Doxyfile
+JOBS = 4
 
 SRC_DIR = src
 INCLUDE_DIR = include
 OBJ_DIR = obj
 SCRIPT_DIR = script
 TEST_DIR = test
+DOC_DIR = doc
 
 INCLUDE_DIR = include
 
 CC = gcc
-CCFLAGS = -I$(INCLUDE_DIR) -Wall -Wextra -Werror
+OFLAG ?= -O0
+CCFLAGS = $(OFLAG) -I$(INCLUDE_DIR) -Wall -Wextra -Werror
+ifeq ($(TRAVIS_COMPILER),gcc)
+CCFLAGS += -Wno-unused-result
+endif
+
+ifeq ($(TRAVIS_COMPILER),gcc)
+CCFLAGS += -Wno-unused-result
+endif
 
 IGNORE_FILE = .libftignore
 IGNORE_DEFAULT = ft_printf
@@ -37,14 +48,15 @@ OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 INCLUDE = $(shell find $(INCLUDE_DIR) -name "*.h")
 
-# export LIBFT_SRC = $(SRC)
+all: prebuild
+	@$(MAKE) -j$(JOBS) allnopre
 
-all: prebuild $(NAME)
+allnopre: $(NAME)
 
 .PHONY: test
 test: all
 	@echo "Testing"
-	@$(MAKE) $(MAKE_ARGS) -C $(TEST_DIR) run
+	@$(MAKE) -C $(TEST_DIR) run
 
 norm:
 	@if [ `command -v $(NORM)` ];        \
@@ -64,7 +76,7 @@ $(NAME): $(OBJ) $(INCLUDE)
 	@echo "Linking: $@"
 	@$(LIB) $@ $(OBJ)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INCLUDE)
 	@echo "Compiling: $@"
 	@$(CC) $(CCFLAGS) -c -o $@ $<
 
@@ -73,7 +85,21 @@ clean:
 	@$(RM) -r $(OBJ_DIR)
 
 fclean: clean
-	@echo "Removing library"
+	@echo "Removing $(NAME)"
 	@$(RM) $(NAME)
 
 re: fclean all
+
+.PHONY: doc
+doc:
+	mkdir -p tmp
+	for f in $(SRC) $(INCLUDE); do mkdir -p tmp/`dirname $$f` && sed 's_^/\*$$_/**_' $$f > tmp/$$f; done
+	$(DOXYGEN) $(DOXYGEN_FILE)
+
+doc_clean:
+	$(RM) -r $(DOC_DIR)
+
+# compatible with libft-unit-test
+so: all
+	gcc -o libft.so -shared -fPIC $(OBJ)
+

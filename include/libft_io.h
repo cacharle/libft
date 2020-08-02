@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 10:35:43 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/22 10:36:44 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/08/02 11:03:44 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,42 +18,52 @@
 # include <fcntl.h>
 # include <limits.h>
 # include "libft.h"
+# include "libft_def.h"
 
-/*
-** output
-*/
+void			ft_putendl(char *s);
+void			ft_putchar(char c);
+void			ft_putstr(char const *s);
+void			ft_putnbr(int n);
+void			ft_putnbr_base(int n, char *base);
+void			ft_putchar_fd(char c, int fd);
+void			ft_putstr_fd(char *s, int fd);
+void			ft_putendl_fd(char *s, int fd);
+void			ft_putnbr_fd(int n, int fd);
+void			ft_putnbr_base_fd(int n, char *base, int fd);
 
-void	ft_putendl(char *s);
-void	ft_putchar(char c);
-void	ft_putstr(char const *s);
-void	ft_putnbr(int n);
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putendl_fd(char *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
-void	ft_putnbr_base(int n, char *base);
-void	ft_putnbr_base_fd(int n, char *base, int fd);
+char			ft_getchar(void);
 
-/*
-** input
-*/
-
-char	ft_getchar(void);
-char	*ft_read_fd(int fd);
-char	*ft_read_file(char *filename);
-
-# ifndef FTNL_BUFFER_SIZE
-#  define FTNL_BUFFER_SIZE 32
+# ifndef FT_GETFILE_BUFFER_SIZE
+#  define FT_GETFILE_BUFFER_SIZE 64
+# endif
+# if FT_GETFILE_BUFFER_SIZE <= 0
+#  error "FT_GETFILE_BUFFER_SIZE must be > 0"
 # endif
 
-# define FTNL_STATUS_LINE 1
-# define FTNL_STATUS_EOF 0
-# define FTNL_STATUS_ERROR -1
+typedef struct	s_ftmem
+{
+	void		*data;
+	size_t		size;
+}				t_ftmem;
+
+int				ft_getfile_fd(int fd, t_ftmem *mem);
+int				ft_getfile(char *filename, t_ftmem *mem);
+
+# ifndef FT_GETLINE_BUFFER_SIZE
+#  define FT_GETLINE_BUFFER_SIZE 64
+# endif
+# if FT_GETLINE_BUFFER_SIZE <= 0
+#  error "FT_GETLINE_BUFFER_SIZE must be > 0"
+# endif
+
+# define FT_LINE 1
+# define FT_EOF 0
+# define FT_ERROR -1
 
 /*
-** get_next_line.c
+** getline.c
 */
 
-int		ft_next_line(int fd, char **line);
+int				ft_getline(int fd, char **line);
 
 #endif

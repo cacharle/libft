@@ -6,12 +6,10 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 03:41:07 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/14 03:41:25 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/05/11 15:20:31 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft.h"
 #include "libft_str.h"
 
 char	*ft_strjoinf(char const *s1, char const *s2, t_ftstrjoinf_tag tag)

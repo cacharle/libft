@@ -6,11 +6,18 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 09:46:16 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/15 10:56:06 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/04/04 22:34:33 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** \brief      Extract first int in a string
+**             (takes as much digits has possible)
+** \param str  String to convert
+** \return     Extracted int
+*/
 
 int			ft_atoi(const char *str)
 {

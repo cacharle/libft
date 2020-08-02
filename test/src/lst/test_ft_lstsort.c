@@ -16,23 +16,23 @@ TEST(ft_lstsort, basic)
 	int c = 4;
 	int d = -3;
 
-	ft_lstadd_front(&lst, ft_lstnew(&a));
-	ft_lstadd_front(&lst, ft_lstnew(&b));
-	ft_lstadd_front(&lst, ft_lstnew(&c));
-	ft_lstadd_front(&lst, ft_lstnew(&d));
+	ft_lstpush_front(&lst, ft_lstnew(&a));
+	ft_lstpush_front(&lst, ft_lstnew(&b));
+	ft_lstpush_front(&lst, ft_lstnew(&c));
+	ft_lstpush_front(&lst, ft_lstnew(&d));
 	ft_lstsort(&lst, ft_compar_int);
 
 	TEST_ASSERT_NOT_NULL(lst);
 	TEST_ASSERT_NOT_NULL(lst->next);
 	TEST_ASSERT_NOT_NULL(lst->next->next);
 	TEST_ASSERT_NOT_NULL(lst->next->next->next);
-	TEST_ASSERT_NOT_NULL(lst->content);
-	TEST_ASSERT_NOT_NULL(lst->next->content);
-	TEST_ASSERT_NOT_NULL(lst->next->next->content);
-	TEST_ASSERT_NOT_NULL(lst->next->next->next->content);
+	TEST_ASSERT_NOT_NULL(lst->data);
+	TEST_ASSERT_NOT_NULL(lst->next->data);
+	TEST_ASSERT_NOT_NULL(lst->next->next->data);
+	TEST_ASSERT_NOT_NULL(lst->next->next->next->data);
 
-	TEST_ASSERT_EQUAL(-3, *(int*)lst->content);
-	TEST_ASSERT_EQUAL(-1, *(int*)lst->next->content);
-	TEST_ASSERT_EQUAL(1, *(int*)lst->next->next->content);
-	TEST_ASSERT_EQUAL(4, *(int*)lst->next->next->next->content);
+	TEST_ASSERT_EQUAL(-3, *(int*)lst->data);
+	TEST_ASSERT_EQUAL(-1, *(int*)lst->next->data);
+	TEST_ASSERT_EQUAL(1, *(int*)lst->next->next->data);
+	TEST_ASSERT_EQUAL(4, *(int*)lst->next->next->next->data);
 }

@@ -6,7 +6,7 @@
 #    By: cacharle <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/15 04:35:44 by cacharle          #+#    #+#              #
-#    Updated: 2020/02/15 22:46:20 by cacharle         ###   ########.fr        #
+#    Updated: 2020/04/04 20:58:20 by charles          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,7 @@ $(NAME): libft_all $(OBJ)
 	@echo "Test: Compiling: $@"
 	@$(CC) $(CCFLAGS) -c -o $@ $<
 
-clean: 
+clean:
 	@echo "Test: Removing object"
 	@$(RM) $(OBJ)
 
@@ -65,7 +65,7 @@ fclean: clean
 re: fclean all
 
 re_dep: clean_dep fclean all
-	
+
 unity_all:
 	@$(MAKE) $(MAKE_ARGS) -s -C $(UNITY_DIR) all
 

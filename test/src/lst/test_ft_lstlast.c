@@ -16,14 +16,14 @@ TEST(ft_lstlast, basic)
 	int c = 3;
 	int d = 4;
 
-	ft_lstadd_front(&lst, ft_lstnew(&a));
+	ft_lstpush_front(&lst, ft_lstnew(&a));
 	TEST_ASSERT_EQUAL_PTR(lst, ft_lstlast(lst));
-	ft_lstadd_front(&lst, ft_lstnew(&b));
+	ft_lstpush_front(&lst, ft_lstnew(&b));
 	TEST_ASSERT_EQUAL_PTR(lst->next, ft_lstlast(lst));
-	ft_lstadd_front(&lst, ft_lstnew(&c));
+	ft_lstpush_front(&lst, ft_lstnew(&c));
 	TEST_ASSERT_EQUAL_PTR(lst->next->next, ft_lstlast(lst));
-	ft_lstadd_front(&lst, ft_lstnew(&d));
+	ft_lstpush_front(&lst, ft_lstnew(&d));
 	TEST_ASSERT_EQUAL_PTR(lst->next->next->next, ft_lstlast(lst));
 
-	ft_lstclear(&lst, NULL);
+	ft_lstdestroy(&lst, NULL);
 }

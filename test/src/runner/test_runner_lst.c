@@ -12,14 +12,14 @@
 
 #include "libft_test.h"
 
-TEST_GROUP_RUNNER(ft_lstadd_back)
+TEST_GROUP_RUNNER(ft_lstpush_back)
 {
-	RUN_TEST_CASE(ft_lstadd_back, basic);
+	RUN_TEST_CASE(ft_lstpush_back, basic);
 }
 
-TEST_GROUP_RUNNER(ft_lstadd_front)
+TEST_GROUP_RUNNER(ft_lstpush_front)
 {
-	RUN_TEST_CASE(ft_lstadd_front, basic);
+	RUN_TEST_CASE(ft_lstpush_front, basic);
 }
 
 TEST_GROUP_RUNNER(ft_lstbsearch)
@@ -37,9 +37,9 @@ TEST_GROUP_RUNNER(ft_lstlfind)
 	RUN_TEST_CASE(ft_lstlfind, basic);
 }
 
-TEST_GROUP_RUNNER(ft_lstclear)
+TEST_GROUP_RUNNER(ft_lstdestroy)
 {
-	RUN_TEST_CASE(ft_lstclear, basic);
+	RUN_TEST_CASE(ft_lstdestroy, basic);
 }
 
 TEST_GROUP_RUNNER(ft_lstdelone)

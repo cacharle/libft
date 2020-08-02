@@ -28,7 +28,7 @@ int			parse(const char *format, t_flist **flist)
 		if ((tmp = list_new(parsed)) == NULL)
 			return ((int)list_destroy(flist));
 		list_push_front(flist, tmp);
-		format += (*flist)->content->fmt_len;
+		format += (*flist)->data->fmt_len;
 	}
 	*flist = list_reverse(*flist);
 	return (1);

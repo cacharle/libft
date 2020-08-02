@@ -6,14 +6,21 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/19 07:17:15 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/10 02:51:41 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/04/04 22:33:03 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "libft_algo.h"
 
-t_ftbool	ft_is_set(void *base, size_t nel, size_t width,
+/*
+** \brief         Test whether array only contains unique elements
+** \param base    Array to test
+** \param nel     Number of element in the array
+** \param width   Size of an element
+** \param compar  Comparison function to test if 2 elements are equal
+*/
+
+bool	ft_is_set(void *base, size_t nel, size_t width,
 						t_ftcompar_func compar)
 {
 	size_t	i;

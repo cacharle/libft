@@ -18,9 +18,11 @@
 
 # include "libft.h"
 # include "libft_algo.h"
+# include "libft_lst.h"
 # include "libft_ht.h"
+# include "libft_vec.h"
+# include "libft_dstr.h"
 
 # include "helper/helper_segfault.h"
-
 
 #endif

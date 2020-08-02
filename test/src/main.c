@@ -29,9 +29,15 @@ static void run_all_test(void)
 
 	// str
 	RUN_TEST_GROUP(ft_strlen);
+	RUN_TEST_GROUP(ft_fnmatch);
+	RUN_TEST_GROUP(ft_strsjoin);
+	RUN_TEST_GROUP(ft_strsjoinf);
+	RUN_TEST_GROUP(ft_strsub);
+	RUN_TEST_GROUP(ft_strsubf);
+	RUN_TEST_GROUP(ft_strtof);
 
 	// ht
-	RUN_TEST_GROUP(ft_htcontent_new);
+	RUN_TEST_GROUP(ft_htentry_new);
 	RUN_TEST_GROUP(ft_htnew);
 	RUN_TEST_GROUP(ft_htget);
 	RUN_TEST_GROUP(ft_htset);
@@ -50,12 +56,12 @@ static void run_all_test(void)
 	RUN_TEST_GROUP(ft_reverse);
 
 	// lst
-	RUN_TEST_GROUP(ft_lstadd_back);
-	RUN_TEST_GROUP(ft_lstadd_front);
+	RUN_TEST_GROUP(ft_lstpush_back);
+	RUN_TEST_GROUP(ft_lstpush_front);
 	RUN_TEST_GROUP(ft_lstbsearch);
 	RUN_TEST_GROUP(ft_lstlsearch);
 	RUN_TEST_GROUP(ft_lstlfind);
-	RUN_TEST_GROUP(ft_lstclear);
+	RUN_TEST_GROUP(ft_lstdestroy);
 	RUN_TEST_GROUP(ft_lstdelone);
 	RUN_TEST_GROUP(ft_lstiter);
 	RUN_TEST_GROUP(ft_lstlast);
@@ -68,7 +74,28 @@ static void run_all_test(void)
 	RUN_TEST_GROUP(ft_lstsize);
 	RUN_TEST_GROUP(ft_lstsort);
 	RUN_TEST_GROUP(ft_lstsorted_merge);
+
+	// vec
+	RUN_TEST_GROUP(ft_vecdestroy);
+	RUN_TEST_GROUP(ft_vecgrow);
+	RUN_TEST_GROUP(ft_veciter);
+	RUN_TEST_GROUP(ft_vecnew);
+	RUN_TEST_GROUP(ft_vecpop);
+	RUN_TEST_GROUP(ft_vecpush);
+	RUN_TEST_GROUP(ft_vecremove);
+	RUN_TEST_GROUP(ft_vecinsert);
+	RUN_TEST_GROUP(ft_vecpush_safe);
+
+	// dstr
+	RUN_TEST_GROUP(ft_dstrdestroy);
+	RUN_TEST_GROUP(ft_dstrgrow);
+	RUN_TEST_GROUP(ft_dstrinsert);
+	RUN_TEST_GROUP(ft_dstrnew);
+	RUN_TEST_GROUP(ft_dstrunwrap);
+	RUN_TEST_GROUP(ft_dstrsubstitute);
+	RUN_TEST_GROUP(ft_dstrerase);
 }
+
 
 int main(int argc, const char **argv)
 {

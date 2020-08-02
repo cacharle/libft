@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 03:33:14 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/13 19:38:17 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/05/12 21:14:31 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,7 @@ TEST(ft_memchr, basic)
 
 	ptr = ft_memchr(a, '\0', sizeof(a));
 	TEST_ASSERT_EQUAL_PTR(a + 7, ptr);
+
+	ptr = ft_memchr("v 1", '\n', 4);
+	TEST_ASSERT_NULL(ptr);
 }

@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 21:25:52 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/13 21:37:15 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/04/04 15:22:43 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ TEST_GROUP_RUNNER(ft_mergesort)
 TEST_GROUP_RUNNER(ft_qsort)
 {
 	RUN_TEST_CASE(ft_qsort, basic);
+	RUN_TEST_CASE(ft_qsort, strings);
 }
 
 TEST_GROUP_RUNNER(ft_reverse)

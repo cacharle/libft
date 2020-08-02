@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 09:17:51 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/17 03:03:21 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/02/28 12:12:12 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ static t_ftlst	*st_lstbsearch_rec(t_ftlst *lst, t_ftlst *last,
 		return (NULL);
 	if (mid->next == NULL)
 	{
-		if (cmp(ref, mid->content) == 0)
+		if (cmp(ref, mid->data) == 0)
 			return (mid);
 		return (NULL);
 	}
-	res = cmp(ref, mid->next->content);
+	res = cmp(ref, mid->next->data);
 	if (res < 0)
 		return (st_lstbsearch_rec(lst, mid, cmp, ref));
 	else if (res > 0)

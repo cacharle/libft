@@ -16,22 +16,22 @@ TEST(ft_lstsize, basic)
 	TEST_ASSERT_EQUAL(0, ft_lstsize(lst));
 	lst = ft_lstnew(&a);
 	TEST_ASSERT_EQUAL(1, ft_lstsize(lst));
-	ft_lstadd_front(&lst, ft_lstnew(&a));
+	ft_lstpush_front(&lst, ft_lstnew(&a));
 	TEST_ASSERT_EQUAL(2, ft_lstsize(lst));
-	ft_lstadd_front(&lst, ft_lstnew(&a));
+	ft_lstpush_front(&lst, ft_lstnew(&a));
 	TEST_ASSERT_EQUAL(3, ft_lstsize(lst));
-	ft_lstadd_front(&lst, ft_lstnew(&a));
+	ft_lstpush_front(&lst, ft_lstnew(&a));
 	TEST_ASSERT_EQUAL(4, ft_lstsize(lst));
-	ft_lstadd_front(&lst, ft_lstnew(&a));
+	ft_lstpush_front(&lst, ft_lstnew(&a));
 	TEST_ASSERT_EQUAL(5, ft_lstsize(lst));
-	ft_lstadd_front(&lst, ft_lstnew(&a));
+	ft_lstpush_front(&lst, ft_lstnew(&a));
 	TEST_ASSERT_EQUAL(6, ft_lstsize(lst));
-	ft_lstadd_front(&lst, ft_lstnew(&a));
+	ft_lstpush_front(&lst, ft_lstnew(&a));
 	TEST_ASSERT_EQUAL(7, ft_lstsize(lst));
-	ft_lstadd_front(&lst, ft_lstnew(&a));
+	ft_lstpush_front(&lst, ft_lstnew(&a));
 	TEST_ASSERT_EQUAL(8, ft_lstsize(lst));
-	ft_lstadd_front(&lst, ft_lstnew(&a));
+	ft_lstpush_front(&lst, ft_lstnew(&a));
 	TEST_ASSERT_EQUAL(9, ft_lstsize(lst));
 
-	ft_lstclear(&lst, NULL);
+	ft_lstdestroy(&lst, NULL);
 }
