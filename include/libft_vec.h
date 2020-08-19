@@ -6,7 +6,7 @@
 /*   By: charles <charles.cabergs@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/01 18:57:16 by charles           #+#    #+#             */
-/*   Updated: 2020/07/15 18:28:30 by charles          ###   ########.fr       */
+/*   Updated: 2020/08/19 17:49:03 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct	s_ftvec
 }				t_ftvec;
 
 t_ftvec			*ft_vecnew(size_t capacity);
-void			ft_vecdestroy(t_ftvec *vec, void (*del)(void *elem));
+void			*ft_vecdestroy(t_ftvec *vec, void (*del)(void *elem));
 t_ftvec			*ft_vecgrow(t_ftvec *vec);
 t_ftvec			*ft_vecreserve(t_ftvec *vec, size_t	capacity);
 t_ftvec			*ft_vecpush(t_ftvec *vec, void *pushed);

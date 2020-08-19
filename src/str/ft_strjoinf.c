@@ -6,12 +6,10 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 03:41:07 by cacharle          #+#    #+#             */
-/*   Updated: 2020/06/12 11:45:59 by charles          ###   ########.fr       */
+/*   Updated: 2020/08/19 13:31:00 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft.h"
 #include "libft_str.h"
 
 char	*ft_strjoinf(char const *s1, char const *s2, t_ftstrjoinf_tag tag)
@@ -20,8 +18,7 @@ char	*ft_strjoinf(char const *s1, char const *s2, t_ftstrjoinf_tag tag)
 
 	if (s1 == NULL || s2 == NULL)
 		return (NULL);
-	if ((joined = ft_strjoin(s1, s2)) == NULL)
-		return (NULL);
+	joined = ft_strjoin(s1, s2);
 	if (tag == FT_STRJOINF_FST)
 		free((void*)s1);
 	else if (tag == FT_STRJOINF_SND)
