@@ -6,7 +6,7 @@
 /*   By: charles <charles.cabergs@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/15 17:22:08 by charles           #+#    #+#             */
-/*   Updated: 2020/07/15 18:30:58 by charles          ###   ########.fr       */
+/*   Updated: 2020/08/20 23:21:19 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 ** \return          The Vector or NULL on error
 */
 
-t_ftvec	*ft_vecreserve(t_ftvec *vec, size_t	capacity)
+t_ftvec	*ft_vecreserve(t_ftvec *vec, size_t capacity)
 {
 	while (vec->capacity < capacity)
 	{

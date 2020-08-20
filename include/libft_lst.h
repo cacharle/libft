@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 10:36:39 by cacharle          #+#    #+#             */
-/*   Updated: 2020/08/20 13:10:57 by charles          ###   ########.fr       */
+/*   Updated: 2020/08/20 14:40:01 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,13 @@ typedef void		(*t_ftdel_func)(void *);
 t_ftlst				*ft_lstnew(void const *data);
 int					ft_lstsize(t_ftlst *lst);
 void				ft_lstpush_front(t_ftlst **alst, t_ftlst *new);
+t_ftlst				*ft_lstpush_front_node(t_ftlst **alst, void *data);
 void				ft_lstpush_back(t_ftlst **alst, t_ftlst *new);
 void				ft_lstpop_front(t_ftlst **lst, void (*del)(void *));
 void				ft_lstpop_back(t_ftlst **lst, void (*del)(void *));
 t_ftlst				*ft_lstlast(t_ftlst *lst);
 void				ft_lstdelone(t_ftlst *lst, void (*del)(void *));
-void				ft_lstdestroy(t_ftlst **lst, void (*del)(void *));
+void				*ft_lstdestroy(t_ftlst **lst, void (*del)(void *));
 void				ft_lstiter(t_ftlst *lst, void (*f)(void *));
 t_ftlst				*ft_lstmap(t_ftlst *lst, void *(*f)(void *),
 								t_ftdel_func del);
