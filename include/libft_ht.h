@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 10:36:09 by cacharle          #+#    #+#             */
-/*   Updated: 2020/04/04 22:34:53 by charles          ###   ########.fr       */
+/*   Updated: 2020/09/09 15:47:22 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ t_ftht			*ft_htnew(size_t size);
 void			ft_htdestroy(t_ftht *ht, t_ftdel_func del);
 void			*ft_htget(t_ftht *ht, char *key);
 t_ftht_entry	*ft_htset(t_ftht *ht, char *key, void *value,
+								t_ftdel_func del);
+t_ftht_entry	*ft_htset_safe(t_ftht *ht, char *key, void *value,
 								t_ftdel_func del);
 void			ft_htdelone(t_ftht *ht, char *key, t_ftdel_func del);
 t_ftht_entry	*ft_htentry_new(char *key, void *value);
