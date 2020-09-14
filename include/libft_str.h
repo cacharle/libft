@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 10:39:22 by cacharle          #+#    #+#             */
-/*   Updated: 2020/06/12 11:46:12 by charles          ###   ########.fr       */
+/*   Updated: 2020/09/14 15:57:44 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ char	**ft_split(char const *s, char c);
 char	**ft_splitf(char *s, char c);
 int		ft_strcount(char *str, char c);
 char	*ft_itoa(int n);
+char	*ft_itoa_cpy(char *dst, int n);
 int		ft_atoi_strict(const char *s);
 long	ft_strtol(const char *s, char **endptr, int base);
 int		ft_strcasecmp(const char *s1, const char *s2);
