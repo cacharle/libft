@@ -6,71 +6,44 @@
 #    By: cacharle <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/08 15:45:53 by cacharle          #+#    #+#              #
-#    Updated: 2020/02/13 04:31:23 by cacharle         ###   ########.fr        #
+#    Updated: 2020/09/18 16:37:01 by charles          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 LIB = ar rcs
 RM = rm -f
-NORM = norminette
-MAKE = make
-MAKE_ARGS = --no-print-directory
 
-SRC_DIR = src
-INCLUDE_DIR = include
-OBJ_DIR = obj
-SCRIPT_DIR = script
-TEST_DIR = test
+SRCDIR = src
+INCDIR = include
+OBJDIR = obj
 
-INCLUDE_DIR = include
+INCDIR = include
 
 CC = gcc
-CCFLAGS = -I$(INCLUDE_DIR) -Wall -Wextra -Werror
-
-IGNORE_FILE = .libftignore
-IGNORE_DEFAULT = ft_printf
+CCFLAGS = -I$(INCDIR) -Wall -Wextra -Werror
 
 NAME = libft.a
 
-SRC = $(shell sh $(SCRIPT_DIR)/find_src.sh $(IGNORE_FILE))
-OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
-
-INCLUDE = $(shell find $(INCLUDE_DIR) -name "*.h")
-
-# export LIBFT_SRC = $(SRC)
+INC = $(INCDIR)/libft.h
+SRC = $(shell find $(SRCDIR) -type f -name '*.c')
+OBJ = $(SRC:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
 
 all: prebuild $(NAME)
 
-.PHONY: test
-test: all
-	@echo "Testing"
-	@$(MAKE) $(MAKE_ARGS) -C $(TEST_DIR) run
-
-norm:
-	@if [ `command -v $(NORM)` ];        \
-	then echo "Running norminette";      \
-			  $(NORM) $(SRC) $(INCLUDE); \
-	else echo "$(NORM) not installed"; fi
-
 prebuild:
-	@for dir in $$(find $(SRC_DIR)/* $(FIND_ARGS) -type d |    \
-				   sed 's_$(SRC_DIR)/_$(OBJ_DIR)/_g');         \
-	do                                                         \
-		if [ ! -d "$$dir" ]; then                              \
-			mkdir -p $$dir; echo "Making build dir: $$dir"; fi \
-	done
+	@mkdir -vp $(OBJDIR)
 
 $(NAME): $(OBJ) $(INCLUDE)
 	@echo "Linking: $@"
 	@$(LIB) $@ $(OBJ)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+$(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@echo "Compiling: $@"
 	@$(CC) $(CCFLAGS) -c -o $@ $<
 
 clean:
 	@echo "Removing objects"
-	@$(RM) -r $(OBJ_DIR)
+	@$(RM) -r $(OBJDIR)
 
 fclean: clean
 	@echo "Removing library"

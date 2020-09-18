@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcasecmp.c                                    :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/10 04:08:38 by cacharle          #+#    #+#             */
-/*   Updated: 2020/02/10 04:31:33 by cacharle         ###   ########.fr       */
+/*   Created: 2019/10/07 10:00:07 by cacharle          #+#    #+#             */
+/*   Updated: 2020/09/18 16:38:48 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_str.h"
-#include "libft_types.h"
+#include "libft.h"
 
-int	ft_strcasecmp(const char *s1, const char *s2)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	while (*s1 && *s2 && ft_tolower(*s1) == ft_tolower(*s2))
+	long int		*long_dest;
+	const long int	*long_src;
+
+	if (dest == src)
+		return (dest);
+	while (n % 8 > 0)
 	{
-		s1++;
-		s2++;
+		n--;
+		((uint8_t*)dest)[n] = ((uint8_t*)src)[n];
 	}
-	return ((t_ftuchar)ft_tolower(*s1) - (t_ftuchar)ft_tolower(*s2));
+	long_dest = dest;
+	long_src = src;
+	n /= 8;
+	while (n-- > 0)
+		long_dest[n] = long_src[n];
+	return (dest);
 }
