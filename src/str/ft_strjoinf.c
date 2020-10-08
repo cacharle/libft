@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 03:41:07 by cacharle          #+#    #+#             */
-/*   Updated: 2020/08/19 13:31:00 by charles          ###   ########.fr       */
+/*   Updated: 2020/10/08 09:40:22 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,9 @@ char	*ft_strjoinf(char const *s1, char const *s2, t_ftstrjoinf_tag tag)
 char	*ft_strjoinf_fst(char const *s1, char const *s2)
 {
 	return (ft_strjoinf(s1, s2, FT_STRJOINF_FST));
+}
+
+char	*ft_strjoinf_snd(char const *s1, char const *s2)
+{
+	return (ft_strjoinf(s1, s2, FT_STRJOINF_SND));
 }
