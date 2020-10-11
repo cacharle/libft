@@ -1,4 +1,0 @@
-language: c
-compiler: gcc
-
-script: make all && make -C ./test run_v

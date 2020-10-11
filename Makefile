@@ -6,7 +6,7 @@
 #    By: cacharle <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/08 15:45:53 by cacharle          #+#    #+#              #
-#    Updated: 2020/06/09 15:43:26 by charles          ###   ########.fr        #
+#    Updated: 2020/10/11 14:51:18 by cacharle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ IGNORE_DEFAULT = ft_printf
 
 NAME = libft.a
 
-SRC = $(shell sh $(SCRIPT_DIR)/find_src.sh $(IGNORE_FILE))
+SRC = $(shell find $(SRC_DIR) -type f -name '*.c')
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 INCLUDE = $(shell find $(INCLUDE_DIR) -name "*.h")
