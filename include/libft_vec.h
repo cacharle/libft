@@ -6,7 +6,7 @@
 /*   By: charles <charles.cabergs@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/01 18:57:16 by charles           #+#    #+#             */
-/*   Updated: 2020/08/19 17:49:03 by charles          ###   ########.fr       */
+/*   Updated: 2020/10/11 14:04:43 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ t_ftvec			*ft_vecinsert_safe(t_ftvec *vec, size_t i, void *elem);
 void			ft_vecsort(t_ftvec *vec, t_ftcompar_func cmp);
 void			**ft_vecunwrap(t_ftvec *vec);
 t_ftvec			*ft_vecfrom_lst(t_ftlst *lst);
-t_ftvec			*ft_vecswallow_at(t_ftvec *vec, size_t index, t_ftvec *swallowed);
+t_ftvec			*ft_vecswallow_at(
+					t_ftvec *vec, size_t index, t_ftvec *swallowed);
 
 #endif

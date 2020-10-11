@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 10:26:45 by cacharle          #+#    #+#             */
-/*   Updated: 2020/07/17 16:29:33 by charles          ###   ########.fr       */
+/*   Updated: 2020/10/11 14:03:49 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,17 +70,9 @@ long		ft_strtol(const char *str, char **endptr, int base)
 	while (*str != '\0' && ft_strchr(base_str, *str) != NULL)
 	{
 		nb *= base;
-		if (is_negative ? (nb > -(unsigned long long)LONG_MIN) : (nb > LONG_MAX))
-		{
-			errno = ERANGE;
-			return (is_negative ? LONG_MIN : LONG_MAX);
-		}
+		if (is_negative ? (nb > -(unsigned long)LONG_MIN) : (nb > LONG_MAX))
+			return (st_errno_return(ERANGE, is_negative ? LONG_MIN : LONG_MAX));
 		nb += ft_strchr(base_str, ft_tolower(*str++)) - base_str;
-		if (is_negative ? (nb > -(unsigned long long)LONG_MIN) : (nb > LONG_MAX))
-		{
-			errno = ERANGE;
-			return (is_negative ? LONG_MIN : LONG_MAX);
-		}
 	}
 	if (endptr != NULL)
 		*endptr = (char*)str;

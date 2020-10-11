@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 09:56:01 by cacharle          #+#    #+#             */
-/*   Updated: 2020/01/30 10:34:27 by cacharle         ###   ########.fr       */
+/*   Updated: 2020/10/11 14:00:00 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 ** \return     Hash
 */
 
-// maybe use a less efficient but understandable function
 size_t	ft_hthash(t_ftht *ht, char *key)
 {
 	size_t	digest;
