@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 21:25:52 by cacharle          #+#    #+#             */
-/*   Updated: 2020/04/04 15:22:43 by charles          ###   ########.fr       */
+/*   Updated: 2021/01/31 02:32:42 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,6 @@ TEST_GROUP_RUNNER(ft_bsearch)
 TEST_GROUP_RUNNER(ft_compar_int)
 {
 	RUN_TEST_CASE(ft_compar_int, basic);
-}
-
-TEST_GROUP_RUNNER(ft_heapsort)
-{
-	RUN_TEST_CASE(ft_heapsort, basic);
 }
 
 TEST_GROUP_RUNNER(ft_is_set)

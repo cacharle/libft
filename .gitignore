@@ -9,3 +9,4 @@ obj/*
 rendu.makefile
 doc/*
 tmp/*
+tags

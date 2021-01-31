@@ -1,5 +1,7 @@
 #include "libft_test.h"
 
+int helper_segfault_pid;
+
 static void run_all_test(void)
 {
 	// ctype
@@ -47,7 +49,6 @@ static void run_all_test(void)
 	// algo
 	RUN_TEST_GROUP(ft_bsearch);
 	RUN_TEST_GROUP(ft_compar_int);
-	RUN_TEST_GROUP(ft_heapsort);
 	RUN_TEST_GROUP(ft_is_set);
 	RUN_TEST_GROUP(ft_lfind);
 	RUN_TEST_GROUP(ft_lsearch);

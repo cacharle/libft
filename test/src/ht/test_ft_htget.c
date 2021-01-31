@@ -14,8 +14,6 @@ TEST_TEAR_DOWN(ft_htget)
 	/* ft_htdestroy_key(ht); */
 }
 
-int helper_segfault_pid;
-
 TEST(ft_htget, segfault)
 {
 	TEST_ASSERT_SEGFAULT(ft_htget((t_ftht*)NULL, ""));
