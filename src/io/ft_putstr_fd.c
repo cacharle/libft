@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 10:40:15 by cacharle          #+#    #+#             */
-/*   Updated: 2019/11/20 03:47:59 by cacharle         ###   ########.fr       */
+/*   Updated: 2021/02/03 19:21:49 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,8 @@ void	ft_putstr_fd(char *s, int fd)
 {
 	if (s == NULL || fd < 0 || fd > OPEN_MAX)
 		return ;
-	write(fd, s, ft_strlen(s));
+	if (write(fd, s, ft_strlen(s)))
+	{
+		;
+	}
 }
