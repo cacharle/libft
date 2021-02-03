@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 09:53:31 by cacharle          #+#    #+#             */
-/*   Updated: 2019/11/20 03:49:14 by cacharle         ###   ########.fr       */
+/*   Updated: 2021/02/03 19:21:40 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,8 @@
 
 void	ft_putchar(char c)
 {
-	write(STDOUT_FILENO, &c, 1);
+	if (write(STDOUT_FILENO, &c, 1))
+	{
+		;
+	}
 }

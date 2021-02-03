@@ -6,7 +6,7 @@
 /*   By: cacharle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 10:42:34 by cacharle          #+#    #+#             */
-/*   Updated: 2019/11/20 03:49:28 by cacharle         ###   ########.fr       */
+/*   Updated: 2021/02/03 19:22:04 by charles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,8 @@ void	ft_putchar_fd(char c, int fd)
 {
 	if (fd < 0 || fd > OPEN_MAX)
 		return ;
-	write(fd, &c, 1);
+	if (write(fd, &c, 1))
+	{
+		;
+	}
 }
